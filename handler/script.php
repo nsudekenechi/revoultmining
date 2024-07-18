@@ -19,12 +19,12 @@ if (isset($_POST["register"])) {
         $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Welcome to Revoultmining", $email);
 
         if ($send) {
-            header("location: ../login.php?register=s");
+            header("location: ../auth/login.php?register=s");
         } else {
-            header("location: ../register.php?register=f");
+            header("location: ../auth/register.php?register=f");
         }
     } else {
-        header("Location: ./register.php?auth=f");
+        header("Location: ./auth/register.php?auth=f");
     }
 }
 
@@ -64,12 +64,12 @@ if (isset($_POST["login"])) {
             ";
             sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Your One-Time Password (OTP) for Secure Login", $email);
 
-            header("Location: ../otp.php");
+            header("Location: ../auth/otp.php");
         } else {
-            header("Location: ../login.php?login=f");
+            header("Location: ../auth/login.php?login=f");
         }
     } else {
-        header("Location: ../login.php?login=f");
+        header("Location: ../auth/login.php?login=f");
     }
 }
 
@@ -81,9 +81,9 @@ if (isset($_POST["verifyOTP"])) {
     if (mysqli_num_rows($res) > 0) {
         $query = "DELETE FROM send_otp WHERE otp = '$otp'";
         $res = mysqli_query($conn, $query);
-        header("Location: ../index.php");
+        header("Location: ../dashboard/index.php");
     } else {
-        header("Location: ../otp.php?verifyOTP=f");
+        header("Location: ../auth/otp.php?verifyOTP=f");
     }
 }
 
@@ -112,9 +112,9 @@ if (isset($_POST["sendLink"])) {
       ";
     $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Password Reset", $email);
     if ($send) {
-        header("Location: ../forgotpassword.php?send=s");
+        header("Location: ../auth/forgotpassword.php?send=s");
     } else {
-        header("Location: ../forgotpassword.php?send=f");
+        header("Location: ../auth/forgotpassword.php?send=f");
     }
 }
 
@@ -134,6 +134,6 @@ if (isset($_POST["updatePassword"])) {
     $query = "DELETE FROM reset_password WHERE email = '$email'";
     $res = mysqli_query($conn, $query);
     if ($res) {
-        header("Location: ../login.php?update=s");
+        header("Location: ../auth/login.php?update=s");
     }
 }
