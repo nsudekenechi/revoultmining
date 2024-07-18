@@ -1,4 +1,5 @@
 <?php
+$title = "Login";
 require_once "./header.php";
 ?>
 <div class="nk-split-content  nk-block-area-column nk-auth-container bg-white">
@@ -8,7 +9,7 @@ require_once "./header.php";
     </div>
     <div class="nk-block nk-block-middle nk-auth-body">
         <div class="brand-logo pb-5">
-            <a href="html/index.html" class="logo-link">
+            <a href="html/index.php" class="logo-link">
                 <img class="logo-light logo-img logo-img-lg" src="./images/logo.png" srcset="./images/logo2x.png 2x"
                     alt="logo">
                 <img class="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png"
@@ -36,7 +37,8 @@ require_once "./header.php";
             <div class="form-group">
                 <div class="form-label-group">
                     <label class="form-label" for="password">Passcode</label>
-                    <a class="link link-primary link-sm" tabindex="-1" href="./forgotpassword.php">Forgot Password?</a>
+                    <a class="link link-primary link-sm" tabindex="-1" href="./auth/forgotpassword.php">Forgot
+                        Password?</a>
                 </div>
                 <div class="form-control-wrap">
                     <a tabindex="-1" href="#" class="form-icon form-icon-right passcode-switch lg"
@@ -52,7 +54,7 @@ require_once "./header.php";
                 <button class="btn btn-lg btn-primary btn-block" name="login">Sign in</button>
             </div>
         </form><!-- form -->
-        <div class="form-note-s2 pt-4"> New on our platform? <a href="./register.php">Create an
+        <div class="form-note-s2 pt-4"> New on our platform? <a href="./auth/register.php">Create an
                 account</a>
         </div>
 

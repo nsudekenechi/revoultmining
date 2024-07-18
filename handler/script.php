@@ -1,6 +1,7 @@
 <?php
 require_once "../dbase/config.php";
 require_once "./email.php";
+$url = "http://localhost/revoultmining";
 session_start();
 
 // register-user
@@ -39,7 +40,7 @@ if (isset($_POST["login"])) {
         $name = $row["name"];
         if (password_verify($password, $hashPassword)) {
             // storing in email in session incase we want to resend OTP 
-            $_SESSION["user_email"] = $email;
+            $_SESSION["otp_email"] = $email;
             // creating OTP in DB
             $OTP = rand(100000, 999999);
             // removing already existing otp,  so that otp can't be used twice
@@ -79,9 +80,17 @@ if (isset($_POST["verifyOTP"])) {
     $query = "SELECT * FROM send_otp WHERE otp = '$otp'";
     $res = mysqli_query($conn, $query);
     if (mysqli_num_rows($res) > 0) {
+        // destroying otp sessions
+        session_destroy();
+        // creating login session
+        session_start();
+        $email = $res->fetch_assoc()["email"];
+        $query = "SELECT id FROM users WHERE email = '$email'";
+        $res = mysqli_query($conn, $query);
+        $_SESSION["user"] = $res->fetch_column();
         $query = "DELETE FROM send_otp WHERE otp = '$otp'";
         $res = mysqli_query($conn, $query);
-        header("Location: ../dashboard/index.php");
+        header("Location: ../dashboard/index.php?auth=s");
     } else {
         header("Location: ../auth/otp.php?verifyOTP=f");
     }
@@ -107,7 +116,7 @@ if (isset($_POST["sendLink"])) {
     $name = $res->fetch_column();
     $greeting = "Hi $name,";
     $body = "<p style='margin-bottom: 5px;'>We received a request to reset your password for your account associated with this email address. If you made this request, please click the link below to reset your password:</p>
-        <a href='http://localhost/revoultmining/dashboard/resetpassword.php?token=$token' style='background-color:#6576ff;border-radius:4px;color:#ffffff;display:inline-block;font-size:13px;font-weight:600;line-height:44px;text-align:center;text-decoration:none;text-transform: uppercase; padding: 0 30px;margin-top: 20px; '>Reset Password</a>
+        <a href='$url/auth/resetpassword.php?token=$token' style='background-color:#6576ff;border-radius:4px;color:#ffffff;display:inline-block;font-size:13px;font-weight:600;line-height:44px;text-align:center;text-decoration:none;text-transform: uppercase; padding: 0 30px;margin-top: 20px; '>Reset Password</a>
      
       ";
     $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Password Reset", $email);

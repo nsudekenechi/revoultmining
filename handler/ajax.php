@@ -2,24 +2,25 @@
 session_start();
 require_once "../dbase/config.php";
 require_once "./email.php";
-$user_email = $_SESSION["user_email"];
+
 
 // resending OTP
 if (isset($_GET["resend_otp"])) {
+    $otp_email = $_SESSION["otp_email"];
     // removing already existing otp,  so that otp can't be used twice
-    $query = "SELECT * FROM send_otp WHERE email = '$user_email'";
+    $query = "SELECT * FROM send_otp WHERE email = '$otp_email'";
     $res = mysqli_query($conn, $query);
     if ($res->num_rows > 0) {
-        $query = "DELETE FROM send_otp WHERE email = '$user_email'";
+        $query = "DELETE FROM send_otp WHERE email = '$otp_email'";
         $res = mysqli_query($conn, $query);
     }
     // creating OTP in DB
     $OTP = rand(100000, 999999);
-    $query = "INSERT INTO send_otp (email, otp) VALUES ('$user_email', $OTP)";
+    $query = "INSERT INTO send_otp (email, otp) VALUES ('$otp_email', $OTP)";
     $res = mysqli_query($conn, $query);
 
     // getting user's name
-    $query = "SELECT name FROM users WHERE email = '$user_email'";
+    $query = "SELECT name FROM users WHERE email = '$otp_email'";
     $res = mysqli_query($conn, $query);
     $name = $res->fetch_column();
     // sending user OTP
@@ -33,7 +34,7 @@ if (isset($_GET["resend_otp"])) {
     </ol>
     <p>If you did not request this OTP, please contact our support team immediately.</p>
     ";
-    $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Your One-Time Password (OTP) for Secure Login", $user_email);
+    $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Your One-Time Password (OTP) for Secure Login", $otp_email);
     if ($send) {
         echo true;
     } else {

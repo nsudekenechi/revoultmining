@@ -1,4 +1,5 @@
 <?php
+$title = "Register";
 require_once "./header.php";
 ?>
 <div class="nk-split-content  nk-block-area-column nk-auth-container bg-white w-lg-45">
@@ -8,7 +9,7 @@ require_once "./header.php";
     </div>
     <div class="nk-block nk-block-middle nk-auth-body">
         <div class="brand-logo pb-5">
-            <a href="html/index.html" class="logo-link">
+            <a href="html/index.php" class="logo-link">
                 <img class="logo-light logo-img logo-img-lg" src="./images/logo.png" srcset="./images/logo2x.png 2x"
                     alt="logo">
                 <img class="logo-dark logo-img logo-img-lg" src="./images/logo-dark.png"
@@ -19,7 +20,7 @@ require_once "./header.php";
             <div class="nk-block-head-content">
                 <h5 class="nk-block-title">Register</h5>
                 <div class="nk-block-des">
-                    <p>Create New dashlite Account</p>
+                    <p>Create New Revoultmining Account</p>
                 </div>
             </div>
         </div><!-- .nk-block-head -->
@@ -60,6 +61,8 @@ require_once "./header.php";
             </div>
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block" name="register">Register</button>
+            </div>
+            <div class="form-note-s2 pt-4"> Already a member? <a href="./auth/login.php">Login</a>
             </div>
         </form><!-- form -->
 

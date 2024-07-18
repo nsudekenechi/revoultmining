@@ -11,7 +11,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Sign Up | Revoultmining</title>
+    <title> <?= $title; ?> | Revoultmining</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
