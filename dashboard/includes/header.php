@@ -1,8 +1,14 @@
 <?php
 session_start();
+require "../dbase/config.php";
 if (!isset($_SESSION["user"])) {
     header("Location: ../auth/login.php");
 }
+$user_id = $_SESSION["user"];
+$query = "SELECT * FROM users WHERE id = '$user_id'";
+$res = mysqli_query($conn, $query);
+$userRow = $res->fetch_assoc();
+$name = $userRow["name"];
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
@@ -43,51 +49,12 @@ if (!isset($_SESSION["user"])) {
                         <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
                                 class="icon ni ni-arrow-left"></em></a>
                     </div>
-                </div><!-- .nk-sidebar-element -->
+                </div>
+                <!-- .nk-sidebar-element -->
                 <div class="nk-sidebar-element">
                     <div class="nk-sidebar-body" data-simplebar>
                         <div class="nk-sidebar-content">
-                            <div class="nk-sidebar-widget d-none d-xl-block">
-                                <div class="user-account-info between-center">
-                                    <div class="user-account-main">
-                                        <h6 class="overline-title-alt">Available Balance</h6>
-                                        <div class="user-balance">2.014095 <small
-                                                class="currency currency-btc">BTC</small></div>
-                                        <div class="user-balance-alt">18,934.84 <span
-                                                class="currency currency-btc">BTC</span></div>
-                                    </div>
-                                    <a href="#" class="btn btn-white btn-icon btn-light"><em
-                                            class="icon ni ni-line-chart"></em></a>
-                                </div>
-                                <ul class="user-account-data gy-1">
-                                    <li>
-                                        <div class="user-account-label">
-                                            <span class="sub-text">Profits (7d)</span>
-                                        </div>
-                                        <div class="user-account-value">
-                                            <span class="lead-text">+ 0.0526 <span
-                                                    class="currency currency-btc">BTC</span></span>
-                                            <span class="text-success ms-2">3.1% <em
-                                                    class="icon ni ni-arrow-long-up"></em></span>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="user-account-label">
-                                            <span class="sub-text">Deposit in orders</span>
-                                        </div>
-                                        <div class="user-account-value">
-                                            <span class="sub-text">0.005400 <span
-                                                    class="currency currency-btc">BTC</span></span>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="user-account-actions">
-                                    <ul class="g-3">
-                                        <li><a href="#" class="btn btn-lg btn-primary"><span>Deposit</span></a></li>
-                                        <li><a href="#" class="btn btn-lg btn-warning"><span>Withdraw</span></a></li>
-                                    </ul>
-                                </div>
-                            </div><!-- .nk-sidebar-widget -->
+
                             <div class="nk-sidebar-widget nk-sidebar-widget-full d-xl-none pt-0">
                                 <a class="nk-profile-toggle toggle-expand" data-target="sidebarProfile" href="#">
                                     <div class="user-card-wrap">
@@ -96,7 +63,7 @@ if (!isset($_SESSION["user"])) {
                                                 <span>AB</span>
                                             </div>
                                             <div class="user-info">
-                                                <span class="lead-text">Abu Bin Ishtiyak</span>
+                                                <span class="lead-text"><?= $name; ?></span>
                                                 <span class="sub-text">info@softnio.com</span>
                                             </div>
                                             <div class="user-action">
@@ -160,19 +127,34 @@ if (!isset($_SESSION["user"])) {
                                         </li>
                                     </ul>
                                 </div>
-                            </div><!-- .nk-sidebar-widget -->
+                            </div>
+                            <!-- .nk-sidebar-widget -->
+
                             <div class="nk-sidebar-menu">
                                 <!-- Menu -->
                                 <ul class="nk-menu">
-                                    <li class="nk-menu-heading">
-                                        <h6 class="overline-title">Menu</h6>
-                                    </li>
+
                                     <li class="nk-menu-item">
-                                        <a href="html/crypto/index.php" class="nk-menu-link">
+                                        <a href="./dashboard/index.php" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-dashboard"></em></span>
                                             <span class="nk-menu-text">Dashboard</span>
                                         </a>
                                     </li>
+
+                                    <li class="nk-menu-item">
+                                        <a href="./dashboard/deposit.php" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
+                                            <span class="nk-menu-text">Deposit</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nk-menu-item">
+                                        <a href="./dashboard/deposit.php" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-money"></em></span>
+                                            <span class="nk-menu-text">Withdrawal</span>
+                                        </a>
+                                    </li>
+
                                     <li class="nk-menu-item">
                                         <a href="html/crypto/accounts.html" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
@@ -185,12 +167,7 @@ if (!isset($_SESSION["user"])) {
                                             <span class="nk-menu-text">Wallets</span>
                                         </a>
                                     </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/crypto/buy-sell.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
-                                            <span class="nk-menu-text">Buy / Sell</span>
-                                        </a>
-                                    </li>
+
                                     <li class="nk-menu-item">
                                         <a href="html/crypto/order-history.html" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-repeat"></em></span>
@@ -336,7 +313,8 @@ if (!isset($_SESSION["user"])) {
                             </div><!-- .nk-sidebar-footer -->
                         </div><!-- .nk-sidebar-content -->
                     </div><!-- .nk-sidebar-body -->
-                </div><!-- .nk-sidebar-element -->
+                </div>
+                <!-- .nk-sidebar-element -->
             </div>
             <!-- sidebar @e -->
             <!-- wrap @s -->

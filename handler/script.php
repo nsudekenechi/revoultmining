@@ -39,22 +39,23 @@ if (isset($_POST["login"])) {
         $hashPassword = $row["password"];
         $name = $row["name"];
         if (password_verify($password, $hashPassword)) {
-            // storing in email in session incase we want to resend OTP 
-            $_SESSION["otp_email"] = $email;
-            // creating OTP in DB
-            $OTP = rand(100000, 999999);
-            // removing already existing otp,  so that otp can't be used twice
-            $query = "SELECT * FROM send_otp WHERE email = '$email'";
-            $res = mysqli_query($conn, $query);
-            if ($res->num_rows > 0) {
-                $query = "DELETE FROM send_otp WHERE email = '$email'";
+            if ($row["name"] != "admin") {
+                // storing in email in session incase we want to resend OTP 
+                $_SESSION["otp_email"] = $email;
+                // creating OTP in DB
+                $OTP = rand(100000, 999999);
+                // removing already existing otp,  so that otp can't be used twice
+                $query = "SELECT * FROM send_otp WHERE email = '$email'";
                 $res = mysqli_query($conn, $query);
-            }
-            $query = "INSERT INTO send_otp (email, otp) VALUES ('$email', $OTP)";
-            $res = mysqli_query($conn, $query);
-            // sending user OTP
-            $greeting = "Hi $name,";
-            $body = "<p style='margin-bottom: 5px;'>To ensure the security of your account, please use the following One-Time Password (OTP) to complete your login:</p>
+                if ($res->num_rows > 0) {
+                    $query = "DELETE FROM send_otp WHERE email = '$email'";
+                    $res = mysqli_query($conn, $query);
+                }
+                $query = "INSERT INTO send_otp (email, otp) VALUES ('$email', $OTP)";
+                $res = mysqli_query($conn, $query);
+                // sending user OTP
+                $greeting = "Hi $name,";
+                $body = "<p style='margin-bottom: 5px;'>To ensure the security of your account, please use the following One-Time Password (OTP) to complete your login:</p>
             <p style='margin-bottom: 5px;'>Your OTP: $OTP.  Please do not share this code with anyone.</p>
             <ol>
                 <li>Visit our Login Page.</li>
@@ -63,9 +64,17 @@ if (isset($_POST["login"])) {
             </ol>
             <p>If you did not request this OTP, please contact our support team immediately.</p>
             ";
-            sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Your One-Time Password (OTP) for Secure Login", $email);
+                sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Your One-Time Password (OTP) for Secure Login", $email);
 
-            header("Location: ../auth/otp.php");
+                header("Location: ../auth/otp.php");
+            } else {
+                // authentication for admin
+                $query = "SELECT id FROM users WHERE name = 'admin'";
+                $res = mysqli_query($conn, $query);
+                $_SESSION["user"] = $res->fetch_column();
+                header("Location: ../admin/index.php");
+            }
+
         } else {
             header("Location: ../auth/login.php?login=f");
         }
