@@ -177,6 +177,16 @@
 <script src="./assets/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets/js/scripts.js?ver=3.1.3"></script>
 <script src="./assets/js/charts/chart-crypto.js?ver=3.1.3"></script>
+<script>
+    let amounts = document.querySelectorAll(".amount");
+    amounts.forEach(amount => {
+        if (!Number.isNaN(amount.innerHTML)) {
+
+            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "EUR", style: "currency" }).format(amount.innerHTML)
+        }
+    })
+    // console.log(amounts)
+</script>
 </body>
 
 </html>

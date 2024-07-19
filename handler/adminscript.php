@@ -39,3 +39,15 @@ if (isset($_GET["deletewallet"])) {
         }
     }
 }
+
+// updating plan
+if (isset($_POST["update_plan"])) {
+    extract($_POST);
+    $query = "UPDATE plans SET name='$plan_name', min_deposit='$min_deposit', max_deposit='$max_deposit', days='$plan_days', daily_interest = '$plan_interest' WHERE id = '$id'";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        header("Location: ../admin/plans.php?update=s");
+    } else {
+        header("Location: ../admin/plans.php?plan_id=$id");
+    }
+}

@@ -21,7 +21,6 @@ require_once "./header.php";
                 <h5 class="nk-block-title">Sign-In</h5>
                 <div class="nk-block-des">
                     <p>Log in with your details</p>
-                    <?= password_hash("admin", PASSWORD_DEFAULT); ?>
                 </div>
             </div>
         </div><!-- .nk-block-head -->
