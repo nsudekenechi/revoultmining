@@ -57,7 +57,7 @@ require_once "./includes/header.php";
                                                 <div class="nk-tb-item">
                                                     <div class="nk-tb-col">
                                                         <div class="nk-tnx-type">
-                                                            <div class="nk-tnx-type-icon bg-success-dim text-success">
+                                                            <div class="nk-tnx-type-icon ">
                                                                 <img src="./uploads/<?= $row['img']; ?>" alt=""
                                                                     style="width:100%; height:100%; object-fit:cover;">
                                                             </div>

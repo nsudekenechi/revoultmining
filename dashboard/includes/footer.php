@@ -177,6 +177,32 @@
 <script src="./assets/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets/js/scripts.js?ver=3.1.3"></script>
 <script src="./assets/js/charts/chart-crypto.js?ver=3.1.3"></script>
+
+<script>
+    let amounts = document.querySelectorAll(".amount");
+    let form = document.querySelector("form");
+    amounts.forEach(amount => {
+        if (!isNaN(amount.innerHTML)) {
+            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "EUR", style: "currency" }).format(amount.innerHTML)
+        }
+    });
+    let isProcessing = false;
+    form.onsubmit = () => {
+        if (!isProcessing) {
+            isProcessing = true;
+            let button = form.querySelector("button");
+            button.innerHTML = ` <div class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>`;
+
+        } else {
+            return false;
+        }
+    }
+</script>
+<?php
+// require_once "./alert.php";
+?>
 </body>
 
 </html>

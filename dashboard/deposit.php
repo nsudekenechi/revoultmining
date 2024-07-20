@@ -5,123 +5,214 @@ require_once "./includes/header.php";
 <div class="nk-content nk-content-fluid">
     <div class="container-xl wide-lg">
         <div class="nk-content-body">
-            <div class="buysell wide-xs m-auto">
 
-                <div class="buysell-title text-center">
-                    <h2 class="title">Deposit to your account</h2>
-                </div><!-- .buysell-title -->
-                <div class="buysell-block">
-                    <form action="#" class="buysell-form">
-                        <div class="buysell-field form-group">
-                            <div class="form-label-group">
-                                <label class="form-label">Choose wallet</label>
-                            </div>
-                            <input type="hidden" value="btc" name="bs-currency" id="buysell-choose-currency">
-                            <div class="dropdown buysell-cc-dropdown">
-                                <a href="#" class="buysell-cc-choosen dropdown-indicator" data-bs-toggle="dropdown">
-                                    <div class="coin-item coin-btc">
-                                        <div class="coin-icon">
-                                            <em class="icon ni ni-sign-btc-alt"></em>
-                                        </div>
-                                        <div class="coin-info">
-                                            <span class="coin-name">Bitcoin (BTC)</span>
-                                            <span class="coin-text">Last Order: Nov 23, 2019</span>
+            <?php
+            if (!isset($_GET["plan_id"])) {
+                ?>
+                <div class="nk-block-head-content mb-5">
+                    <h3 class="nk-block-title page-title">Pricing Plans</h3>
+                    <div class="nk-block-des text-soft">
+                        <p>Choose a pricing plan, before depositing.</p>
+                    </div>
+                </div>
+                <div class="row g-gs">
+                    <?php
+                    $query = "SELECT * FROM plans";
+                    $res = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_assoc($res)) {
+
+                        ?>
+                        <a href="./dashboard/deposit.php?plan_id=<?= $row['id']; ?>" class="col-md-6 col-xxl-3">
+                            <div class="card card-bordered pricing">
+                                <div class="d-flex justify-content-center pt-5">
+                                    <img src="./images/icon/plan1.svg" alt="" width="100">
+                                </div>
+                                <div class="pricing-head">
+                                    <div class="pricing-title">
+                                        <h4 class="card-title title text-capitalize"><?= $row['name']; ?></h4>
+
+                                    </div>
+                                    <div class="card-text">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <span class="h4 fw-500"><?= $row['daily_interest']; ?>%</span>
+                                                <span class="sub-text">Daily Interest</span>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="h4 fw-500"><?= $row['days']; ?></span>
+                                                <span class="sub-text">Term Days</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh">
-                                    <ul class="buysell-cc-list">
-                                        <li class="buysell-cc-item selected">
-                                            <a href="#" class="buysell-cc-opt" data-currency="btc">
-                                                <div class="coin-item coin-btc">
-                                                    <div class="coin-icon">
-                                                        <em class="icon ni ni-sign-btc-alt"></em>
-                                                    </div>
-                                                    <div class="coin-info">
-                                                        <span class="coin-name">Bitcoin (BTC)</span>
-                                                        <span class="coin-text">Last Order: Nov 23,
-                                                            2019</span>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                </div>
+                                <div class="pricing-body">
+                                    <ul class="pricing-features">
+                                        <li><span class="w-50">Min Deposit</span> - <span
+                                                class="ms-auto amount"><?= $row['min_deposit']; ?></span>
                                         </li>
-                                        <li class="buysell-cc-item">
-                                            <a href="#" class="buysell-cc-opt" data-currency="eth">
-                                                <div class="coin-item coin-eth">
-                                                    <div class="coin-icon">
-                                                        <em class="icon ni ni-sign-eth-alt"></em>
-                                                    </div>
-                                                    <div class="coin-info">
-                                                        <span class="coin-name">Ethereum (ETH)</span>
-                                                        <span class="coin-text">Not order yet!</span>
-                                                    </div>
-                                                </div>
-                                            </a>
+                                        <li><span class="w-50">Max Deposit</span> - <span
+                                                class="ms-auto amount"><?= $row['max_deposit']; ?></span>
                                         </li>
+
+                                        <li><span class="w-50">Deposit Return</span> - <span class="ms-auto ">Yes</span>
+                                        </li>
+
+                                        <li><span class="w-50">Total Return</span> - <span
+                                                class="ms-auto "><?= number_format($row['days'] * $row['daily_interest'], 2); ?>%</span>
+                                        </li>
+
+
                                     </ul>
-                                </div><!-- .dropdown-menu -->
-                            </div><!-- .dropdown -->
-                        </div><!-- .buysell-field -->
-                        <div class="buysell-field form-group">
-                            <div class="form-label-group">
-                                <label class="form-label" for="buysell-amount">Amount to Deposit</label>
-                            </div>
-                            <div class="form-control-group">
-                                <input type="text" class="form-control form-control-lg form-control-number"
-                                    id="buysell-amount" name="bs-amount" placeholder="0.055960">
-                                <div class="form-dropdown">
-                                    <div class="text">EUR</div>
+
+                                    <div class="pricing-action">
+                                        <button class="btn btn-outline-light py-2 px-5">Choose this plan</button>
+                                    </div>
 
                                 </div>
                             </div>
-                            <div class="form-note-group">
-                                <span class="buysell-min form-note-alt">Minimum: 10.00 USD</span>
-                                <span class="buysell-rate form-note-alt">1 USD = 0.000016 BTC</span>
-                            </div>
-                        </div><!-- .buysell-field -->
-                        <div class="buysell-field form-group">
-                            <div class="form-label-group">
-                                <label class="form-label">Payment Method</label>
-                            </div>
-                            <div class="form-pm-group">
-                                <ul class="buysell-pm-list">
-                                    <li class="buysell-pm-item">
-                                        <input class="buysell-pm-control" type="radio" name="bs-method"
-                                            id="pm-paypal" />
-                                        <label class="buysell-pm-label" for="pm-paypal">
-                                            <span class="pm-name">PayPal</span>
-                                            <span class="pm-icon"><em class="icon ni ni-paypal-alt"></em></span>
-                                        </label>
-                                    </li>
-                                    <li class="buysell-pm-item">
-                                        <input class="buysell-pm-control" type="radio" name="bs-method" id="pm-bank" />
-                                        <label class="buysell-pm-label" for="pm-bank">
-                                            <span class="pm-name">Bank Transfer</span>
-                                            <span class="pm-icon"><em class="icon ni ni-building-fill"></em></span>
-                                        </label>
-                                    </li>
-                                    <li class="buysell-pm-item">
-                                        <input class="buysell-pm-control" type="radio" name="bs-method" id="pm-card" />
-                                        <label class="buysell-pm-label" for="pm-card">
-                                            <span class="pm-name">Credit / Debit Card</span>
-                                            <span class="pm-icon"><em class="icon ni ni-cc-alt-fill"></em></span>
-                                        </label>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div><!-- .buysell-field -->
-                        <div class="buysell-field form-action">
-                            <a class="btn btn-lg btn-block btn-primary" data-bs-toggle="modal" href="#buy-coin">Continue
-                                to Buy</a>
-                        </div><!-- .buysell-field -->
-                        <div class="form-note text-base text-center">Note: our transfer fee included, <a href="#">see
-                                our fees</a>.</div>
-                    </form><!-- .buysell-form -->
-                </div><!-- .buysell-block -->
-            </div><!-- .buysell -->
+                        </a>
+                        <!-- .col -->
+                        <?php
+                    }
+                    ?>
+
+
+
+                </div>
+                <?php
+            } else {
+
+                ?>
+
+                <div class="buysell wide-xs m-auto">
+                    <div class="buysell-title text-center">
+                        <h2 class="title">Deposit to your account</h2>
+                    </div><!-- .buysell-title -->
+                    <div class="buysell-block">
+
+                        <form action="./handler/script.php" class="buysell-form" method="POST">
+                            <div class="buysell-field form-group">
+                                <div class="form-label-group">
+                                    <label class="form-label">Choose wallet</label>
+                                </div>
+                                <input type="hidden" value="btc" name="bs-currency" id="buysell-choose-currency">
+                                <div class="dropdown buysell-cc-dropdown">
+                                    <a class="buysell-cc-choosen dropdown-indicator" data-bs-toggle="dropdown">
+                                        <?php
+                                        $query = "SELECT * FROM wallet_address ORDER BY id LIMIT 1";
+                                        $res = mysqli_query($conn, $query);
+                                        $row = $res->fetch_assoc();
+                                        ?>
+                                        <input type="text" hidden id="xx" name="wallet" value="<?= $row['id']; ?>">
+                                        <div class="coin-item coin-btc">
+                                            <div class="coin-icon">
+                                                <img src="./uploads/<?= $row['img']; ?>" width="30" alt="">
+                                            </div>
+                                            <div class="coin-info">
+                                                <span class="coin-name"><?= $row['name']; ?>
+                                                    (<?= $row['acronym']; ?>)</span>
+
+                                            </div>
+                                        </div>
+                                    </a>
+
+                                    <div class="dropdown-menu dropdown-menu-auto dropdown-menu-mxh">
+                                        <ul class="buysell-cc-list">
+                                            <?php
+                                            $query = "SELECT * FROM wallet_address";
+                                            $res = mysqli_query($conn, $query);
+                                            while ($row = $res->fetch_assoc()) {
+                                                ?>
+                                                <li class="buysell-cc-item ">
+                                                    <a class="buysell-cc-opt" data-currency="<?= $row['acronym']; ?>"
+                                                        data-id="<?= $row['id']; ?>">
+                                                        <div class="coin-item coin-btc">
+                                                            <div class="coin-icon">
+                                                                <img src="./uploads/<?= $row['img']; ?>" alt="" width="20">
+                                                            </div>
+                                                            <div class="coin-info">
+                                                                <span class="coin-name"><?= $row['name']; ?>
+                                                                    <span class="text-uppercase">
+                                                                        (<?= $row['acronym']; ?>)
+                                                                    </span>
+                                                                </span>
+
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <?php
+                                            }
+                                            ?>
+
+
+                                        </ul>
+                                    </div>
+                                    <!-- .dropdown-menu -->
+                                </div><!-- .dropdown -->
+                            </div><!-- .buysell-field -->
+                            <?php
+                            $id = $_GET["plan_id"];
+                            $query = "SELECT * FROM plans WHERE id='$id'";
+                            $res = mysqli_query($conn, $query);
+                            $row = $res->fetch_assoc();
+                            ?>
+                            <div class="buysell-field form-group">
+                                <div class="form-label-group">
+                                    <label class="form-label" for="buysell-amount">Amount to Deposit</label>
+                                </div>
+                                <div class="form-control-group">
+                                    <input type="number" class="form-control form-control-lg form-control-number"
+                                        id="buysell-amount" name="amount" placeholder="0.00" required
+                                        min="<?= $row['min_deposit']; ?>">
+                                    <div class="form-dropdown">
+                                        <div class="text">EUR</div>
+
+                                    </div>
+                                </div>
+                                <div class="form-note-group">
+
+                                    <span class="buysell-min form-note-alt">Minimum: <span
+                                            class="amount"><?= $row['min_deposit']; ?></span></span>
+
+                                </div>
+                            </div><!-- .buysell-field -->
+
+                            <div class="buysell-field form-action">
+                                <input type="text" hidden name="plan" value="<?= $id; ?>">
+                                <input type="text" hidden name="user" value="<?= $_SESSION['user']; ?>">
+                                <button class="btn btn-lg btn-block btn-primary" href="#buy-coin" name="deposit">Continue
+                                </button>
+                            </div><!-- .buysell-field -->
+
+                        </form>
+
+                    </div><!-- .buysell-block -->
+                </div>
+
+                <script>
+                    let wallets = document.querySelectorAll(".buysell-cc-item");
+                    let choosen = document.querySelector(".buysell-cc-choosen")
+                    let xx = document.querySelector("#xx");
+
+                    wallets.forEach(wallet => {
+                        wallet.onclick = () => {
+                            xx.value = wallet.children[0].dataset.id
+                            choosen.querySelector("img").src = wallet.querySelector("img").src
+                            choosen.querySelector(".coin-name").innerHTML = wallet.querySelector(".coin-name").innerHTML
+                        }
+                    })
+                </script>
+                <?php
+            }
+            ?>
+
+
         </div>
     </div>
 </div>
+
+
 
 <?php
 require_once "./includes/footer.php";

@@ -185,7 +185,6 @@
             amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "EUR", style: "currency" }).format(amount.innerHTML)
         }
     })
-    // console.log(amounts)
 </script>
 </body>
 

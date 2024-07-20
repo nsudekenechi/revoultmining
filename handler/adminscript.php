@@ -9,7 +9,7 @@ if (isset($_POST["createwallet"])) {
     if (
         move_uploaded_file($qrCode["tmp_name"], "../uploads/$qrCodeName") && move_uploaded_file($displayPicture["tmp_name"], "../uploads/$displayPictureName")
     ) {
-        $query = "INSERT INTO wallet_address (name, acronym, address, img, qr_code) VALUES ('$wallet_name', '$wallet_acronym', '$wallet_address','$displayPictureName', '$qrCodeName')";
+        $query = "INSERT INTO wallet_address (name, acronym, address, img, qr_code,rate) VALUES ('$wallet_name', '$wallet_acronym', '$wallet_address','$displayPictureName', '$qrCodeName', '$rate')";
         $res = mysqli_query($conn, $query);
         if ($res) {
             header("Location: ../admin/walletaddress_view.php?addwallet=s");

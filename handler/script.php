@@ -155,3 +155,78 @@ if (isset($_POST["updatePassword"])) {
         header("Location: ../auth/login.php?update=s");
     }
 }
+
+// deposit 
+if (isset($_POST["deposit"])) {
+    extract($_POST);
+    print_r($_POST);
+    $date = date("D-M-Y");
+    $query = "INSERT INTO deposits (user, amount, wallet, date, plan) VALUES ('$user', '$amount', '$wallet', '$date', '$plan')";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        // getting deposit id so we can access all details on modal
+        $query = "SELECT  id FROM deposits WHERE user='$user' ORDER BY id DESC LIMIT 1";
+        $res = mysqli_query($conn, $query);
+        $id = $res->fetch_column();
+        header("Location: ../dashboard/confirmdeposit.php?id=$id");
+    } else {
+        header("Location: ../dashboard/deposit.php?plan_id=$plan&deposit=f");
+    }
+}
+
+// confirming deposit
+if (isset($_POST["complete"])) {
+    extract($_POST);
+    extract($_FILES);
+    $query = "SELECT proof FROM deposits WHERE id = '$id'";
+    $res = mysqli_query($conn, $query);
+    if (!$res->fetch_column()) {
+
+
+        $proofName = "deposit_$id." . pathinfo($proof["name"], PATHINFO_EXTENSION);
+        if (move_uploaded_file($proof['tmp_name'], "../uploads/$proofName")) {
+            // updating proof value
+            $query = "UPDATE deposits SET proof='$proofName' WHERE id='$id'";
+            $res = mysqli_query($conn, $query);
+            // sending user confirmation email
+            $query = "SELECT *, users.name as user_name, wallet.name as wallet_name FROM deposits 
+    JOIN users on users.id= deposits.user
+    JOIN plans on plans.id = deposits.plan
+    JOIN wallet_address as wallet on wallet.id=deposits.wallet
+    WHERE deposits.id='$id' 
+    ";
+            $res = mysqli_query($conn, $query);
+            $row = $res->fetch_assoc();
+            $amount = $row['amount'];
+            $toCoin = $row['rate'] * $row['amount'];
+            $coinType = strtoupper($row['acronym']);
+            $walletName = $row['wallet_name'];
+            $user_name = $row['user_name'];
+            $greeting = "Hi  $user_name,";
+            $body = "<p style='margin-bottom: 5px;'>We are writing to inform you that we have received your recent deposit request. Our team is currently processing it, and we will confirm the transaction shortly.</p>
+  ";
+
+            $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Deposit Request Received", $row['email']);
+
+            if ($send) {
+                // alerting admin of deposit
+                $query = "SELECT email FROM users WHERE name='admin'";
+                $res = mysqli_query($conn, $query);
+                $adminEmail = $res->fetch_column();
+                $greeting = "Hello admin, ";
+                $body = "<p style='margin-bottom: 5px;'>A user, $user_name made a deposit request of  $toCoin $coinType on your $walletName wallet. Please verify the deposit.</p>";
+                $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Deposit Request Received", $adminEmail);
+                if ($send) {
+                    header("Location: ../dashboard/index.php?confirmdeposit=s");
+                } else {
+                    header("Location: ../dashboard/confirmdeposit.php?confirmdeposit=f");
+                }
+
+            } else {
+                header("Location: ../dashboard/confirmdeposit.php?confirmdeposit=f");
+            }
+        }
+    } else {
+        header("location: ../dashboard/index.php?confirmdeposit=a");
+    }
+}

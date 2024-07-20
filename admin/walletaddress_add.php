@@ -41,12 +41,22 @@ require_once "./includes/header.php";
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
+                                    <div class="col-lg-6">
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Wallet Address</label>
                                             <div class="form-control-wrap">
                                                 <input type="text" class="form-control" id="full-name-1"
                                                     placeholder="Enter wallet name" name="wallet_address" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-label" for="full-name-1">Rate</label>
+                                            <div class="form-control-wrap">
+                                                <input type="number" class="form-control" id="full-name-1"
+                                                    placeholder="0.0" name="rate" required>
                                             </div>
                                         </div>
                                     </div>

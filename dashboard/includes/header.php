@@ -149,9 +149,9 @@ $name = $userRow["name"];
                                     </li>
 
                                     <li class="nk-menu-item">
-                                        <a href="./dashboard/deposit.php" class="nk-menu-link">
+                                        <a href="./dashboard/withdraw.php" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-money"></em></span>
-                                            <span class="nk-menu-text">Withdrawal</span>
+                                            <span class="nk-menu-text">Withdraw</span>
                                         </a>
                                     </li>
 
