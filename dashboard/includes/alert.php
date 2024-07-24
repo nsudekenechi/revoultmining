@@ -99,5 +99,37 @@ if (isset($_GET)) {
         <?php
     }
 
+    switch ($_GET["wallet_add"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('Wallet added', 'success');
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Wallet added failed', 'error');
+            </script>
+        <?php
+    }
+
+    switch ($_GET["wallet_update"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('Wallet Updated', 'success');
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Wallet updated failed', 'error');
+            </script>
+        <?php
+    }
+
 
 }

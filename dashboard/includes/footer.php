@@ -188,7 +188,14 @@
     });
     let isProcessing = false;
     form.onsubmit = () => {
-        if (!isProcessing) {
+        let inputs = form.querySelectorAll("input[required]");
+        let valid = true
+        inputs.forEach(input => {
+            if (input.value == "") {
+                valid = false;
+            }
+        })
+        if (!isProcessing && valid) {
             isProcessing = true;
             let button = form.querySelector("button");
             button.innerHTML = ` <div class="spinner-border spinner-border-sm" role="status">

@@ -160,15 +160,15 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                     </li>
 
                                     <li class="nk-menu-item">
-                                        <a href="html/crypto/accounts.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
-                                            <span class="nk-menu-text">My Account</span>
+                                        <a href="./dashboard/wallets.php" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
+                                            <span class="nk-menu-text">Wallets</span>
                                         </a>
                                     </li>
                                     <li class="nk-menu-item">
-                                        <a href="html/crypto/wallets.php" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
-                                            <span class="nk-menu-text">Wallets</span>
+                                        <a href="html/crypto/accounts.html" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
+                                            <span class="nk-menu-text">My Account</span>
                                         </a>
                                     </li>
 

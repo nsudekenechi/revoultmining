@@ -269,3 +269,28 @@ if (isset($_POST["withdraw"])) {
         header("Location: ../dashboard/index.php?withdraw=f");
     }
 }
+
+if (isset($_POST["add_wallet"])) {
+    $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
+    extract($POST);
+    $query = "SELECT * FROM users_wallet WHERE user = '$user' AND wallet = '$wallet'";
+    $res = mysqli_query($conn, $query);
+    if ($res->num_rows < 1) {
+        $query = "INSERT INTO users_wallet (wallet, user, address) VALUES ('$wallet', '$user', '$wallet_address')";
+        $res = mysqli_query($conn, $query);
+        if ($res) {
+            header("Location: ../dashboard/wallets.php?wallet_add=s");
+        } else {
+            header("Location: ../dashboard/wallets.php?wallet_add=f");
+        }
+    } else {
+        $query = "UPDATE users_wallet SET address='$wallet_address' WHERE  user = '$user' AND wallet = '$wallet'";
+        $res = mysqli_query($conn, $query);
+        if ($res) {
+            header("Location: ../dashboard/wallets.php?wallet_update=s");
+        } else {
+            header("Location: ../dashboard/wallets.php?wallet_update=f");
+        }
+    }
+
+}
