@@ -1,5 +1,6 @@
 <?php
 require_once "../dbase/config.php";
+require_once "./email.php";
 // creating wallet 
 if (isset($_POST["createwallet"])) {
     extract($_POST);
@@ -47,7 +48,51 @@ if (isset($_POST["update_plan"])) {
     $res = mysqli_query($conn, $query);
     if ($res) {
         header("Location: ../admin/plans.php?update=s");
+
     } else {
         header("Location: ../admin/plans.php?plan_id=$id");
     }
+}
+
+if (isset($_GET["approve"])) {
+    $id = $_GET["approve"];
+    // approving user 
+    $query = "UPDATE deposits SET approved = true WHERE id='$id'";
+    $res = mysqli_query($conn, $query);
+    // updating balance
+    $query = "SELECT users.id, amount FROM deposits JOIN users ON users.id = deposits.user WHERE deposits.id ='$id'";
+    $res = mysqli_query($conn, $query);
+    $row = $res->fetch_assoc();
+    $user_id = $row["id"];
+    $amount = $row["amount"];
+    $query = "UPDATE users SET balance = balance + $amount WHERE id = '$user_id'";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        $query = "SELECT *, users.name as user_name, users.id as user_id FROM deposits 
+        JOIN users ON users.id = deposits.user 
+        JOIN wallet_address as wallet ON wallet.id = deposits.wallet
+        WHERE deposits.id = '$id'";
+        $res = mysqli_query($conn, $query);
+        $row = $res->fetch_assoc();
+        $name = $row['user_name'];
+        $email = $row['email'];
+        $amount = $row['rate'] * $row['amount'];
+        $coin = strtoupper($row['acronym']);
+        $date = $row['date'];
+        $greeting = "Hi $name,";
+        $body = "<p style='margin-bottom: 5px;'>We are pleased to inform you that your recent deposit request has been successfully verified.</p>
+        <h4>Details of Your Deposit</h4>
+        <ul>
+            <li>Amount: $amount $coin</li>
+            <li>Date Of Request: $date</li>
+        </ul>
+        ";
+        $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Deposit Confirmation", $email);
+        if ($send) {
+            header("Location: ../admin/deposits.php?approve=s");
+        } else {
+            header("Location: ../admin/deposits.php?approve=f");
+        }
+    }
+
 }

@@ -7,7 +7,7 @@
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+        content="Discover unparalleled investment opportunities with RevoultMining, the premier ROI platform dedicated to delivering secure, transparent, and high-yield crypto returns. Leverage our advanced technology and expert insights to maximize your profits in the dynamic world of cryptocurrencies. Join RevoultMining today and take a decisive step towards revolutionizing your financial future..">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->

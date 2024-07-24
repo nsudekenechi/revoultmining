@@ -160,7 +160,7 @@ if (isset($_POST["updatePassword"])) {
 if (isset($_POST["deposit"])) {
     extract($_POST);
     print_r($_POST);
-    $date = date("D-M-Y");
+    $date = date("D M, Y");
     $query = "INSERT INTO deposits (user, amount, wallet, date, plan) VALUES ('$user', '$amount', '$wallet', '$date', '$plan')";
     $res = mysqli_query($conn, $query);
     if ($res) {
@@ -215,7 +215,7 @@ if (isset($_POST["complete"])) {
                 $adminEmail = $res->fetch_column();
                 $greeting = "Hello admin, ";
                 $body = "<p style='margin-bottom: 5px;'>A user, $user_name made a deposit request of  $toCoin $coinType on your $walletName wallet. Please verify the deposit.</p>";
-                $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Deposit Request Received", $adminEmail);
+                $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Withdrawal Request Received", $adminEmail);
                 if ($send) {
                     header("Location: ../dashboard/index.php?confirmdeposit=s");
                 } else {
@@ -228,5 +228,44 @@ if (isset($_POST["complete"])) {
         }
     } else {
         header("location: ../dashboard/index.php?confirmdeposit=a");
+    }
+}
+
+
+
+if (isset($_POST["withdraw"])) {
+    extract($_POST);
+    $date = date('d D M, Y');
+    // deducting user's amount
+    $query = "UPDATE users SET balance = balance - $amount WHERE id = '$user'";
+    $res = mysqli_query($conn, $query);
+
+    $query = "INSERT INTO withdraws (user, address, amount, wallet, date) VALUES ('$user', '$wallet_address', '$amount',  '$wallet','$date')";
+    $res = mysqli_query($conn, $query);
+
+    // sending withdrawal email to user
+    $query = "SELECT * FROM users WHERE id ='$user'";
+    $res = mysqli_query($conn, $query);
+    $row = $res->fetch_assoc();
+    $name = $row["name"];
+    $email = $row["email"];
+    $amount = number_format($amount, 2);
+    $greeting = "Hello $name,";
+    $body = "<p style='margin-bottom: 5px;'>We received your request of £$amount, your wallet would be credited in 24 hours</p>";
+    $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Withdrawal Request", $email);
+
+    // sending withdrawal email to admin
+    $query = "SELECT email FROM users WHERE name='admin'";
+    $res = mysqli_query($conn, $query);
+    $adminEmail = $res->fetch_column();
+    $greeting = "Hello admin,";
+
+    $body = "<p style='margin-bottom: 5px;'>$name made a withdrawal request of £$amount, check your dashboard for more information</p>";
+    $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Deposit Request Received", $adminEmail);
+
+    if ($send) {
+        header("Location: ../dashboard/index.php?withdraw=s");
+    } else {
+        header("Location: ../dashboard/index.php?withdraw=f");
     }
 }

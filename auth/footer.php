@@ -60,4 +60,8 @@
 <script src="./assets/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets/js/scripts.js?ver=3.1.3"></script>
 
+<?php
+require "../dashboard/includes/alert.php";
+?>
+
 </html>

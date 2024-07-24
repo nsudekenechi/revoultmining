@@ -1,4 +1,5 @@
 <?php
+$title = "Deposit";
 require_once "./includes/header.php";
 ?>
 <!-- content @s -->

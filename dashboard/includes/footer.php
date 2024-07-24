@@ -183,7 +183,7 @@
     let form = document.querySelector("form");
     amounts.forEach(amount => {
         if (!isNaN(amount.innerHTML)) {
-            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "EUR", style: "currency" }).format(amount.innerHTML)
+            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(amount.innerHTML)
         }
     });
     let isProcessing = false;
@@ -201,7 +201,7 @@
     }
 </script>
 <?php
-// require_once "./alert.php";
+require_once "alert.php";
 ?>
 </body>
 

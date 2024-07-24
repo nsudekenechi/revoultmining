@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 if (isset($_GET)) {
 
     switch ($_GET["register"]) {
@@ -30,7 +31,7 @@ if (isset($_GET)) {
         case "f":
             ?>
             <script>
-                NioApp.Toast('Incorrect email or password', 'error');
+                NioApp.Toast('Incorrect email or password', 'error', { position: "top-right" });
             </script>
             <?php
             break;
@@ -59,6 +60,43 @@ if (isset($_GET)) {
             <?php
             break;
 
+    }
+
+    switch ($_GET["confirmdeposit"]) {
+        case "s":
+            ?>
+
+            <script>
+                NioApp.Toast('Deposit request sent, your balance would be updated after confirmation.', 'success');
+            </script>
+
+            <?php
+            break;
+    }
+
+    switch ($_GET["balance"]) {
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Please deposit into your account.', 'error');
+            </script>
+        <?php
+    }
+
+    switch ($_GET["withdraw"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('Your withdrawal request was sent.', 'success');
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Your withdrawal request failed.', 'error');
+            </script>
+        <?php
     }
 
 

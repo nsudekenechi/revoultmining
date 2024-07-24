@@ -1,4 +1,5 @@
 <?php
+$title = "Dashboard";
 require_once "./includes/header.php";
 ?>
 <!-- content @s -->
@@ -64,7 +65,7 @@ require_once "./includes/header.php";
                                         <h5 class="nk-block-title title">Digital Wallets</h5>
                                     </div>
                                     <div class="nk-block-head-content">
-                                        <a href="html/crypto/wallets.html" class="link link-primary">See All</a>
+                                        <a href="html/crypto/wallets.php" class="link link-primary">See All</a>
                                     </div>
                                 </div>
                             </div><!-- .nk-block-head -->
@@ -132,7 +133,7 @@ require_once "./includes/header.php";
                                         <h6 class="nk-block-title title">Fiat Accounts</h6>
                                     </div>
                                     <div class="nk-block-head-content">
-                                        <a href="html/crypto/wallets.html" class="link link-primary">See All</a>
+                                        <a href="html/crypto/wallets.php" class="link link-primary">See All</a>
                                     </div>
                                 </div>
                             </div><!-- .nk-block-head -->
@@ -454,11 +455,7 @@ require_once "./includes/header.php";
         </div>
     </div>
 </div>
-<!-- content @e -->
-<script>
-    let amount = document.querySelector(".amount");
-    amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "EUR", style: "currency" }).format(amount.innerHTML)
-</script>
+
 <?php
 require_once "./includes/footer.php";
 ?>

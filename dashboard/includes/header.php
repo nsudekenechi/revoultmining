@@ -9,6 +9,10 @@ $query = "SELECT * FROM users WHERE id = '$user_id'";
 $res = mysqli_query($conn, $query);
 $userRow = $res->fetch_assoc();
 $name = $userRow["name"];
+
+if ($title == "Withdraw" && $userRow["balance"] < 10) {
+    header("Location: ./deposit.php?balance=f");
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
@@ -19,11 +23,11 @@ $name = $userRow["name"];
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="A powerful and conceptual apps base dashboard template that especially build for developers and programmers.">
+        content="Discover unparalleled investment opportunities with RevoultMining, the premier ROI platform dedicated to delivering secure, transparent, and high-yield crypto returns. Leverage our advanced technology and expert insights to maximize your profits in the dynamic world of cryptocurrencies. Join RevoultMining today and take a decisive step towards revolutionizing your financial future.">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Crypto Dashboard | RevoultMining</title>
+    <title><?= $title; ?> | RevoultMining</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
@@ -162,7 +166,7 @@ $name = $userRow["name"];
                                         </a>
                                     </li>
                                     <li class="nk-menu-item">
-                                        <a href="html/crypto/wallets.html" class="nk-menu-link">
+                                        <a href="html/crypto/wallets.php" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-wallet-alt"></em></span>
                                             <span class="nk-menu-text">Wallets</span>
                                         </a>
