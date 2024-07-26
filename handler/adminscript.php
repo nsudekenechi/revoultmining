@@ -54,8 +54,9 @@ if (isset($_POST["update_plan"])) {
     }
 }
 
-if (isset($_GET["approve"])) {
-    $id = $_GET["approve"];
+// approving deposit
+if (isset($_GET["approve_deposit"])) {
+    $id = $_GET["approve_deposit"];
     // approving user 
     $query = "UPDATE deposits SET approved = true WHERE id='$id'";
     $res = mysqli_query($conn, $query);
@@ -89,10 +90,41 @@ if (isset($_GET["approve"])) {
         ";
         $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Deposit Confirmation", $email);
         if ($send) {
-            header("Location: ../admin/deposits.php?approve=s");
+            header("Location: ../admin/deposits.php?approve_deposit=s");
         } else {
-            header("Location: ../admin/deposits.php?approve=f");
+            header("Location: ../admin/deposits.php?approve_deposit=f");
         }
+    }
+
+}
+
+// approving withdraw
+if (isset($_GET["approve_withdraw"])) {
+    $withdrawId = $_GET["approve_withdraw"];
+    $query = "UPDATE withdraws SET approved = true WHERE id = '$withdrawId'";
+    $res = mysqli_query($conn, $query);
+
+    // sending withdrawal email to user 
+    $query = "SELECT email,  users.name, rate, amount, acronym FROM withdraws 
+    JOIN users ON users.id = withdraws.user 
+    JOIN  wallet_address ON wallet_address.id = withdraws.id  
+    WHERE withdraws.id = '$withdrawId'";
+    $res = mysqli_query($conn, $query);
+    $row = $res->fetch_assoc();
+    $email = $row["email"];
+    $name = $row["name"];
+    $amount = $row['amount'];
+    $rate = $row['rate'] * $row['amount'];
+    $acronym = strtoupper($row['acronym']);
+    $greeting = "Hello $name,";
+
+    $body = "<p style='margin-bottom: 5px;'>Your withdrawal of £$amount ($rate $acronym) have been confirmed.</p>";
+    $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Withdrawal Request Received", $email);
+
+    if ($send) {
+        header("Location: ../admin/withdrawals.php?approve_withdraw=s");
+    } else {
+        header("Location: ../admin/withdrawals.php?approve_withdraw=f");
     }
 
 }

@@ -187,28 +187,30 @@
         }
     });
     let isProcessing = false;
-    form.onsubmit = () => {
-        let inputs = form.querySelectorAll("input[required]");
-        let valid = true
-        inputs.forEach(input => {
-            if (input.value == "") {
-                valid = false;
-            }
-        })
-        if (!isProcessing && valid) {
-            isProcessing = true;
-            let button = form.querySelector("button");
-            button.innerHTML = ` <div class="spinner-border spinner-border-sm" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>`;
+    if (form) {
+        form.onsubmit = () => {
+            let inputs = form.querySelectorAll("input[required]");
+            let valid = true
+            inputs.forEach(input => {
+                if (input.value == "") {
+                    valid = false;
+                }
+            })
+            if (!isProcessing && valid) {
+                isProcessing = true;
+                let button = form.querySelector("button");
+                button.innerHTML = ` <div class="spinner-border spinner-border-sm" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>`;
 
-        } else {
-            return false;
+            } else {
+                return false;
+            }
         }
     }
 </script>
 <?php
-require_once "alert.php";
+require_once "../handler/alert.php";
 ?>
 </body>
 

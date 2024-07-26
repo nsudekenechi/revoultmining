@@ -92,7 +92,7 @@ $res = mysqli_query($conn, $query);
                                                     if (!$row['approved']) {
                                                         ?>
                                                         <li class="">
-                                                            <a href="./handler/adminscript.php?approve=<?= $row['depositID']; ?>"
+                                                            <a href="./handler/adminscript.php?approve_deposit=<?= $row['depositID']; ?>"
                                                                 class="bg-white btn btn-sm btn-outline-light btn-icon"
                                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                                 aria-label="Approve" data-bs-original-title="Approve"><em

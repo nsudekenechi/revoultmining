@@ -2,6 +2,7 @@
 if (!isset($_GET["id"])) {
     header("location: ../dashboard/deposit.php");
 }
+$title = "Confirm Deposit";
 require_once "./includes/header.php";
 $id = $_GET["id"];
 $query = "SELECT *, wallet.name as walletName, wallet.address as walletAddress FROM deposits  

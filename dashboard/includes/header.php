@@ -165,6 +165,14 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                             <span class="nk-menu-text">Wallets</span>
                                         </a>
                                     </li>
+
+                                    <li class="nk-menu-item">
+                                        <a href="./dashboard/requests.php" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-repeat"></em></span>
+                                            <span class="nk-menu-text">Requests</span>
+                                        </a>
+                                    </li>
+
                                     <li class="nk-menu-item">
                                         <a href="html/crypto/accounts.html" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
@@ -172,12 +180,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                         </a>
                                     </li>
 
-                                    <li class="nk-menu-item">
-                                        <a href="html/crypto/order-history.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-repeat"></em></span>
-                                            <span class="nk-menu-text">Orders</span>
-                                        </a>
-                                    </li>
+
                                     <li class="nk-menu-item">
                                         <a href="html/crypto/chats.html" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-chat-circle"></em></span>

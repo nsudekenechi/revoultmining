@@ -79,8 +79,7 @@ require_once "./includes/header.php";
                             </div>
                             <div class="form-control-group">
                                 <input type="text" class="form-control form-control-lg form-control-number"
-                                    id="buysell-amount" name="wallet_address" placeholder="xxxx-xxxx-xxxx-xxx" required
-                                    min="">
+                                    name="wallet_address" placeholder="xxxx-xxxx-xxxx-xxx" required id="wallet_address">
 
                             </div>
 
@@ -107,7 +106,7 @@ require_once "./includes/header.php";
                         </div><!-- .buysell-field -->
 
                         <div class="buysell-field form-action">
-                            <input type="text" hidden name="user" value="<?= $_SESSION['user']; ?>">
+                            <input type="text" hidden name="user" value="<?= $_SESSION['user']; ?>" id="user">
                             <button class="btn btn-lg btn-block btn-primary" name="withdraw">Continue
                             </button>
                         </div><!-- .buysell-field -->
@@ -123,14 +122,27 @@ require_once "./includes/header.php";
                 let wallets = document.querySelectorAll(".buysell-cc-item");
                 let choosen = document.querySelector(".buysell-cc-choosen")
                 let xx = document.querySelector("#xx");
-
+                let user = document.querySelector("#user");
+                let wallet_address = document.querySelector("#wallet_address");
                 wallets.forEach(wallet => {
                     wallet.onclick = () => {
                         xx.value = wallet.children[0].dataset.id
                         choosen.querySelector("img").src = wallet.querySelector("img").src
                         choosen.querySelector(".coin-name").innerHTML = wallet.querySelector(".coin-name").innerHTML
+                        getWalletAddress(xx.value);
                     }
                 })
+
+                getWalletAddress(xx.value);
+
+                function getWalletAddress(wallet) {
+                    fetch(`./handler/ajax.php?wallet=${wallet}&user=${user.value}`).then(res => res.text()).then(data => {
+                        wallet_address.value = data;
+                    });
+
+                }
+
+
             </script>
         </div>
     </div>

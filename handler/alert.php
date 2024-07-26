@@ -78,7 +78,7 @@ if (isset($_GET)) {
         case "f":
             ?>
             <script>
-                NioApp.Toast('Please deposit into your account.', 'error');
+                NioApp.Toast(`You don't have enough funds to withdraw. Please deposit into your account.`, 'error', { position: "top-right" });
             </script>
         <?php
     }
@@ -127,6 +127,24 @@ if (isset($_GET)) {
             ?>
             <script>
                 NioApp.Toast('Wallet updated failed', 'error');
+            </script>
+        <?php
+    }
+
+
+    // admin alerts
+    switch ($_GET["approve_withdraw"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('Withdrawal Approved', 'success');
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Withdrawal Aprroved failed', 'error');
             </script>
         <?php
     }

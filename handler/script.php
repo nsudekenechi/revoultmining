@@ -11,19 +11,28 @@ if (isset($_POST["register"])) {
     $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
     $res = mysqli_query($conn, $query);
     if ($res) {
-        $greeting = "Hi $name";
-        $body = "<p style='margin-bottom:10px'>Welcome aboard!</p>
-        <p>We're thrilled to have you join our investment platform. To continue, log in with your details and explore the endless possibilities.
-        If you have any questions or need assistance, our support team is here to help.
-        </p>
-        ";
-        $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Welcome to Revoultmining", $email);
+        $_SESSION["otp_email"] = $email;
+        // creating OTP in DB
+        $OTP = rand(100000, 999999);
+        // removing already existing otp,  so that otp can't be used twice
+        $query = "SELECT * FROM send_otp WHERE email = '$email'";
+        $res = mysqli_query($conn, $query);
 
-        if ($send) {
-            header("location: ../auth/login.php?register=s");
-        } else {
-            header("location: ../auth/register.php?register=f");
+        if ($res->num_rows > 0) {
+            $query = "DELETE FROM send_otp WHERE email = '$email'";
+            $res = mysqli_query($conn, $query);
         }
+
+        $query = "INSERT INTO send_otp (email, otp) VALUES ('$email', $OTP)";
+        $res = mysqli_query($conn, $query);
+
+        // sending user OTP
+        $greeting = "Hi $name,";
+        $body = "<p style='margin-bottom: 5px;'>Welcome to Revoultmining! To complete your registration and verify your account, please use the One-Time Password (OTP) below:</p>
+    <p style='margin-bottom: 5px;'>Your OTP: $OTP.</p>
+    ";
+        sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Verify Your Account - Welcome to Revoultmining!", $email);
+        header("Location: ../auth/otp.php");
     } else {
         header("Location: ./auth/register.php?auth=f");
     }
@@ -160,7 +169,7 @@ if (isset($_POST["updatePassword"])) {
 if (isset($_POST["deposit"])) {
     extract($_POST);
     print_r($_POST);
-    $date = date("D M, Y");
+    $date = date("d D M, Y");
     $query = "INSERT INTO deposits (user, amount, wallet, date, plan) VALUES ('$user', '$amount', '$wallet', '$date', '$plan')";
     $res = mysqli_query($conn, $query);
     if ($res) {

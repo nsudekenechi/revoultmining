@@ -180,12 +180,14 @@
 <script>
     let amounts = document.querySelectorAll(".amount");
     amounts.forEach(amount => {
-        if (!Number.isNaN(amount.innerHTML)) {
-
-            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "EUR", style: "currency" }).format(amount.innerHTML)
+        if (!isNaN(amount.innerHTML)) {
+            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(amount.innerHTML)
         }
-    })
+    });
 </script>
+<?php
+require_once "../handler/alert.php";
+?>
 </body>
 
 </html>

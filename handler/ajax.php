@@ -54,3 +54,17 @@ if (isset($_GET["verifyemail"])) {
         echo false;
     }
 }
+
+// getting user's wallet address for withdrawal
+if (isset($_GET["wallet"])) {
+    $wallet = $_GET["wallet"];
+    $user = $_GET["user"];
+
+    $query = "SELECT address  FROM users_wallet WHERE wallet='$wallet' AND user = '$user'";
+    $res = mysqli_query($conn, $query);
+    if ($res->num_rows > 0) {
+        echo $res->fetch_column();
+    } else {
+        echo "";
+    }
+}
