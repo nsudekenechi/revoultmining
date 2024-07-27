@@ -10,7 +10,7 @@ while ($row = $res->fetch_assoc()) {
     $amount = $dailyInterest * $depositAmount;
     $user_id = $row["user_id"];
     $deposit_id = $row['deposit_id'];
-    $currDate = date('D M, Y');
+    $currDate = date('d D M, Y');
     $numberOfDays = $row["days"];
     // checking if last_profit exists
     if (!$row["last_profit"]) {
@@ -23,8 +23,8 @@ while ($row = $res->fetch_assoc()) {
         $query = "UPDATE deposits SET last_profit='$currDate' WHERE id = '$deposit_id'";
         $res = mysqli_query($conn, $query);
     } else {
-        $currDate = date('D M, Y', strtotime("today"));
-        $endDate = date("D M, Y", strtotime($row['date'] . "+$numberOfDays day"));
+        $currDate = date('d D M, Y', strtotime("today"));
+        $endDate = date("d D M, Y", strtotime($row['date'] . "+$numberOfDays day"));
 
         // checking if  profit end date have reached
         if (date_diff(new DateTime($currDate), new DateTime($endDate))->days > 0) {

@@ -209,6 +209,25 @@
         }
     }
 </script>
+<script>
+    const date = new Date().getHours()
+    let greeting = "";
+    let messages = [
+        "Ready to take your investments to the next level today?",
+        "Your investment journey continues here. Let's make the most of it!",
+        "Every investment counts. Let's make today a productive one!"
+    ]
+    let welcomeMessage = document.querySelector("#welcome-message");
+    if (date <= 11) {
+        greeting = "Good morning";
+    } else if (date <= 16) {
+        greeting = "Good afternoon";
+    } else {
+        greeting = "Good Evening";
+    }
+    welcomeMessage.innerHTML = `<b>${greeting}</b>, <span>${messages[Math.floor(Math.random() * messages.length)]}</span>`
+
+</script>
 <?php
 require_once "../handler/alert.php";
 ?>

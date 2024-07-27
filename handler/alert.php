@@ -2,7 +2,7 @@
 error_reporting(0);
 if (isset($_GET)) {
 
-    switch ($_GET["register"]) {
+    switch ($_GET["auth"]) {
         case "s":
             ?>
             <script>
