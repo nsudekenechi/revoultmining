@@ -42,10 +42,10 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
                         <a href="html/crypto/index.php" class="logo-link nk-sidebar-logo">
-                            <img class="logo-light logo-img" src="./images/logo.png" srcset="./images/logo2x.png 2x"
-                                alt="logo">
-                            <img class="logo-dark logo-img" src="./images/logo-dark.png"
-                                srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                            <img class="logo-light logo-img" src="./images/revolutmining.png"
+                                srcset="./images/revolutmining.png 2x" alt="logo">
+                            <img class="logo-dark logo-img" src="./images/revolutmining.png"
+                                srcset="./images/revolutmining.png 2x" alt="logo-dark">
                             <!-- <span class="nio-version">Crypto</span> -->
                         </a>
                     </div>
