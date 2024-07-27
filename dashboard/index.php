@@ -4,44 +4,8 @@ require_once "./includes/header.php";
 ?>
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container mb-5">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-            async>
-                {
-                    "symbols": [
-                        {
-                            "proName": "FOREXCOM:SPXUSD",
-                            "title": "S&P 500 Index"
-                        },
-                        {
-                            "proName": "FOREXCOM:NSXUSD",
-                            "title": "US 100 Cash CFD"
-                        },
-                        {
-                            "proName": "FX_IDC:EURUSD",
-                            "title": "EUR to USD"
-                        },
-                        {
-                            "proName": "BITSTAMP:BTCUSD",
-                            "title": "Bitcoin"
-                        },
-                        {
-                            "proName": "BITSTAMP:ETHUSD",
-                            "title": "Ethereum"
-                        }
-                    ],
-                        "showSymbolLogo": true,
-                            "isTransparent": false,
-                                "displayMode": "adaptive",
-                                    "colorTheme": "light",
-                                        "locale": "en"
-                }
-            </script>
-    </div>
 
-    <!-- TradingView Widget END -->
+
     <div class="container-xl wide-lg">
         <div class="nk-content-body">
             <div class="nk-block-head">
@@ -64,7 +28,7 @@ require_once "./includes/header.php";
                     <h5 class="nk-block-title title">Overview</h5>
                 </div>
             </div><!-- .nk-block-head -->
-            <div class="nk-block">
+            <div class="nk-block mb-5">
                 <div class="row gy-gs">
                     <div class="col-lg-5 col-xl-4">
                         <div class="nk-block">
@@ -118,7 +82,7 @@ require_once "./includes/header.php";
                                     <div class="nk-wg7">
                                         <div class="nk-wg7-stats">
                                             <div class="nk-wg7-title" style="">Referral Bonus</div>
-                                            <div class="number-lg amount"><?= $userRow['ref']; ?></div>
+                                            <div class="number-lg amount"><?= $userRow['ref_balance']; ?></div>
                                         </div>
 
                                         <!-- <div class="nk-wg7-foot">
@@ -133,6 +97,28 @@ require_once "./includes/header.php";
 
                 </div><!-- .row -->
             </div><!-- .nk-block -->
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container mb-5">
+                <div class="tradingview-widget-container__widget"></div>
+
+                <script type="text/javascript"
+                    src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {
+                            "width": "100%",
+                                "height": "300",
+                                    "symbol": "NASDAQ:AAPL",
+                                        "interval": "D",
+                                            "timezone": "Etc/UTC",
+                                                "theme": "light",
+                                                    "style": "1",
+                                                        "locale": "en",
+                                                            "allow_symbol_change": true,
+                                                                "calendar": false,
+                                                                    "support_host": "https://www.tradingview.com"
+                        }
+                    </script>
+            </div>
+            <!-- TradingView Widget END -->
             <div class="nk-block nk-block-lg">
                 <div class="row gy-gs">
                     <div class="col-md-12">
@@ -145,7 +131,7 @@ require_once "./includes/header.php";
                         <div class="tranx-list card card-bordered">
                             <?php
                             $query = "SELECT * FROM deposits 
-                            JOIN wallet_address ON wallet_address.id= deposits.wallet WHERE user = '1' LIMIT 5";
+                            JOIN wallet_address ON wallet_address.id= deposits.wallet WHERE deposits.user = '$user_id' LIMIT 5";
                             $res = mysqli_query($conn, $query);
                             if ($res->num_rows > 0) {
                                 while ($row = mysqli_fetch_assoc($res)) {
@@ -177,34 +163,25 @@ require_once "./includes/header.php";
                                 }
                             } else {
                                 ?>
-                                <div class="card card-bordered row">
-                                    <div class="nk-refwg col-12">
+                                <div class="row">
+                                    <div class="card card-bordered col-md-12">
                                         <div class="nk-refwg-invite card-inner">
                                             <div class="nk-refwg-head g-3">
                                                 <div class="nk-refwg-title">
-                                                    <h5 class="title">Refer Us & Earn</h5>
-                                                    <div class="title-sub">Use the bellow link to invite your friends.</div>
+                                                    <h6 class="title">You don't have any deposit.</h6>
+                                                    <div class="title-sub">
+                                                        Your wallet is waiting for its first deposit. Please fund your
+                                                        account.
+                                                    </div>
                                                 </div>
                                                 <div class="nk-refwg-action">
-                                                    <a href="#" class="btn btn-primary">Invite</a>
+                                                    <a href="./dashboard/deposit.php" class="btn btn-primary">Make
+                                                        Deposit</a>
                                                 </div>
                                             </div>
-                                            <div class="nk-refwg-url">
-                                                <div class="form-control-wrap">
-                                                    <div class="form-clip clipboard-init" data-clipboard-target="#refUrl"
-                                                        data-success="Copied" data-text="Copy Link"><em
-                                                            class="clipboard-icon icon ni ni-copy"></em> <span
-                                                            class="clipboard-text">Copy Link</span></div>
-                                                    <div class="form-icon">
-                                                        <em class="icon ni ni-link-alt"></em>
-                                                    </div>
-                                                    <input type="text" class="form-control copy-text" id="refUrl"
-                                                        value="https://dashlite.net/?ref=4945KD48">
-                                                </div>
-                                            </div>
-                                        </div><!-- .nk-refwg-invite -->
 
-                                    </div><!-- .nk-refwg -->
+                                        </div><!-- .nk-refwg-invite -->
+                                    </div>
                                 </div>
                                 <?php
                             }
@@ -224,7 +201,7 @@ require_once "./includes/header.php";
                             <div class="nk-refwg-head g-3">
                                 <div class="nk-refwg-title">
                                     <h5 class="title">Refer Us & Earn</h5>
-                                    <div class="title-sub">Use the bellow link to invite your friends.</div>
+                                    <div class="title-sub">Use the below link to invite your friends.</div>
                                 </div>
                                 <div class="nk-refwg-action">
                                     <a href="#" class="btn btn-primary">Invite</a>
@@ -239,8 +216,8 @@ require_once "./includes/header.php";
                                     <div class="form-icon">
                                         <em class="icon ni ni-link-alt"></em>
                                     </div>
-                                    <input type="text" class="form-control copy-text" id="refUrl"
-                                        value="https://dashlite.net/?ref=4945KD48">
+                                    <input type="text" class="form-control copy-text" id="refUrl" value="">
+                                    <input type="text" hidden value="<?= $user_id; ?>" id="user">
                                 </div>
                             </div>
                         </div><!-- .nk-refwg-invite -->
@@ -252,11 +229,20 @@ require_once "./includes/header.php";
                                 </div>
                                 <div class="nk-refwg-info g-3">
                                     <div class="nk-refwg-sub">
-                                        <div class="title">394</div>
+                                        <?php
+                                        $query = "SELECT * FROM users WHERE ref = '$user_id'";
+                                        $res = mysqli_query($conn, $query);
+
+                                        ?>
+                                        <div class="title"><?= $res->num_rows; ?></div>
                                         <div class="sub-text">Total Joined</div>
                                     </div>
                                     <div class="nk-refwg-sub">
-                                        <div class="title">548.49</div>
+                                        <?php
+                                        $query = "SELECT ref_balance FROM users WHERE id = '$user_id'";
+                                        $res = mysqli_query($conn, $query);
+                                        ?>
+                                        <div class="title"><?= number_format($res->fetch_column(), 2); ?></div>
                                         <div class="sub-text">Referral Earn</div>
                                     </div>
                                 </div>
@@ -341,7 +327,12 @@ require_once "./includes/header.php";
         </div>
     </div>
 </div>
+<script>
+    let refUrl = document.querySelector("#refUrl");
+    let user = document.querySelector("#user")
+    refUrl.value = `${location.origin}/revoultmining/auth/register.php?ref=${user.value}`
 
+</script>
 <?php
 require_once "./includes/footer.php";
 ?>

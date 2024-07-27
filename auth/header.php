@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (isset($_GET["ref"])) {
+    $_SESSION["ref"] = $_GET["ref"];
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 

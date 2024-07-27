@@ -54,7 +54,7 @@ require_once "./header.php";
             </div>
             <div class="form-group">
                 <div class="custom-control custom-control-xs custom-checkbox checked">
-                    <input type="checkbox" class="custom-control-input" id="checkbox">
+                    <input type="checkbox" class="custom-control-input" id="checkbox" required>
                     <label class="custom-control-label" for="checkbox">I agree to Dashlite <a tabindex="-1"
                             href="#">Privacy Policy</a> &amp; <a tabindex="-1" href="#"> Terms.</a></label>
                 </div>

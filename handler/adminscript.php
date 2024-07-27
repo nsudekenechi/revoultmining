@@ -57,9 +57,11 @@ if (isset($_POST["update_plan"])) {
 // approving deposit
 if (isset($_GET["approve_deposit"])) {
     $id = $_GET["approve_deposit"];
+
     // approving user 
     $query = "UPDATE deposits SET approved = true WHERE id='$id'";
     $res = mysqli_query($conn, $query);
+
     // updating balance
     $query = "SELECT users.id, amount FROM deposits JOIN users ON users.id = deposits.user WHERE deposits.id ='$id'";
     $res = mysqli_query($conn, $query);
@@ -68,6 +70,43 @@ if (isset($_GET["approve_deposit"])) {
     $amount = $row["amount"];
     $query = "UPDATE users SET balance = balance + $amount WHERE id = '$user_id'";
     $res = mysqli_query($conn, $query);
+
+    // checking if this is user's first deposit so that we can credit their ref if they have any
+    $query = "SELECT * FROM deposits WHERE user = '$user_id' AND approved = true";
+    $res = mysqli_query($conn, $query);
+    if ($res->num_rows == 1) {
+
+        // getting ref id 
+        $query = "SELECT ref from users WHERE id = '$user_id'";
+        $res = mysqli_query($conn, $query);
+        $ref = $res->fetch_column();
+        if ($ref > 0) {
+            $refAmount = $amount * (10 / 100);
+            // updating balance and ref_balance of ref
+            $query = "UPDATE users SET balance = balance + $refAmount, ref_balance = ref_balance + $refAmount WHERE id = '$ref'";
+            $res = mysqli_query($conn, $query);
+
+            // sending referral a mail that they got credited
+            $query = "SELECT * FROM users WHERE id ='$ref'";
+            $res = mysqli_query($conn, $query);
+            $row = $res->fetch_assoc();
+            $refName = $row["name"];
+            $refEmail = $row["email"];
+            $refAmount = number_format($refAmount, 2);
+            $greeting = "Hi $refName,";
+            $body = "<p style='margin-bottom: 5px;'>We are excited to inform you that your account has just been credited!
+    Thanks to your recent activity and participation, you've received a credit of $refAmount GBP to your account. We appreciate your engagement and are thrilled to see you benefit from our services. </p>";
+
+            $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "You've Been Credited!", $refEmail);
+            if ($send) {
+                header("Location: ../admin/deposits.php?approve_deposit=s");
+            } else {
+                header("Location: ../admin/deposits.php?approve_deposit=f");
+            }
+        }
+
+    }
+
     if ($res) {
         $query = "SELECT *, users.name as user_name, users.id as user_id FROM deposits 
         JOIN users ON users.id = deposits.user 

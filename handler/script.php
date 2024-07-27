@@ -8,7 +8,13 @@ session_start();
 if (isset($_POST["register"])) {
     extract($_POST);
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+    if (isset($_SESSION["ref"])) {
+        $ref = $_SESSION["ref"];
+        $query = "INSERT INTO users (name, email, password, ref) VALUES ('$name', '$email', '$password', '$ref')";
+    } else {
+        $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+    }
+
     $res = mysqli_query($conn, $query);
     if ($res) {
         $_SESSION["otp_email"] = $email;
