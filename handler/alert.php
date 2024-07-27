@@ -131,6 +131,22 @@ if (isset($_GET)) {
         <?php
     }
 
+    switch ($_GET["update_profile"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('Profile Updated', 'success');
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Profile Updated Failed', 'error');
+            </script>
+        <?php
+    }
+
 
     // admin alerts
     switch ($_GET["approve_withdraw"]) {

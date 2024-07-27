@@ -303,3 +303,18 @@ if (isset($_POST["add_wallet"])) {
     }
 
 }
+
+// update user profile 
+if (isset($_POST["update_profile"])) {
+    extract($_POST);
+    print_r($_POST);
+    $query = "UPDATE users SET name='$name', phone_number='$phone_number', country='$country', state='$state', address = '$address', account_type = '$account_type' WHERE id = '$user'";
+    $res = mysqli_query($conn, $query);
+
+    if ($res) {
+        header("Location: ../dashboard/profile.php?update_profile=s");
+    } else {
+        header("Location: ../dashboard/profile.php?update_profile=f");
+    }
+
+}

@@ -117,7 +117,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                                     class="icon ni ni-wallet-in"></em></a></li>
                                     </ul>
                                     <ul class="link-list">
-                                        <li><a href="html/crypto/profile.html"><em
+                                        <li><a href="html/crypto/./dashboard/profile.php"><em
                                                     class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
                                         <li><a href="html/crypto/profile-security.html"><em
                                                     class="icon ni ni-setting-alt"></em><span>Account Setting</span></a>
@@ -173,151 +173,20 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                         </a>
                                     </li>
 
-                                    <li class="nk-menu-item">
-                                        <a href="html/crypto/accounts.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-user-c"></em></span>
-                                            <span class="nk-menu-text">My Account</span>
-                                        </a>
-                                    </li>
+
+
 
 
                                     <li class="nk-menu-item">
-                                        <a href="html/crypto/chats.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-chat-circle"></em></span>
-                                            <span class="nk-menu-text">Chats</span>
-                                        </a>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/crypto/profile.html" class="nk-menu-link">
+                                        <a href="./dashboard/profile.php" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em
                                                     class="icon ni ni-account-setting"></em></span>
                                             <span class="nk-menu-text">My Profile</span>
                                         </a>
                                     </li>
-                                    <li class="nk-menu-item has-sub">
-                                        <a href="#" class="nk-menu-link nk-menu-toggle">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-files"></em></span>
-                                            <span class="nk-menu-text">Additional Pages</span>
-                                        </a>
-                                        <ul class="nk-menu-sub">
-                                            <li class="nk-menu-item">
-                                                <a href="html/crypto/welcome.html" class="nk-menu-link"><span
-                                                        class="nk-menu-text">Welcome</span></a>
-                                            </li>
-                                            <li class="nk-menu-item">
-                                                <a href="html/crypto/kyc-application.html" class="nk-menu-link"><span
-                                                        class="nk-menu-text">KYC - Get Started</span></a>
-                                            </li>
-                                            <li class="nk-menu-item">
-                                                <a href="html/crypto/kyc-form.html" class="nk-menu-link"><span
-                                                        class="nk-menu-text">KYC - Application Form</span></a>
-                                            </li>
-                                        </ul><!-- .nk-menu-sub -->
-                                    </li><!-- .nk-menu-item -->
-                                    <li class="nk-menu-heading">
-                                        <h6 class="overline-title">Return to</h6>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/index.php" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
-                                            <span class="nk-menu-text">Main Dashboard</span>
-                                        </a>
-                                    </li>
-                                    <li class="nk-menu-item">
-                                        <a href="html/components.html" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-layers"></em></span>
-                                            <span class="nk-menu-text">All Components</span>
-                                        </a>
-                                    </li>
                                 </ul><!-- .nk-menu -->
                             </div><!-- .nk-sidebar-menu -->
-                            <div class="nk-sidebar-widget">
-                                <div class="widget-title">
-                                    <h6 class="overline-title">Crypto Accounts <span>(4)</span></h6>
-                                    <a href="#" class="link">View All</a>
-                                </div>
-                                <ul class="wallet-list">
-                                    <li class="wallet-item">
-                                        <a href="#">
-                                            <div class="wallet-icon"><em class="icon ni ni-sign-kobo"></em></div>
-                                            <div class="wallet-text">
-                                                <h6 class="wallet-name">NioWallet</h6>
-                                                <span class="wallet-balance">30.959040 <span
-                                                        class="currency currency-nio">NIO</span></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="wallet-item">
-                                        <a href="#">
-                                            <div class="wallet-icon"><em class="icon ni ni-sign-btc"></em></div>
-                                            <div class="wallet-text">
-                                                <h6 class="wallet-name">Bitcoin Wallet</h6>
-                                                <span class="wallet-balance">0.0495950 <span
-                                                        class="currency currency-btc">BTC</span></span>
-                                            </div>
-                                        </a>
-                                    </li>
-                                    <li class="wallet-item wallet-item-add">
-                                        <a href="#">
-                                            <div class="wallet-icon"><em class="icon ni ni-plus"></em></div>
-                                            <div class="wallet-text">
-                                                <h6 class="wallet-name">Add another wallet</h6>
-                                            </div>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div><!-- .nk-sidebar-widget -->
-                            <div class="nk-sidebar-footer">
-                                <ul class="nk-menu nk-menu-footer">
-                                    <li class="nk-menu-item">
-                                        <a href="#" class="nk-menu-link">
-                                            <span class="nk-menu-icon"><em class="icon ni ni-help-alt"></em></span>
-                                            <span class="nk-menu-text">Support</span>
-                                        </a>
-                                    </li>
-                                    <li class="nk-menu-item ms-auto">
-                                        <div class="dropup">
-                                            <a href="" class="nk-menu-link dropdown-indicator has-indicator"
-                                                data-bs-toggle="dropdown" data-offset="0,10">
-                                                <span class="nk-menu-icon"><em class="icon ni ni-globe"></em></span>
-                                                <span class="nk-menu-text">English</span>
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-sm dropdown-menu-end">
-                                                <ul class="language-list">
-                                                    <li>
-                                                        <a href="#" class="language-item">
-                                                            <img src="./images/flags/english.png" alt=""
-                                                                class="language-flag">
-                                                            <span class="language-name">English</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="language-item">
-                                                            <img src="./images/flags/spanish.png" alt=""
-                                                                class="language-flag">
-                                                            <span class="language-name">Español</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="language-item">
-                                                            <img src="./images/flags/french.png" alt=""
-                                                                class="language-flag">
-                                                            <span class="language-name">Français</span>
-                                                        </a>
-                                                    </li>
-                                                    <li>
-                                                        <a href="#" class="language-item">
-                                                            <img src="./images/flags/turkey.png" alt=""
-                                                                class="language-flag">
-                                                            <span class="language-name">Türkçe</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul><!-- .nk-footer-menu -->
-                            </div><!-- .nk-sidebar-footer -->
+
                         </div><!-- .nk-sidebar-content -->
                     </div><!-- .nk-sidebar-body -->
                 </div>
@@ -433,7 +302,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                             </div>
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="html/crypto/profile.html"><em
+                                                    <li><a href="html/crypto/./dashboard/profile.php"><em
                                                                 class="icon ni ni-user-alt"></em><span>View
                                                                 Profile</span></a></li>
                                                     <li><a href="html/crypto/profile-security.html"><em

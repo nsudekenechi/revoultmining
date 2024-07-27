@@ -113,7 +113,7 @@ $name = $userRow["name"];
                                                     class="icon ni ni-wallet-in"></em></a></li>
                                     </ul>
                                     <ul class="link-list">
-                                        <li><a href="html/crypto/profile.html"><em
+                                        <li><a href="html/crypto/./dashboard/profile.php"><em
                                                     class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
                                         <li><a href="html/crypto/profile-security.html"><em
                                                     class="icon ni ni-setting-alt"></em><span>Account Setting</span></a>
@@ -192,7 +192,7 @@ $name = $userRow["name"];
                                         </a>
                                     </li>
                                     <li class="nk-menu-item">
-                                        <a href="html/crypto/profile.html" class="nk-menu-link">
+                                        <a href="html/crypto/./dashboard/profile.php" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em
                                                     class="icon ni ni-account-setting"></em></span>
                                             <span class="nk-menu-text">My Profile</span>
@@ -437,7 +437,7 @@ $name = $userRow["name"];
                                             </div>
                                             <div class="dropdown-inner">
                                                 <ul class="link-list">
-                                                    <li><a href="html/crypto/profile.html"><em
+                                                    <li><a href="html/crypto/./dashboard/profile.php"><em
                                                                 class="icon ni ni-user-alt"></em><span>View
                                                                 Profile</span></a></li>
                                                     <li><a href="html/crypto/profile-security.html"><em

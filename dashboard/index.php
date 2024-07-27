@@ -4,6 +4,44 @@ require_once "./includes/header.php";
 ?>
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container mb-5">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+            async>
+                {
+                    "symbols": [
+                        {
+                            "proName": "FOREXCOM:SPXUSD",
+                            "title": "S&P 500 Index"
+                        },
+                        {
+                            "proName": "FOREXCOM:NSXUSD",
+                            "title": "US 100 Cash CFD"
+                        },
+                        {
+                            "proName": "FX_IDC:EURUSD",
+                            "title": "EUR to USD"
+                        },
+                        {
+                            "proName": "BITSTAMP:BTCUSD",
+                            "title": "Bitcoin"
+                        },
+                        {
+                            "proName": "BITSTAMP:ETHUSD",
+                            "title": "Ethereum"
+                        }
+                    ],
+                        "showSymbolLogo": true,
+                            "isTransparent": false,
+                                "displayMode": "adaptive",
+                                    "colorTheme": "light",
+                                        "locale": "en"
+                }
+            </script>
+    </div>
+
+    <!-- TradingView Widget END -->
     <div class="container-xl wide-lg">
         <div class="nk-content-body">
             <div class="nk-block-head">
@@ -20,33 +58,25 @@ require_once "./includes/header.php";
 
                 </div><!-- .nk-block-between -->
             </div><!-- .nk-block-head -->
+
+            <div class="nk-block-head-xs">
+                <div class="nk-block-head-content">
+                    <h5 class="nk-block-title title">Overview</h5>
+                </div>
+            </div><!-- .nk-block-head -->
             <div class="nk-block">
                 <div class="row gy-gs">
                     <div class="col-lg-5 col-xl-4">
                         <div class="nk-block">
-                            <div class="nk-block-head-xs">
-                                <div class="nk-block-head-content">
-                                    <h5 class="nk-block-title title">Overview</h5>
-                                </div>
-                            </div><!-- .nk-block-head -->
                             <div class="nk-block">
                                 <div class="card card-bordered text-light is-dark h-100">
                                     <div class="card-inner">
                                         <div class="nk-wg7">
                                             <div class="nk-wg7-stats">
-                                                <div class="nk-wg7-title">Available balance in EUR</div>
+                                                <div class="nk-wg7-title" style="">Balance</div>
                                                 <div class="number-lg amount"><?= $userRow['balance']; ?></div>
                                             </div>
-                                            <div class="nk-wg7-stats-group">
-                                                <div class="nk-wg7-stats w-50">
-                                                    <div class="nk-wg7-title">Wallets</div>
-                                                    <div class="number-lg">0</div>
-                                                </div>
-                                                <div class="nk-wg7-stats w-50">
-                                                    <div class="nk-wg7-title">Transactions</div>
-                                                    <div class="number">0</div>
-                                                </div>
-                                            </div>
+
                                             <!-- <div class="nk-wg7-foot">
                                                 <span class="nk-wg7-note">Last activity at <span>19 Nov,
                                                         2019</span></span>
@@ -54,281 +84,137 @@ require_once "./includes/header.php";
                                         </div><!-- .nk-wg7 -->
                                     </div><!-- .card-inner -->
                                 </div><!-- .card -->
-                            </div><!-- .nk-block -->
+                            </div>
                         </div><!-- .nk-block -->
                     </div><!-- .col -->
-                    <div class="col-lg-7 col-xl-8">
+                    <div class="col-lg-5 col-xl-4">
                         <div class="nk-block">
-                            <div class="nk-block-head-xs">
-                                <div class="nk-block-between-md g-2">
-                                    <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title title">Digital Wallets</h5>
-                                    </div>
-                                    <div class="nk-block-head-content">
-                                        <a href="html/crypto/wallets.php" class="link link-primary">See All</a>
-                                    </div>
-                                </div>
-                            </div><!-- .nk-block-head -->
-                            <div class="row g-2">
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-btc"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">NioWallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span
-                                                            class="currency currency-nio">NIO</span></div>
-                                                </div>
-                                            </a>
+                            <div class="card card-bordered text-light is-dark h-100">
+                                <div class="card-inner">
+                                    <div class="nk-wg7">
+                                        <div class="nk-wg7-stats">
+                                            <div class="nk-wg7-title" style="">Investment</div>
+                                            <?php
+                                            $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id'";
+                                            $res = mysqli_query($conn, $query);
+
+                                            ?>
+                                            <div class="number-lg amount"><?= $res->fetch_column(); ?></div>
                                         </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-btc"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Bitcoin Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span
-                                                            class="currency currency-btc">BTC</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-eth"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Ethereum Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">0.000560<span
-                                                            class="currency currency-eth">ETH</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                            </div><!-- .row -->
+
+                                        <!-- <div class="nk-wg7-foot">
+                                                <span class="nk-wg7-note">Last activity at <span>19 Nov,
+                                                        2019</span></span>
+                                            </div> -->
+                                    </div><!-- .nk-wg7 -->
+                                </div><!-- .card-inner -->
+                            </div><!-- .card -->
                         </div><!-- .nk-block -->
-                        <div class="nk-block nk-block-md">
-                            <div class="nk-block-head-xs">
-                                <div class="nk-block-between-md g-2">
-                                    <div class="nk-block-head-content">
-                                        <h6 class="nk-block-title title">Fiat Accounts</h6>
-                                    </div>
-                                    <div class="nk-block-head-content">
-                                        <a href="html/crypto/wallets.php" class="link link-primary">See All</a>
-                                    </div>
-                                </div>
-                            </div><!-- .nk-block-head -->
-                            <div class="row g-2">
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-btc"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">NioWallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span
-                                                            class="currency currency-nio">NIO</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-btc"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Bitcoin Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">4.434953<span
-                                                            class="currency currency-btc">BTC</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                                <div class="col-sm-4">
-                                    <div class="card bg-light">
-                                        <div class="nk-wgw sm">
-                                            <a class="nk-wgw-inner" href="html/crypto/wallet-bitcoin.html">
-                                                <div class="nk-wgw-name">
-                                                    <div class="nk-wgw-icon">
-                                                        <em class="icon ni ni-sign-eth"></em>
-                                                    </div>
-                                                    <h5 class="nk-wgw-title title">Ethereum Wallet</h5>
-                                                </div>
-                                                <div class="nk-wgw-balance">
-                                                    <div class="amount">0.000560<span
-                                                            class="currency currency-eth">ETH</span></div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div><!-- .col -->
-                            </div><!-- .row -->
-                        </div> <!-- .nk-block -->
                     </div><!-- .col -->
+                    <div class="col-lg-5 col-xl-4">
+                        <div class="nk-block">
+                            <div class="card card-bordered text-light is-dark h-100">
+                                <div class="card-inner">
+                                    <div class="nk-wg7">
+                                        <div class="nk-wg7-stats">
+                                            <div class="nk-wg7-title" style="">Referral Bonus</div>
+                                            <div class="number-lg amount"><?= $userRow['ref']; ?></div>
+                                        </div>
+
+                                        <!-- <div class="nk-wg7-foot">
+                                                <span class="nk-wg7-note">Last activity at <span>19 Nov,
+                                                        2019</span></span>
+                                            </div> -->
+                                    </div><!-- .nk-wg7 -->
+                                </div><!-- .card-inner -->
+                            </div><!-- .card -->
+                        </div><!-- .nk-block -->
+                    </div><!-- .col -->
+
                 </div><!-- .row -->
             </div><!-- .nk-block -->
             <div class="nk-block nk-block-lg">
                 <div class="row gy-gs">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card-head">
                             <div class="card-title  mb-0">
-                                <h5 class="title">Recent Activities</h5>
+                                <h5 class="title">Recent Deposits</h5>
                             </div>
-                            <div class="card-tools">
-                                <ul class="card-tools-nav">
-                                    <li><a href="#">Buy</a></li>
-                                    <li><a href="#">Sell</a></li>
-                                    <li class="active"><a href="#">All</a></li>
-                                </ul>
-                            </div>
+
                         </div><!-- .card-head -->
                         <div class="tranx-list card card-bordered">
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Bitcoin <em
-                                                    class="tranx-icon sm icon ni ni-sign-btc"></em></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
+                            <?php
+                            $query = "SELECT * FROM deposits 
+                            JOIN wallet_address ON wallet_address.id= deposits.wallet WHERE user = '1' LIMIT 5";
+                            $res = mysqli_query($conn, $query);
+                            if ($res->num_rows > 0) {
+                                while ($row = mysqli_fetch_assoc($res)) {
+                                    ?>
+                                    <div class="tranx-item">
+                                        <div class="tranx-col">
+                                            <div class="tranx-info">
+                                                <div class="tranx-data">
+                                                    <div class="tranx-label d-flex align-items-center gap-3">
+                                                        <span>Deposited <?= $row['name']; ?></span>
+                                                        <img src="./uploads/<?= $row['img']; ?>" width="20"
+                                                            style="object-fit:contain;" alt="">
+                                                    </div>
+                                                    <div class="tranx-date"><?= $row['date']; ?></div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <div class="tranx-col">
+                                            <div class="tranx-amount">
+                                                <div class="number"> <?= $row['amount'] * $row['rate']; ?> <span
+                                                        class="currency currency-btc">BTC</span></div>
+                                                <div class="number-sm"><?= number_format($row['amount'], 2); ?> <span
+                                                        class="currency currency-usd">GBP</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- .tranx-item -->
+                                    <?php
+                                }
+                            } else {
+                                ?>
+                                <div class="card card-bordered row">
+                                    <div class="nk-refwg col-12">
+                                        <div class="nk-refwg-invite card-inner">
+                                            <div class="nk-refwg-head g-3">
+                                                <div class="nk-refwg-title">
+                                                    <h5 class="title">Refer Us & Earn</h5>
+                                                    <div class="title-sub">Use the bellow link to invite your friends.</div>
+                                                </div>
+                                                <div class="nk-refwg-action">
+                                                    <a href="#" class="btn btn-primary">Invite</a>
+                                                </div>
+                                            </div>
+                                            <div class="nk-refwg-url">
+                                                <div class="form-control-wrap">
+                                                    <div class="form-clip clipboard-init" data-clipboard-target="#refUrl"
+                                                        data-success="Copied" data-text="Copy Link"><em
+                                                            class="clipboard-icon icon ni ni-copy"></em> <span
+                                                            class="clipboard-text">Copy Link</span></div>
+                                                    <div class="form-icon">
+                                                        <em class="icon ni ni-link-alt"></em>
+                                                    </div>
+                                                    <input type="text" class="form-control copy-text" id="refUrl"
+                                                        value="https://dashlite.net/?ref=4945KD48">
+                                                </div>
+                                            </div>
+                                        </div><!-- .nk-refwg-invite -->
+
+                                    </div><!-- .nk-refwg -->
                                 </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">0.5384 <span class="currency currency-btc">BTC</span></div>
-                                        <div class="number-sm">3,980.93 <span class="currency currency-usd">USD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Ehtereum <span class="tranx-icon sm"><img
-                                                        src="./images/coins/eth.svg" alt=""></span></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">1.538405 <span class="currency currency-btc">ETH</span>
-                                        </div>
-                                        <div class="number-sm">1,176.34 <span class="currency currency-usd">USD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Bitcoin <em
-                                                    class="tranx-icon sm icon ni ni-sign-btc"></em></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">0.5384 <span class="currency currency-btc">BTC</span></div>
-                                        <div class="number-sm">3,980.93 <span class="currency currency-usd">USD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
-                            <div class="tranx-item">
-                                <div class="tranx-col">
-                                    <div class="tranx-info">
-                                        <div class="tranx-data">
-                                            <div class="tranx-label">Buy Ehtereum <span class="tranx-icon sm"><img
-                                                        src="./images/coins/eth.svg" alt=""></span></div>
-                                            <div class="tranx-date">Nov 12, 2019 11:34 PM</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tranx-col">
-                                    <div class="tranx-amount">
-                                        <div class="number">1.538405 <span class="currency currency-btc">ETH</span>
-                                        </div>
-                                        <div class="number-sm">1,176.34 <span class="currency currency-usd">USD</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div><!-- .tranx-item -->
+                                <?php
+                            }
+                            ?>
+
+
+
                         </div><!-- .tranx-list -->
                     </div><!-- .col -->
-                    <div class="col-md-6">
-                        <div class="card-head">
-                            <div class="card-title mb-0">
-                                <h5 class="title">Balance Flow</h5>
-                            </div>
-                            <div class="card-tools">
-                                <ul class="card-tools-nav">
-                                    <li><a href="#">This Month</a></li>
-                                    <li class="active"><a href="#">This Years</a></li>
-                                </ul>
-                            </div>
-                        </div><!-- .card-title -->
-                        <div class="card card-bordered">
-                            <div class="card-inner">
-                                <div class="nk-wg4">
-                                    <div class="nk-wg4-group justify-center gy-3 gx-4">
-                                        <div class="nk-wg4-item">
-                                            <div class="sub-text">
-                                                <div class="dot dot-lg sq" data-bg="#5ce0aa"></div>
-                                                <span>Received</span>
-                                            </div>
-                                        </div>
-                                        <div class="nk-wg4-item">
-                                            <div class="sub-text">
-                                                <div class="dot dot-lg sq" data-bg="#798bff"></div> <span>Send</span>
-                                            </div>
-                                        </div>
-                                        <div class="nk-wg4-item">
-                                            <div class="sub-text">
-                                                <div class="dot dot-lg sq" data-bg="#f6ca3e"></div><span>Withdraw</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="nk-ck3">
-                                    <canvas class="chart-account-summary" id="summaryBalance"></canvas>
-                                </div>
-                            </div><!-- .card-inner -->
-                        </div><!-- .card -->
-                    </div><!-- .col -->
+
                 </div><!-- .row -->
             </div><!-- .nk-block -->
             <div class="nk-block">
