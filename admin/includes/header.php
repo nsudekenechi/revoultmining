@@ -23,7 +23,7 @@ $name = $userRow["name"];
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title>Crypto Dashboard | RevoultMining</title>
+    <title>Crypto Dashboard | Zenixmining</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">

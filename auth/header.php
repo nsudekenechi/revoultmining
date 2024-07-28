@@ -13,11 +13,11 @@ if (isset($_GET["ref"])) {
     <meta name="author" content="Softnio">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description"
-        content="Discover unparalleled investment opportunities with RevoultMining, the premier ROI platform dedicated to delivering secure, transparent, and high-yield crypto returns. Leverage our advanced technology and expert insights to maximize your profits in the dynamic world of cryptocurrencies. Join RevoultMining today and take a decisive step towards revolutionizing your financial future..">
+        content="Discover unparalleled investment opportunities with Zenixmining, the premier ROI platform dedicated to delivering secure, transparent, and high-yield crypto returns. Leverage our advanced technology and expert insights to maximize your profits in the dynamic world of cryptocurrencies. Join Zenixmining today and take a decisive step towards revolutionizing your financial future.">
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="./images/favicon.png">
     <!-- Page Title  -->
-    <title> <?= $title; ?> | Revoultmining</title>
+    <title> <?= $title; ?> | Zenixmining</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">

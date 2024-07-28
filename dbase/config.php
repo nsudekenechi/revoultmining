@@ -1,7 +1,7 @@
 <?php
 $username = "root";
 $password = "";
-$db = "revoultmining";
+$db = "Zenixmining";
 $host = "localhost";
 $conn = mysqli_connect($host, $username, $password, $db);
 if (!$conn) {

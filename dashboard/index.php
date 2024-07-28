@@ -275,7 +275,7 @@ require_once "./includes/header.php";
 <script>
     let refUrl = document.querySelector("#refUrl");
     let user = document.querySelector("#user")
-    refUrl.value = `${location.origin}/revoultmining/auth/register.php?ref=${user.value}`
+    refUrl.value = `${location.origin}/Zenixmining/auth/register.php?ref=${user.value}`
 
 </script>
 <?php

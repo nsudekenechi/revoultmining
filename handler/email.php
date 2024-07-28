@@ -10,7 +10,7 @@ function sendEmail($emailFile, $search, $replace, $subject, $to)
 
         $senderemail = "nsudekenechi2@gmail.com";
         $senderpassword = "gfzghwfqaujfxnph";
-        $senderFrom = "Revoultmining";
+        $senderFrom = "Zenixmining";
 
         $body = file_get_contents($emailFile);
         $body = str_replace($search, $replace, $body);

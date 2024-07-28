@@ -7,7 +7,7 @@ require_once "./header.php";
     <div class="nk-block-head-content">
         <h5 class="nk-block-title">Register</h5>
         <div class="nk-block-des">
-            <p>Create New Revoultmining Account</p>
+            <p>Create New Zenixmining Account</p>
         </div>
     </div>
 </div><!-- .nk-block-head -->

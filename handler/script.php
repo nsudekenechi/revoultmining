@@ -1,7 +1,7 @@
 <?php
 require_once "../dbase/config.php";
 require_once "./email.php";
-$url = "http://localhost/revoultmining";
+$url = "http://localhost/Zenixmining";
 session_start();
 
 // register-user
@@ -34,10 +34,10 @@ if (isset($_POST["register"])) {
 
         // sending user OTP
         $greeting = "Hi $name,";
-        $body = "<p style='margin-bottom: 5px;'>Welcome to Revoultmining! To complete your registration and verify your account, please use the One-Time Password (OTP) below:</p>
+        $body = "<p style='margin-bottom: 5px;'>Welcome to Zenixmining! To complete your registration and verify your account, please use the One-Time Password (OTP) below:</p>
     <p style='margin-bottom: 5px;'>Your OTP: $OTP.</p>
     ";
-        sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Verify Your Account - Welcome to Revoultmining!", $email);
+        sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Verify Your Account - Welcome to Zenixmining!", $email);
         header("Location: ../auth/otp.php");
     } else {
         header("Location: ./auth/register.php?auth=f");
