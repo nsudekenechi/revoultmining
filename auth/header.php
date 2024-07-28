@@ -32,3 +32,17 @@ if (isset($_GET["ref"])) {
                 <!-- content @s -->
                 <div class="nk-content ">
                     <div class="nk-split nk-split-page nk-split-md">
+                        <div class="nk-split-content  nk-block-area-column nk-auth-container bg-white">
+                            <div class="absolute-top-right d-lg-none p-3 p-sm-5">
+                                <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em
+                                        class="icon ni ni-info"></em></a>
+                            </div>
+                            <div class="nk-block nk-block-middle nk-auth-body">
+                                <div class="brand-logo pb-5">
+                                    <a href="html/index.php" class="logo-link">
+                                        <img class="logo-light logo-img logo-img-md" src="./images/revolutmining.png"
+                                            srcset="./images/revolutmining.png" alt="logo">
+                                        <img class="logo-dark logo-img logo-img-md" src="./images/revolutmining.png"
+                                            srcset="./images/revolutmining.png" alt="logo-dark">
+                                    </a>
+                                </div>
