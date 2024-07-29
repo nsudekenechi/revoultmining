@@ -30,15 +30,17 @@ require_once "./includes/header.php";
             </div><!-- .nk-block-head -->
             <div class="nk-block mb-5">
                 <div class="row gy-gs">
-                    <div class="col-lg-5 col-xl-4">
+                    <div class="col-6 col-lg-5 col-xl-4">
                         <div class="nk-block">
                             <div class="nk-block">
                                 <div class="card card-bordered text-light is-dark h-100">
                                     <div class="card-inner">
                                         <div class="nk-wg7">
                                             <div class="nk-wg7-stats">
-                                                <div class="nk-wg7-title" style="">Balance</div>
-                                                <div class="number-lg amount"><?= $userRow['balance']; ?></div>
+                                                <div class="nk-wg7-title mb-2" style="">Balance</div>
+                                                <div class="text-white">
+                                                    <h3 class="amount"> <?= $userRow['balance']; ?></h3>
+                                                </div>
                                             </div>
 
                                             <!-- <div class="nk-wg7-foot">
@@ -51,19 +53,23 @@ require_once "./includes/header.php";
                             </div>
                         </div><!-- .nk-block -->
                     </div><!-- .col -->
-                    <div class="col-lg-5 col-xl-4">
+                    <div class="col-6 col-lg-5 col-xl-4">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7">
                                         <div class="nk-wg7-stats">
-                                            <div class="nk-wg7-title" style="">Investment</div>
+                                            <div class="nk-wg7-title mb-2" style="">Investment</div>
                                             <?php
                                             $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id'";
                                             $res = mysqli_query($conn, $query);
 
                                             ?>
-                                            <div class="number-lg amount"><?= $res->fetch_column(); ?></div>
+                                            <div class="text-white">
+                                                <h3 class="amount">
+                                                    <?= $res->fetch_column(); ?>
+                                                </h3>
+                                            </div>
                                         </div>
 
                                         <!-- <div class="nk-wg7-foot">
@@ -75,14 +81,38 @@ require_once "./includes/header.php";
                             </div><!-- .card -->
                         </div><!-- .nk-block -->
                     </div><!-- .col -->
-                    <div class="col-lg-5 col-xl-4">
+                    <div class="col-6 col-lg-5 col-xl-4">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7">
                                         <div class="nk-wg7-stats">
-                                            <div class="nk-wg7-title" style="">Referral Bonus</div>
-                                            <div class="number-lg amount"><?= $userRow['ref_balance']; ?></div>
+                                            <div class="nk-wg7-title mb-2" style="">Referral Bonus</div>
+                                            <div class="number-lg text-white">
+                                                <h3 class="amount"> <?= $userRow['ref_balance']; ?></h3>
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="nk-wg7-foot">
+                                                <span class="nk-wg7-note">Last activity at <span>19 Nov,
+                                                        2019</span></span>
+                                            </div> -->
+                                    </div><!-- .nk-wg7 -->
+                                </div><!-- .card-inner -->
+                            </div><!-- .card -->
+                        </div><!-- .nk-block -->
+                    </div><!-- .col -->
+
+                    <div class="col-6 col-lg-5 col-xl-4">
+                        <div class="nk-block">
+                            <div class="card card-bordered text-light is-dark h-100">
+                                <div class="card-inner">
+                                    <div class="nk-wg7">
+                                        <div class="nk-wg7-stats">
+                                            <div class="nk-wg7-title mb-2" style="">Account Status </div>
+                                            <div class="text-white">
+                                                <h3 class="">Verified </h3>
+                                            </div>
                                         </div>
 
                                         <!-- <div class="nk-wg7-foot">

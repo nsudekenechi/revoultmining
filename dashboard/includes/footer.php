@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="nk-footer-wrap">
             <div class="nk-footer-copyright"> &copy; <?= date('Y'); ?>
-                Revolutmining. All rights reserved
+                Zenixmining. All rights reserved
             </div>
 
         </div>
@@ -51,8 +51,6 @@
             }
         }
     }
-</script>
-<script>
     const date = new Date().getHours()
     let greeting = "";
     let messages = [
@@ -69,7 +67,17 @@
         greeting = "Good Evening";
     }
     welcomeMessage.innerHTML = `<b>${greeting}</b>, <span>${messages[Math.floor(Math.random() * messages.length)]}</span>`
+    let text = ["withdrew", "deposited"];
 
+    fetch("./assets/country.json").then(res => res.json()).then(data => {
+        setInterval(() => {
+            NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just 
+        ${text[Math.floor(Math.random() * text.length)]} 
+      <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}</b>
+        `, 'info', { icon: false, duration: 1000 });
+        }, 10000)
+        console.log();
+    })
 </script>
 <?php
 require_once "../handler/alert.php";
