@@ -49,7 +49,7 @@ if (isset($_GET["verifyemail"])) {
     $query = "SELECT * FROM users WHERE email = '$email'";
     $res = mysqli_query($conn, $query);
     if ($res->num_rows > 0) {
-        echo true;
+        echo "exists";
     } else {
         echo false;
     }

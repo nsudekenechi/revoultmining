@@ -208,7 +208,7 @@ require_once "./includes/header.php";
                                         id="buysell-amount" name="amount" placeholder="0.00" required
                                         min="<?= $row['min_deposit']; ?>">
                                     <div class="form-dropdown">
-                                        <div class="text">EUR</div>
+                                        <div class="text">GBP</div>
 
                                     </div>
                                 </div>

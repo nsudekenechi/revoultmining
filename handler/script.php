@@ -7,12 +7,13 @@ session_start();
 // register-user
 if (isset($_POST["register"])) {
     extract($_POST);
+    print_r($_POST);
     $password = password_hash($password, PASSWORD_DEFAULT);
     if (isset($_SESSION["ref"])) {
         $ref = $_SESSION["ref"];
-        $query = "INSERT INTO users (name, email, password, ref) VALUES ('$name', '$email', '$password', '$ref')";
+        $query = "INSERT INTO users (name, username,email, password, phone_number, country, state, address, account_type, ref) VALUES ('$name', '$username','$email', '$password', '$phone_number', '$country', '$state', '$address', '$account_type', '$ref')";
     } else {
-        $query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
+        $query = "INSERT INTO users (name, username,email, password, phone_number, country, state, address, account_type) VALUES ('$name', '$username','$email', '$password', '$phone_number', '$country', '$state', '$address', '$account_type')";
     }
 
     $res = mysqli_query($conn, $query);
