@@ -30,99 +30,129 @@ require_once "./includes/header.php";
             </div><!-- .nk-block-head -->
             <div class="nk-block mb-5">
                 <div class="row gy-gs">
-                    <div class="col-6 col-lg-5 col-xl-4">
+                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
                         <div class="nk-block">
-                            <div class="nk-block">
-                                <div class="card card-bordered text-light is-dark h-100">
-                                    <div class="card-inner">
-                                        <div class="nk-wg7">
-                                            <div class="nk-wg7-stats">
+                            <div class="card card-bordered text-light is-dark h-100">
+                                <div class="card-inner">
+                                    <div class="nk-wg7" style="position:relative;z-index:20;">
+                                        <div class="row align-items-center">
+                                            <div class="nk-wg7-stats col-9">
+                                                <div class="nk-wg7-title mb-2" style="">Investment</div>
+                                                <?php
+                                                $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id'";
+                                                $res = mysqli_query($conn, $query);
+
+                                                ?>
+                                                <div class="text-white">
+                                                    <h6 class="amount">
+                                                        <?= $res->fetch_column(); ?>
+                                                    </h6>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 pe-4 pe-md-0">
+                                                <em class="icon ni ni-sign-gbp " style="font-size:1.5rem"></em>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div><!-- .nk-wg7 -->
+                                </div><!-- .card-inner -->
+                            </div><!-- .card -->
+                        </div><!-- .nk-block -->
+                        <em class="icon ni ni-sign-gbp text-white"
+                            style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
+                    </div><!-- .col -->
+
+                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
+
+                        <div class="nk-block">
+                            <div class="card card-bordered text-light is-dark h-100">
+                                <div class="card-inner">
+                                    <div class="nk-wg7" style="position:relative;z-index:20;">
+                                        <div class="row">
+                                            <div class="col-9 nk-wg7-stats">
                                                 <div class="nk-wg7-title mb-2" style="">Balance</div>
                                                 <div class="text-white">
-                                                    <h3 class="amount"> <?= $userRow['balance']; ?></h3>
+                                                    <h6 class="amount"> <?= $userRow['balance']; ?></h6>
                                                 </div>
                                             </div>
 
-                                            <!-- <div class="nk-wg7-foot">
+                                            <div class="col-2 pe-4 pe-md-0">
+                                                <em class="icon ni ni-trend-up " style="font-size:1.5rem"></em>
+
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="nk-wg7-foot">
                                                 <span class="nk-wg7-note">Last activity at <span>19 Nov,
                                                         2019</span></span>
                                             </div> -->
-                                        </div><!-- .nk-wg7 -->
-                                    </div><!-- .card-inner -->
-                                </div><!-- .card -->
+                                    </div><!-- .nk-wg7 -->
+                                </div><!-- .card-inner -->
+                            </div><!-- .card -->
+                        </div>
+                        <em class="icon ni ni-trend-up text-white"
+                            style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
+
+                    </div><!-- .col -->
+
+                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
+                        <div class="nk-block">
+                            <div class="card card-bordered text-light is-dark h-100">
+                                <div class="card-inner">
+                                    <div class="nk-wg7">
+                                        <div class="row">
+                                            <div class="nk-wg7-stats col-9">
+                                                <div class="nk-wg7-title mb-2" style="">Referral Bonus</div>
+                                                <div class="number-lg text-white">
+                                                    <h6 class="amount"> <?= $userRow['ref_balance']; ?></h6>
+                                                </div>
+                                            </div>
+                                            <div class="col-3">
+                                                <em class="icon ni ni-users-fill" style="font-size:1.5rem"></em>
+                                            </div>
+                                        </div>
+
+
+                                    </div><!-- .nk-wg7 -->
+                                </div><!-- .card-inner -->
                             </div>
+                            <!-- .card -->
                         </div><!-- .nk-block -->
+
+                        <em class="icon ni ni-users-fill text-white"
+                            style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
+
                     </div><!-- .col -->
-                    <div class="col-6 col-lg-5 col-xl-4">
+
+                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7">
-                                        <div class="nk-wg7-stats">
-                                            <div class="nk-wg7-title mb-2" style="">Investment</div>
-                                            <?php
-                                            $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id'";
-                                            $res = mysqli_query($conn, $query);
+                                        <div class="row">
+                                            <div class="nk-wg7-stats col-9">
+                                                <div class="nk-wg7-title mb-2" style="">Account Status </div>
+                                                <div class="text-white">
+                                                    <h6 class="">Verified </h6>
+                                                </div>
+                                            </div>
 
-                                            ?>
-                                            <div class="text-white">
-                                                <h3 class="amount">
-                                                    <?= $res->fetch_column(); ?>
-                                                </h3>
+                                            <div class="col-3">
+                                                <em class="icon ni ni-shield-check" style="font-size:1.5rem"></em>
                                             </div>
                                         </div>
 
-                                        <!-- <div class="nk-wg7-foot">
-                                                <span class="nk-wg7-note">Last activity at <span>19 Nov,
-                                                        2019</span></span>
-                                            </div> -->
+
                                     </div><!-- .nk-wg7 -->
                                 </div><!-- .card-inner -->
                             </div><!-- .card -->
                         </div><!-- .nk-block -->
-                    </div><!-- .col -->
-                    <div class="col-6 col-lg-5 col-xl-4">
-                        <div class="nk-block">
-                            <div class="card card-bordered text-light is-dark h-100">
-                                <div class="card-inner">
-                                    <div class="nk-wg7">
-                                        <div class="nk-wg7-stats">
-                                            <div class="nk-wg7-title mb-2" style="">Referral Bonus</div>
-                                            <div class="number-lg text-white">
-                                                <h3 class="amount"> <?= $userRow['ref_balance']; ?></h3>
-                                            </div>
-                                        </div>
 
-                                        <!-- <div class="nk-wg7-foot">
-                                                <span class="nk-wg7-note">Last activity at <span>19 Nov,
-                                                        2019</span></span>
-                                            </div> -->
-                                    </div><!-- .nk-wg7 -->
-                                </div><!-- .card-inner -->
-                            </div><!-- .card -->
-                        </div><!-- .nk-block -->
-                    </div><!-- .col -->
+                        <em class="icon ni ni-shield-check text-white"
+                            style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
 
-                    <div class="col-6 col-lg-5 col-xl-4">
-                        <div class="nk-block">
-                            <div class="card card-bordered text-light is-dark h-100">
-                                <div class="card-inner">
-                                    <div class="nk-wg7">
-                                        <div class="nk-wg7-stats">
-                                            <div class="nk-wg7-title mb-2" style="">Account Status </div>
-                                            <div class="text-white">
-                                                <h3 class="">Verified </h3>
-                                            </div>
-                                        </div>
-
-                                        <!-- <div class="nk-wg7-foot">
-                                                <span class="nk-wg7-note">Last activity at <span>19 Nov,
-                                                        2019</span></span>
-                                            </div> -->
-                                    </div><!-- .nk-wg7 -->
-                                </div><!-- .card-inner -->
-                            </div><!-- .card -->
-                        </div><!-- .nk-block -->
                     </div><!-- .col -->
 
                 </div><!-- .row -->
