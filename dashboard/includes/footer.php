@@ -74,9 +74,8 @@
             NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just 
         ${text[Math.floor(Math.random() * text.length)]} 
       <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}</b>
-        `, 'info', { icon: false, duration: 1000 });
+        `, 'info', { icon: false });
         }, 10000)
-        console.log();
     })
 </script>
 <?php
