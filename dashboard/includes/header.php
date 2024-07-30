@@ -31,6 +31,13 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
+    <style>
+        @media screen and (max-width: 765px) {
+            body {
+                overflow-x: hidden;
+            }
+        }
+    </style>
 </head>
 
 <body class="nk-body npc-crypto bg-white has-sidebar ">

@@ -27,6 +27,7 @@ $name = $userRow["name"];
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="./assets/css/dashlite.css?ver=3.1.3">
     <link id="skin-default" rel="stylesheet" href="./assets/css/theme.css?ver=3.1.3">
+
 </head>
 
 <body class="nk-body npc-crypto bg-white has-sidebar ">
