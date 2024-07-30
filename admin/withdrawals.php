@@ -1,6 +1,8 @@
 <?php
 require_once "./includes/header.php";
-$query = "SELECT * FROM withdraws";
+$query = "SELECT *, wallet.name as walletName, users.name as user_name, withdraws.address as withdrawAddress,withdraws.id as withdrawId FROM withdraws 
+                                JOIN users ON users.id = withdraws.user 
+                                   JOIN wallet_address as wallet on wallet.id=withdraws.wallet";
 $res = mysqli_query($conn, $query);
 ?>
 <div class="nk-content nk-content-fluid">

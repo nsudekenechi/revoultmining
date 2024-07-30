@@ -52,7 +52,7 @@ require_once "./includes/header.php";
 
                 <div class="nk-block-between-md g-4">
                     <div class="nk-block-head-content">
-                        <h2 class="nk-block-title fw-normal"><?= $name ?></h2>
+                        <h4 class="nk-block-title fw-normal"><?= $name ?></h4>
                         <!-- <div class="nk-block-des">
                             <p>At a glance summary of your account. Have fun!</p>
                         </div> -->

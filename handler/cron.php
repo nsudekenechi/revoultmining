@@ -1,10 +1,10 @@
 <?php
 require_once "../dbase/config.php";
-$query = "SELECT *, users.id as user_id, deposits.id as deposit_id 
+$q = "SELECT *, STR_TO_DATE(date,  '%d %a %b, %Y')  as date, users.id as user_id, deposits.id as deposit_id 
 FROM deposits JOIN users ON users.id = deposits.user 
 JOIN plans ON plans.id = deposits.plan WHERE deposits.approved = true";
-$res = mysqli_query($conn, $query);
-while ($row = $res->fetch_assoc()) {
+$resu = mysqli_query($conn, $q);
+while ($row = $resu->fetch_assoc()) {
     $dailyInterest = $row["daily_interest"] / 100;
     $depositAmount = $row["amount"];
     $amount = $dailyInterest * $depositAmount;
@@ -23,17 +23,18 @@ while ($row = $res->fetch_assoc()) {
         $query = "UPDATE deposits SET last_profit='$currDate' WHERE id = '$deposit_id'";
         $res = mysqli_query($conn, $query);
     } else {
-        $currDate = date('d D M, Y', strtotime("today"));
-        $endDate = date("d D M, Y", strtotime($row['date'] . "+$numberOfDays day"));
+        $currDate = new DateTime();
+        $endDate = new DateTime($row['date']);
+        $endDate = $endDate->modify("+$numberOfDays day");
 
         // checking if  profit end date have reached
-        if (date_diff(new DateTime($currDate), new DateTime($endDate))->days > 0) {
+        if (date_diff($currDate, $endDate)->days > 0) {
             // updating balance
             $queryBal = "UPDATE users SET  balance= balance + $amount WHERE id = '$user_id'";
             $resBal = mysqli_query($conn, $queryBal);
-
+            $profit_date = $currDate->format("d D M Y");
             // updaing profit date
-            $queryBal = "UPDATE deposits SET last_profit='$currDate' WHERE id = '$deposit_id'";
+            $queryBal = "UPDATE deposits SET last_profit='$profit_date' WHERE id = '$deposit_id'";
             $resBal = mysqli_query($conn, $queryBal);
         }
 

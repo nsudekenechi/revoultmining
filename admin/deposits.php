@@ -1,6 +1,9 @@
 <?php
 require_once "./includes/header.php";
-$query = "SELECT * FROM deposits WHERE deposits.proof != ''";
+$query = "SELECT *, wallet.name as walletName, users.name as user_name, deposits.id as depositID FROM deposits 
+                                JOIN users ON users.id = deposits.user 
+                                   JOIN wallet_address as wallet on wallet.id=deposits.wallet
+                                   WHERE deposits.proof != ''";
 $res = mysqli_query($conn, $query);
 ?>
 

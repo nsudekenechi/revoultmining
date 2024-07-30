@@ -75,7 +75,7 @@
         <b>${text[Math.floor(Math.random() * text.length)]} </b>
       <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}</b>
         `, 'info', { icon: false });
-        }, 10000)
+        }, 50000)
     })
 </script>
 
