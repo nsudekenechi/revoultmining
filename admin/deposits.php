@@ -1,6 +1,6 @@
 <?php
 require_once "./includes/header.php";
-$query = "SELECT * FROM deposits";
+$query = "SELECT * FROM deposits WHERE deposits.proof != ''";
 $res = mysqli_query($conn, $query);
 ?>
 
@@ -44,74 +44,87 @@ $res = mysqli_query($conn, $query);
                                    WHERE deposits.proof != ''
                                    ";
                                     $res = mysqli_query($conn, $query);
-                                    while ($row = $res->fetch_assoc()) {
-                                        ?>
-                                        <tr>
-                                            <th scope="row"><?= $row['date']; ?></th>
-                                            <td>
-                                                <div class="">
-                                                    <p class="tb-lead"><?= $row['user_name'] ?></p>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div style="display: flex; align-items:center; gap:5px;">
-                                                    <img src="./uploads/<?= $row['img']; ?>" width="20" alt="">
-                                                    <span
-                                                        class="tb-lead-sub"><?= $row['walletName']; ?>(<?= strtoupper($row['acronym']); ?>)</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="">
-                                                    <div>
-                                                        <span class="tb-amount"><?= $row['rate'] * $row['amount']; ?>
-                                                            <span><?= strtoupper($row['acronym']); ?></span></span>
+                                    if ($res->num_rows > 0) {
+                                        while ($row = $res->fetch_assoc()) {
+                                            ?>
+                                            <tr>
+                                                <th scope="row"><?= $row['date']; ?></th>
+                                                <td>
+                                                    <div class="">
+                                                        <p class="tb-lead"><?= $row['user_name'] ?></p>
                                                     </div>
-                                                    <span class="tb-amount-sm amount"
-                                                        style="font-size: 12px;"><?= $row['amount']; ?></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dot dot-success d-none d-md-none"></div>
-                                                <?php
-                                                if ($row['approved']) {
-                                                    ?>
-                                                    <span
-                                                        class="badge badge-sm badge-dim bg-outline-success d-md-inline-flex">Completed</span>
+                                                </td>
+                                                <td>
+                                                    <div style="display: flex; align-items:center; gap:5px;">
+                                                        <img src="./uploads/<?= $row['img']; ?>" width="20" alt="">
+                                                        <span
+                                                            class="tb-lead-sub"><?= $row['walletName']; ?>(<?= strtoupper($row['acronym']); ?>)</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <div>
+                                                            <span class="tb-amount"><?= $row['rate'] * $row['amount']; ?>
+                                                                <span><?= strtoupper($row['acronym']); ?></span></span>
+                                                        </div>
+                                                        <span class="tb-amount-sm amount"
+                                                            style="font-size: 12px;"><?= $row['amount']; ?></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="dot dot-success d-none d-md-none"></div>
                                                     <?php
-                                                } else {
-                                                    ?>
-                                                    <span
-                                                        class="badge badge-sm badge-dim bg-outline-warning  d-md-inline-flex">Pending</span>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <ul class="d-flex gap-3">
-                                                    <?php
-                                                    if (!$row['approved']) {
+                                                    if ($row['approved']) {
                                                         ?>
-                                                        <li class="">
-                                                            <a href="./handler/adminscript.php?approve_deposit=<?= $row['depositID']; ?>"
-                                                                class="bg-white btn btn-sm btn-outline-light btn-icon"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                aria-label="Approve" data-bs-original-title="Approve"><em
-                                                                    class="icon ni ni-done"></em></a>
-                                                        </li>
+                                                        <span
+                                                            class="badge badge-sm badge-dim bg-outline-success d-md-inline-flex">Completed</span>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <span
+                                                            class="badge badge-sm badge-dim bg-outline-warning  d-md-inline-flex">Pending</span>
                                                         <?php
                                                     }
                                                     ?>
-                                                    <li class="">
+                                                </td>
+                                                <td>
+                                                    <ul class="d-flex gap-3">
+                                                        <?php
+                                                        if (!$row['approved']) {
+                                                            ?>
+                                                            <li class="">
+                                                                <a href="./handler/adminscript.php?approve_deposit=<?= $row['depositID']; ?>"
+                                                                    class="bg-white btn btn-sm btn-outline-light btn-icon"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    aria-label="Approve" data-bs-original-title="Approve"><em
+                                                                        class="icon ni ni-done"></em></a>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                        <li class="">
 
-                                                        <a href="#tranxDetails" data-bs-toggle="modal"
-                                                            data-bs-target="#modalDefault"
-                                                            class="bg-white btn btn-sm btn-outline-light btn-icon btn-tooltip viewProof"
-                                                            aria-label="Details" data-bs-original-title="View Proof"
-                                                            data-src="<?= $row['proof']; ?>">
-                                                            <em class="icon ni ni-eye"></em>
-                                                        </a>
-                                                    </li>
-                                                </ul>
+                                                            <a href="#tranxDetails" data-bs-toggle="modal"
+                                                                data-bs-target="#modalDefault"
+                                                                class="bg-white btn btn-sm btn-outline-light btn-icon btn-tooltip viewProof"
+                                                                aria-label="Details" data-bs-original-title="View Proof"
+                                                                data-src="<?= $row['proof']; ?>">
+                                                                <em class="icon ni ni-eye"></em>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                        ?>
+
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <tr>
+                                            <td colspan="5">
+                                                <p class="text-center p-3">No user have made any deposit yet</p>
                                             </td>
                                         </tr>
                                         <?php

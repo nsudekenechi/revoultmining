@@ -39,78 +39,93 @@ $res = mysqli_query($conn, $query);
                                    JOIN wallet_address as wallet on wallet.id=withdraws.wallet
                                    ";
                                     $res = mysqli_query($conn, $query);
-                                    while ($row = $res->fetch_assoc()) {
-                                        ?>
-                                        <tr>
-                                            <th scope="row"><?= $row['date']; ?></th>
-                                            <td>
-                                                <div class="">
-                                                    <p class="tb-lead"><?= $row['user_name'] ?></p>
+                                    if ($res->num_rows > 0) {
+                                        while ($row = $res->fetch_assoc()) {
+                                            ?>
+                                            <tr>
+                                                <th scope="row"><?= $row['date']; ?></th>
+                                                <td>
+                                                    <div class="">
+                                                        <p class="tb-lead"><?= $row['user_name'] ?></p>
 
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div style="display: flex; align-items:center; gap:5px;">
-                                                    <img src="./uploads/<?= $row['img']; ?>" width="20" alt="">
-                                                    <span
-                                                        class="tb-lead-sub"><?= $row['walletName']; ?>(<?= strtoupper($row['acronym']); ?>)</span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="">
-                                                    <div>
-                                                        <span class="tb-amount"><?= $row['rate'] * $row['amount']; ?>
-                                                            <span><?= strtoupper($row['acronym']); ?></span></span>
                                                     </div>
-                                                    <span class="tb-amount-sm amount"
-                                                        style="font-size: 12px;"><?= $row['amount']; ?></span>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div class="dot dot-success d-none d-md-none"></div>
-                                                <?php
-                                                if ($row['approved']) {
-                                                    ?>
-                                                    <span
-                                                        class="badge badge-sm badge-dim bg-outline-success d-md-inline-flex">Approved</span>
+                                                </td>
+                                                <td>
+                                                    <div style="display: flex; align-items:center; gap:5px;">
+                                                        <img src="./uploads/<?= $row['img']; ?>" width="20" alt="">
+                                                        <span
+                                                            class="tb-lead-sub"><?= $row['walletName']; ?>(<?= strtoupper($row['acronym']); ?>)</span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="">
+                                                        <div>
+                                                            <span class="tb-amount"><?= $row['rate'] * $row['amount']; ?>
+                                                                <span><?= strtoupper($row['acronym']); ?></span></span>
+                                                        </div>
+                                                        <span class="tb-amount-sm amount"
+                                                            style="font-size: 12px;"><?= $row['amount']; ?></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="dot dot-success d-none d-md-none"></div>
                                                     <?php
-                                                } else {
-                                                    ?>
-                                                    <span
-                                                        class="badge badge-sm badge-dim bg-outline-warning  d-md-inline-flex">Pending</span>
-                                                    <?php
-                                                }
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <ul class="d-flex gap-3 align-content-center">
-                                                    <?php
-                                                    if (!$row['approved']) {
+                                                    if ($row['approved']) {
                                                         ?>
-                                                        <li class="">
-                                                            <a href="./handler/adminscript.php?approve_withdraw=<?= $row['withdrawId']; ?>"
-                                                                class="bg-white btn btn-sm btn-outline-light btn-icon"
-                                                                data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                aria-label="Approve" data-bs-original-title="Approve"><em
-                                                                    class="icon ni ni-done"></em></a>
-                                                        </li>
-
-                                                        <li>
-                                                            <button type="button"
-                                                                class="btn btn-sm btn-icon btn-clipboard clipboard-init clipboard-text"
-                                                                data-clip-success="<em class='ni ni-done text-lg'></em>"
-                                                                data-clip-text="<em class='icon ni ni-copy'></em>"
-                                                                data-clipboard-text="<?= $row['withdrawAddress']; ?>">
-                                                                <em class="icon ni ni-copy"></em>
-                                                            </button>
-                                                        </li>
+                                                        <span
+                                                            class="badge badge-sm badge-dim bg-outline-success d-md-inline-flex">Approved</span>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <span
+                                                            class="badge badge-sm badge-dim bg-outline-warning  d-md-inline-flex">Pending</span>
                                                         <?php
                                                     }
                                                     ?>
+                                                </td>
+                                                <td>
+                                                    <ul class="d-flex gap-3 align-content-center">
+                                                        <?php
+                                                        if (!$row['approved']) {
+                                                            ?>
+                                                            <li class="">
+                                                                <a href="./handler/adminscript.php?approve_withdraw=<?= $row['withdrawId']; ?>"
+                                                                    class="bg-white btn btn-sm btn-outline-light btn-icon"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    aria-label="Approve" data-bs-original-title="Approve"><em
+                                                                        class="icon ni ni-done"></em></a>
+                                                            </li>
 
-                                                </ul>
+                                                            <li>
+                                                                <button type="button"
+                                                                    class="btn btn-sm btn-icon btn-clipboard clipboard-init clipboard-text"
+                                                                    data-clip-success="<em class='ni ni-done text-lg'></em>"
+                                                                    data-clip-text="<em class='icon ni ni-copy'></em>"
+                                                                    data-clipboard-text="<?= $row['withdrawAddress']; ?>">
+                                                                    <em class="icon ni ni-copy"></em>
+                                                                </button>
+                                                            </li>
+                                                            <?php
+                                                        }
+                                                        ?>
+
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <?php
+
+
+                                        }
+
+                                    } else {
+                                        ?>
+
+                                        <tr>
+                                            <td colspan="5">
+                                                <p class="text-center p-3">No user have made any withdrawal yet</p>
                                             </td>
                                         </tr>
+
                                         <?php
                                     }
                                     ?>
