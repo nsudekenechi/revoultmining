@@ -36,7 +36,8 @@ require_once "./includes/header.php";
                             "isTransparent": false,
                                 "displayMode": "adaptive",
                                     "colorTheme": "light",
-                                        "locale": "en"
+                                        "locale": "en",
+                                            "height": 50
                 }
             </script>
     </div>
