@@ -73,12 +73,6 @@ if (isset($_POST["login"])) {
                 $greeting = "Hi $name,";
                 $body = "<p style='margin-bottom: 5px;'>To ensure the security of your account, please use the following One-Time Password (OTP) to complete your login:</p>
             <p style='margin-bottom: 5px;'>Your OTP: $OTP.  Please do not share this code with anyone.</p>
-            <ol>
-                <li>Visit our Login Page.</li>
-                <li>Enter your username and password.</li>
-                <li>When prompted, enter the OTP code provided above.</li>
-            </ol>
-            <p>If you did not request this OTP, please contact our support team immediately.</p>
             ";
                 sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Your One-Time Password (OTP) for Secure Login", $email);
 
