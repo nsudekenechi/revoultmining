@@ -55,7 +55,7 @@ require_once "./includes/header.php";
                                         <div class="form-group">
                                             <label class="form-label" for="full-name-1">Rate</label>
                                             <div class="form-control-wrap">
-                                                <input type="number" class="form-control" id="full-name-1"
+                                                <input type="text" class="form-control" id="full-name-1"
                                                     placeholder="0.0" name="rate" required>
                                             </div>
                                         </div>
