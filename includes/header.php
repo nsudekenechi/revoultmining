@@ -1,3 +1,8 @@
+<?php
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0"); // Proxies.
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -47,7 +52,8 @@
                                     </li>
                                     <li class="menu-item"><a href="#previews" class="menu-link nav-link">Previews</a>
                                     </li>
-                                    <li class="menu-item"><a href="#reviews" class="menu-link nav-link">Reviews</a></li>
+                                    <li class="menu-item"><a href="./auth/login.php"
+                                            class="menu-link nav-link">Login</a></li>
                                 </ul>
                                 <ul class="menu-btns">
                                     <li>
