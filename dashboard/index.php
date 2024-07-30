@@ -76,7 +76,7 @@ require_once "./includes/header.php";
                                             <div class="nk-wg7-stats col-9">
                                                 <div class="nk-wg7-title mb-2" style="">Investment</div>
                                                 <?php
-                                                $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id'";
+                                                $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id' AND approved = true";
                                                 $res = mysqli_query($conn, $query);
 
                                                 ?>
@@ -86,7 +86,7 @@ require_once "./includes/header.php";
                                                     </h6>
                                                 </div>
                                             </div>
-                                            <div class="col-2 pe-4 pe-md-0">
+                                            <div class="col-2 ">
                                                 <em class="icon ni ni-sign-gbp " style="font-size:1.5rem"></em>
 
                                             </div>
@@ -115,7 +115,7 @@ require_once "./includes/header.php";
                                                 </div>
                                             </div>
 
-                                            <div class="col-2 pe-4 pe-md-0">
+                                            <div class="col-2 ">
                                                 <em class="icon ni ni-trend-up " style="font-size:1.5rem"></em>
 
                                             </div>
