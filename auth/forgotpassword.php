@@ -31,7 +31,7 @@ require "./header.php";
             Link</button>
     </div>
 </form><!-- form -->
-<div class="form-note-s2 pt-4"> Already a member? <a href="./auth/login.php">Login</a>
+<div class="form-note-s2 pt-4"> Already a member? <a href="./auth/index.php">Login</a>
 </div>
 
 

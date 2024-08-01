@@ -2,7 +2,7 @@
 session_start();
 require "../dbase/config.php";
 if (!isset($_SESSION["user"])) {
-    header("Location: ../auth/login.php");
+    header("Location: ../auth/index.php");
 }
 $user_id = $_SESSION["user"];
 $query = "SELECT * FROM users WHERE id = '$user_id'";

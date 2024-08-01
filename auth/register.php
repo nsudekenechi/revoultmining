@@ -101,7 +101,7 @@ require_once "./header.php";
     <div class="form-group">
         <button class="btn btn-lg btn-primary btn-block" name="register">Register</button>
     </div>
-    <div class="form-note-s2 pt-4"> Already a member? <a href="./auth/login.php">Login</a>
+    <div class="form-note-s2 pt-4"> Already a member? <a href="./auth/index.php">Login</a>
     </div>
 </form><!-- form -->
 

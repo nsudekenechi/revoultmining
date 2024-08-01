@@ -4,7 +4,7 @@ require_once "./header.php";
 if (isset($_GET["token"])) {
     $token = $_GET["token"];
 } else {
-    header("Location: ./auth/login.php");
+    header("Location: ./auth/index.php");
 }
 ?>
 

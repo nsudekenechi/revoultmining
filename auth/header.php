@@ -39,7 +39,7 @@ if (isset($_GET["ref"])) {
                             </div>
                             <div class="nk-block nk-block-middle nk-auth-body">
                                 <div class="brand-logo pb-5">
-                                    <a href="html/index.php" class="logo-link">
+                                    <a href="./" class="logo-link">
                                         <img class="logo-light logo-img logo-img-md" src="./images/revolutmining.png"
                                             srcset="./images/revolutmining.png" alt="logo">
                                         <img class="logo-dark logo-img logo-img-md" src="./images/revolutmining.png"

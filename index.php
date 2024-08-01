@@ -1,17 +1,146 @@
 <?php
+$title = "Home";
 require_once "./includes/header.php";
 ?>
+<div class="header-content my-auto py-5">
+    <div class="container">
+        <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
+            <div class="col-lg-6 mb-n3 mb-lg-0">
+                <div class="header-image header-image-s2">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%">
+                        </div>
+
+                        <script type="text/javascript"
+                            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                                {
+                                    "container_id": "watchlist-chart-demo",
+                                        "width": "80%",
+                                            "height": "400",
+                                                "autosize": true,
+                                                    "symbol": "NASDAQ:AAPL",
+                                                        "interval": "D",
+                                                            "timezone": "exchange",
+                                                                "theme": "light",
+                                                                    "style": "1",
+                                                                        "withdateranges": true,
+                                                                            "allow_symbol_change": true,
+                                                                                "save_image": false,
+                                                                                    "watchlist": [
+                                                                                        "AAPL",
+                                                                                        "IBM",
+                                                                                        "TSLA",
+                                                                                        "AMD",
+                                                                                        "MSFT",
+                                                                                        "GOOG"
+                                                                                    ]
+                                }
+                            </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div><!-- .header-image -->
+            </div><!-- .col- -->
+            <div class="col-lg-5 col-md-10">
+                <div class="header-caption">
+                    <div class="header-rating rating">
+                        <ul class="rating-stars">
+                            <li><em class="icon ni ni-star-fill"></em></li>
+                            <li><em class="icon ni ni-star-fill"></em></li>
+                            <li><em class="icon ni ni-star-fill"></em></li>
+                            <li><em class="icon ni ni-star-fill"></em></li>
+                            <li><em class="icon ni ni-star-fill"></em></li>
+                        </ul>
+                        <div class="rating-text">Invest Safely, Invest Smartly</div>
+                    </div>
+                    <h1 class="header-title">Invest with Confidence on the Most Secure Crypto Platform</h1>
+                    <div class="header-text">
+                        <p>Become part of a global community of crypto enthusiasts and investors who trust ZenixMining
+                            for their investment needs.
+                            Secure, reliable, and innovative – that’s the ZenixMining promise.
+                        </p>
+                    </div>
+                    <ul class="header-action btns-inline">
+                        <li>
+                            <a href="./auth/register.php" class="btn btn-primary btn-lg"><span>Sign Up</span>
+                            </a>
+                        </li>
+                        <li> <a href="./auth/login.php" class="btn btn-outline-gray btn-lg"><span>Login</span></a>
+                        </li>
+                    </ul>
+                </div><!-- .header-caption -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</div>
+
+
+<div class="header-brand py-4 py-lg-4">
+    <div class="container">
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:SHELL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:BARCL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:RRL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:BPL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:BTL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:TSCOL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:BATSL"
+                            },
+                            {
+                                "description": "",
+                                "proName": "TURQUOISE:ULVRL"
+                            }
+                        ],
+                            "showSymbolLogo": true,
+                                "colorTheme": "light",
+                                    "isTransparent": false,
+                                        "displayMode": "regular",
+                                            "locale": "en"
+                    }
+                </script>
+        </div>
+        <!-- TradingView Widget END -->
+    </div><!-- .container -->
+</div><!-- .header-brand -->
+</header><!-- .header -->
 <section class="section section-feature" id="feature">
     <div class="container">
         <div class="row align-items-center justify-content-between g-gs">
             <div class="col-lg-6">
                 <div class="img-block">
-                    <img src="./images/gfx/d.png" alt="">
+                    <img src="https://images.pexels.com/photos/1367276/pexels-photo-1367276.jpeg" alt="">
                 </div><!-- .img-block -->
             </div><!-- .col -->
             <div class="col-xl-5 col-lg-6">
                 <div class="text-block">
-                    <h3 class="title fw-medium mb-5">Make Your Website Growth</h3>
+                    <h3 class="title fw-medium mb-5">Why Choose ZenixMining?</h3>
                     <div class="g-gs">
                         <div class="service service-inline service-s6">
                             <div class="service-icon styled-icon styled-icon-4x styled-icon-s4 text-primary">
@@ -28,9 +157,9 @@ require_once "./includes/header.php";
                                 </svg>
                             </div>
                             <div class="service-text">
-                                <h5 class="title fw-medium">Friendly Design</h5>
-                                <p>Many variations of passages of Lorem Ipsum available, but the majority
-                                    have suffered alteration.</p>
+                                <h5 class="title fw-medium">High ROI Potential</h5>
+                                <p>Maximize your investments with our industry-leading ROI rates, experience significant
+                                    returns on your crypto investments with ZenixMining.</p>
                             </div>
                         </div><!-- .service -->
                         <div class="service service-inline service-s6">
@@ -45,9 +174,10 @@ require_once "./includes/header.php";
                                 </svg>
                             </div>
                             <div class="service-text">
-                                <h5 class="title fw-medium">Strong Security</h5>
-                                <p>Slightly variations of passages available the majority have suffered
-                                    alteration even slightly believable.</p>
+                                <h5 class="title fw-medium">Secure and Reliable</h5>
+                                <p>Invest with confidence, knowing your assets are protected by top-tier security
+                                    measures, our robust infrastructure is designed to ensure the safety and
+                                    reliability of your investments.</p>
                             </div>
                         </div><!-- .service -->
                         <div class="service service-inline service-s6">
@@ -73,9 +203,9 @@ require_once "./includes/header.php";
                                 </svg>
                             </div>
                             <div class="service-text">
-                                <h5 class=" fw-medium">Data Analycis</h5>
-                                <p>Slightly variations of passages available the majority have suffered
-                                    alteration even slightly believable.</p>
+                                <h5 class=" fw-medium">Flexible Investment Plan</h5>
+                                <p>Choose from a variety of investment plans tailored to your financial goals, find the
+                                    perfect plan that suits your budget and desired returns.</p>
                             </div>
                         </div><!-- .service -->
                     </div>
@@ -84,404 +214,376 @@ require_once "./includes/header.php";
         </div><!-- .row -->
     </div><!-- .container -->
 </section><!-- .section -->
-<section class="section section-feature bg-dark is-dark">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8 col-md-10">
-                <div class="section-head">
-                    <h2 class="title fw-medium">Special Features</h2>
-                    <p>An overview of DashLite – is fully clean and premium designed admin template which
-                        included beautiful hand-crafted components & elements.</p>
-                </div><!-- .section-head -->
-            </div><!-- .col -->
-        </div><!-- .row -->
-        <div class="section-content">
-            <div class="row justify-content-center">
-                <div class="col-xl-8 col-lg-10">
-                    <div class="row text-center g-gs">
-                        <div class="col-md-3 col-6">
-                            <div class="card card-shadow service is-compact">
-                                <div class="card-inner">
-                                    <div
-                                        class="service-icon styled-icon styled-icon-s4 styled-icon-6x circle text-primary">
-                                        <svg x="0px" y="0px" viewBox="0 0 512 512" style="fill:currentColor"
-                                            xml:space="preserve">
-                                            <path style="fill:currentColor" d="M256,0C114.6,0,0,114.6,0,256c0,141.4,114.6,256,256,256c23.6,0,42.7-19.1,42.7-42.7c0-11.1-4.1-21.1-11.1-28.6
-    c-6.7-7.5-10.7-17.3-10.7-28.3c0-23.6,19.1-42.7,42.7-42.7h50.2c78.5,0,142.2-63.7,142.2-142.2C512,101.8,397.4,0,256,0z M99.6,256
-    c-23.6,0-42.7-19.1-42.7-42.7s19.1-42.7,42.7-42.7c23.6,0,42.7,19.1,42.7,42.7S123.2,256,99.6,256z M184.9,142.2
-    c-23.6,0-42.7-19.1-42.7-42.7c0-23.6,19.1-42.7,42.7-42.7s42.7,19.1,42.7,42.7C227.6,123.2,208.5,142.2,184.9,142.2z M327.1,142.2
-    c-23.6,0-42.7-19.1-42.7-42.7c0-23.6,19.1-42.7,42.7-42.7s42.7,19.1,42.7,42.7C369.8,123.2,350.7,142.2,327.1,142.2z M412.4,256
-    c-23.6,0-42.7-19.1-42.7-42.7s19.1-42.7,42.7-42.7c23.6,0,42.7,19.1,42.7,42.7S436.1,256,412.4,256z" />
-                                        </svg>
-                                    </div>
-                                    <div class="service-text">
-                                        <h6 class="title text-dark fs-14px">Colourful</h6>
-                                    </div>
-                                </div><!-- .service -->
-                            </div><!-- .card -->
-                        </div><!-- .col -->
-                        <div class="col-md-3 col-6">
-                            <div class="card card-shadow service is-compact">
-                                <div class="card-inner">
-                                    <div
-                                        class="service-icon styled-icon styled-icon-s4 styled-icon-6x circle text-primary">
-                                        <svg x="0px" y="0px" viewBox="0 0 512 512" style="fill:currentColor"
-                                            xml:space="preserve">
-                                            <rect x="238.9" y="392.5" style="fill:currentColor" width="34.1"
-                                                height="102.4" />
-                                            <path style="fill:currentColor" d="M162.1,477.9h187.7c4.7,0,8.5,3.8,8.5,8.5v17.1c0,4.7-3.8,8.5-8.5,8.5H162.1c-4.7,0-8.5-3.8-8.5-8.5v-17.1
-    C153.6,481.7,157.4,477.9,162.1,477.9z" />
-                                            <path style="fill:currentColor"
-                                                d="M0,34.1C0,15.3,15.3,0,34.1,0h443.7C496.7,0,512,15.3,512,34.1v341.3H0V34.1z" />
-                                            <path style="fill:currentColor"
-                                                d="M0,375.5h512c0,18.9-15.3,34.1-34.1,34.1H34.1C15.3,409.6,0,394.3,0,375.5z" />
-                                            <g>
-                                                <defs>
-                                                    <rect id="CODEDISPLAY_SVGID_1_" x="119.5" y="102.4" width="256.6"
-                                                        height="204.8" />
-                                                </defs>
-                                                <clipPath id="CODEDISPLAY_SVGID_2_">
-                                                    <use xlink:href="#CODEDISPLAY_SVGID_1_" style="overflow:visible;" />
-                                                </clipPath>
-                                                <g style="clip-path:url(#CODEDISPLAY_SVGID_2_);">
-                                                    <path style="fill:#fff"
-                                                        d="M373.5,198.2l-59.4-63.1c-3.6-3.9-9.7-4.1-13.6-0.4c-3.9,3.7-4,9.8-0.4,13.7l53.1,56.5l-53.1,56.5
-            c-3.6,3.9-3.5,10,0.4,13.7c1.9,1.8,4.2,2.6,6.6,2.6c2.6,0,5.1-1,7-3l59.4-63.1C377,207.7,377,201.9,373.5,198.2z" />
-                                                    <path style="fill:#fff"
-                                                        d="M195.4,261.3l-53.1-56.5l53.1-56.5c3.6-3.9,3.5-10-0.4-13.7c-3.9-3.7-10-3.5-13.6,0.4l-59.4,63.1
-            c-3.5,3.7-3.5,9.5,0,13.3l59.4,63.1c1.9,2,4.4,3,7,3c2.4,0,4.7-0.9,6.6-2.6C198.9,271.3,199.1,265.2,195.4,261.3z" />
-                                                    <path style="fill:#fff" d="M263.4,102.5c-5.3-0.8-10.2,2.8-11,8.1l-28.2,185.5c-0.8,5.3,2.8,10.2,8.1,11c0.5,0.1,1,0.1,1.5,0.1
-            c4.7,0,8.8-3.4,9.5-8.2l28.2-185.5C272.2,108.2,268.6,103.3,263.4,102.5z" />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div class="service-text">
-                                        <h6 class="title text-dark fs-14px">Well Coded</h6>
-                                    </div>
-                                </div><!-- .service -->
-                            </div><!-- .card -->
-                        </div><!-- .col -->
-                        <div class="col-md-3 col-6">
-                            <div class="card card-shadow service is-compact">
-                                <div class="card-inner">
-                                    <div
-                                        class="service-icon styled-icon styled-icon-s4 styled-icon-6x circle text-primary">
-                                        <svg x="0px" y="0px" viewBox="0 0 512 512" style="fill:currentColor"
-                                            xml:space="preserve">
-                                            <g>
-                                                <defs>
-                                                    <rect id="TOOLSALT_SVGID_1_" width="512" height="512" />
-                                                </defs>
-                                                <clipPath id="TOOLSALT_SVGID_2_">
-                                                    <use xlink:href="#TOOLSALT_SVGID_1_" style="overflow:visible;" />
-                                                </clipPath>
-                                                <g style="clip-path:url(#TOOLSALT_SVGID_2_);">
-                                                    <path style="fill:currentColor"
-                                                        d="M32.6,394.6L0,512l117.4-32.5L32.6,394.6z" />
-                                                    <path style="fill:currentColor" d="M498.9,34.3l-21.2-21.2c-17.5-17.5-46.1-17.5-63.6,0l-15.2,15.2l84.9,84.9L498.9,98
-            C516.4,80.5,516.4,51.8,498.9,34.3z" />
-                                                    <path style="fill:currentColor"
-                                                        d="M377.7,49.5l-21.2,21.2l84.9,84.9l21.2-21.2L377.7,49.5z" />
-                                                    <path style="fill:currentColor"
-                                                        d="M388.2,145L106.8,426.4l31.8,31.8l281.5-281.5L388.2,145z" />
-                                                    <path style="fill:currentColor"
-                                                        d="M335.2,91.9L53.8,373.4l31.8,31.8L367,123.7L335.2,91.9z" />
-                                                    <path style="fill:currentColor" d="M483.4,345.6c-22.1-22.1-52.1-31.3-80.9-27.8l-40.5-40.5l-84.8,84.8l40.5,40.5c-3,24.1,3.1,49,18,69.4
-            l89.3-89.3l76.2,76.2C520.1,422.3,514.1,376.2,483.4,345.6z" />
-                                                    <path style="fill:currentColor"
-                                                        d="M403.9,446.3L357,493.2c30,21.9,69.6,24.6,101.9,8.1L403.9,446.3z" />
-                                                    <path style="fill:currentColor"
-                                                        d="M53.1,10.7l55,55L155,18.8C125.1-3.2,85.4-5.9,53.1,10.7z" />
-                                                    <path style="fill:currentColor" d="M194.3,109.4c3-24.1-3.1-49-18-69.4l-89.3,89.3L10.7,53.1C-8.1,89.7-2.1,135.8,28.6,166.4
-            c22.1,22.1,52.1,31.4,80.9,27.8l40.5,40.5l84.9-84.8L194.3,109.4z" />
-                                                </g>
-                                            </g>
-                                        </svg>
-                                    </div>
-                                    <div class="service-text">
-                                        <h6 class="title text-dark fs-14px">Easy Customise</h6>
-                                    </div>
-                                </div><!-- .service -->
-                            </div><!-- .card -->
-                        </div><!-- .col -->
-                        <div class="col-md-3 col-6">
-                            <div class="card card-shadow service is-compact">
-                                <div class="card-inner">
-                                    <div
-                                        class="service-icon styled-icon styled-icon-s4 styled-icon-6x circle text-primary">
-                                        <svg x="0px" y="0px" viewBox="0 0 512 512" style="fill:currentColor"
-                                            xml:space="preserve">
-                                            <path style="fill:currentColor" d="M487,192.8h-39.3v-17.1C447.7,77.7,352.2,0,256,0C160,0,64.3,77.5,64.3,175.7v17.1H25c-13.8,0-25,11.2-25,25
-    v108.5c0,13.8,11.2,25,25,25h39.3v31.5c0,53.5,43.5,97,97,97h39.5v7.1c0,13.8,11.2,25,25,25h60.3c13.8,0,25-11.2,25-25v-44.3
-    c0-13.8-11.2-25-25-25h-60.3c-13.8,0-25,11.2-25,25v7.1h-39.5c-37,0-67-30.1-67-67v-7.4h39.3c13.8,0,25-11.2,25-25V193.7
-    c0-13.8-11.2-25-25-25H94.5C99,95.2,173.9,30,256,30s157,65.2,161.5,138.7h-39.1c-13.8,0-25,11.2-25,25v156.7c0,13.8,11.2,25,25,25
-    h44.3c13.5,0,24.5-10.7,25-24.1H487c13.8,0,25-11.2,25-25V217.8C512,204,500.8,192.8,487,192.8z" />
-                                        </svg>
-                                    </div>
-                                    <div class="service-text">
-                                        <h6 class="title text-dark fs-14px">24/7 Support</h6>
-                                    </div>
-                                </div><!-- .service -->
-                            </div><!-- .card -->
-                        </div><!-- .col -->
-                    </div><!-- .row -->
-                </div>
-            </div>
-        </div><!-- .section-content -->
-    </div><!-- .container -->
-</section><!-- .section -->
-<section class="section section-dashboard bg-lighter" id="previews">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-7 col-md-10">
-                <div class="section-head">
-                    <h2 class="title fw-medium">Multipurpose Admin Dashboard</h2>
-                    <p>DashLite template included different layouts that fit into any application. Also all
-                        the layouts supported Dark Theme Mode & RTL Compatibility.</p>
-                </div><!-- .section-head -->
-            </div><!-- .col -->
-        </div><!-- .row -->
-        <div class="row text-center g-gs justify-center">
-            <div class="col-lg-4 col-sm-6 col-mb-9">
-                <a href="/demo1/index.html" class="card card-shadow product product-s2">
-                    <div class="card-inner product-img bg-purple">
-                        <img src="./images/product/a.jpg" alt="">
-                    </div>
-                    <div class="card-inner product-info">
-                        <h6 class="title">Layout - Demo 1</h6>
-                    </div><!-- .card-inner-->
-                </a><!-- .card -->
-            </div><!-- .col -->
-            <div class="col-lg-4 col-sm-6 col-mb-9">
-                <a href="/demo2/index.html" class="card card-shadow product product-s2">
-                    <div class="card-inner product-img bg-pink">
-                        <img src="./images/product/b.jpg" alt="">
-                    </div>
-                    <div class="card-inner product-info">
-                        <h6 class="title">Layout - Demo 2</h6>
-                    </div><!-- .card-inner-->
-                </a><!-- .card -->
-            </div><!-- .col -->
-            <div class="col-lg-4 col-sm-6 col-mb-9">
-                <a href="/demo3/index.html" class="card card-shadow product product-s2">
-                    <div class="card-inner product-img bg-teal">
-                        <img src="./images/product/c.jpg" alt="">
-                    </div>
-                    <div class="card-inner product-info">
-                        <h6 class="title">Layout - Demo 3</h6>
-                    </div><!-- .card-inner-->
-                </a><!-- .card -->
-            </div><!-- .col -->
-            <div class="col-lg-4 col-sm-6 col-mb-9">
-                <a href="/demo4/index.html" class="card card-shadow product product-s2">
-                    <div class="card-inner product-img bg-danger">
-                        <img src="./images/product/d.jpg" alt="">
-                    </div>
-                    <div class="card-inner product-info">
-                        <h6 class="title">Layout - Demo 4</h6>
-                    </div><!-- .card-inner-->
-                </a><!-- .card -->
-            </div><!-- .col -->
-            <div class="col-lg-4 col-sm-6 col-mb-9">
-                <a href="/demo5/index.html" class="card card-shadow product product-s2">
-                    <div class="card-inner product-img bg-warning">
-                        <img src="./images/product/e.jpg" alt="">
-                    </div>
-                    <div class="card-inner product-info">
-                        <h6 class="title">Layout - Demo 5</h6>
-                    </div><!-- .card-inner-->
-                </a><!-- .card -->
-            </div><!-- .col -->
-            <div class="col-lg-4 col-sm-6 col-mb-9">
-                <a href="/demo6/index.html" class="card card-shadow product product-s2">
-                    <div class="card-inner product-img bg-info">
-                        <img src="./images/product/f.jpg" alt="">
-                    </div>
-                    <div class="card-inner product-info">
-                        <h6 class="title">Layout - Demo 6</h6>
-                    </div><!-- .card-inner-->
-                </a><!-- .card -->
-            </div><!-- .col -->
-        </div><!-- .row -->
-    </div><!-- .container -->
-</section><!-- .section -->
-<section class="section section-feature pb-0">
+<section class="section section-feature ">
     <div class="container">
         <div class="row g-gs justify-content-lg-between align-items-center">
-            <div class="col-xl-6 col-lg-7">
-                <div class="row text-center g-gs pe-lg-4 pe-xl-0 pb-3 pb-lg-0">
-                    <div class="col-sm-4 col-6">
-                        <div class="card card-full card-shadow">
-                            <div class="card-inner">
-                                <div class="card-img mb-3">
-                                    <img class="h-60px" src="./images/icon/libs/javascript.png" alt="">
-                                </div>
-                                <div class="text-dark h6">Javascript</div>
-                            </div>
-                        </div><!-- .card -->
-                    </div><!-- .col -->
-                    <div class="col-sm-4 col-6">
-                        <div class="card card-full card-shadow">
-                            <div class="card-inner">
-                                <div class="card-img mb-3">
-                                    <img class="h-60px" src="./images/icon/libs/sass.png" alt="">
-                                </div>
-                                <div class="text-dark h6">Sass</div>
-                            </div>
-                        </div><!-- .card -->
-                    </div><!-- .col -->
-                    <div class="col-sm-4 col-6">
-                        <div class="card card-full card-shadow">
-                            <div class="card-inner">
-                                <div class="card-img mb-3">
-                                    <img class="h-60px" src="./images/icon/libs/gulp.png" alt="">
-                                </div>
-                                <div class="text-dark h6">Gulp</div>
-                            </div>
-                        </div><!-- .card -->
-                    </div><!-- .col -->
-                    <div class="col-sm-4 col-6">
-                        <div class="card card-full card-shadow">
-                            <div class="card-inner">
-                                <div class="card-img mb-3">
-                                    <img class="h-60px" src="./images/icon/libs/bootstrap.png" alt="">
-                                </div>
-                                <div class="text-dark h6">Bootstrap</div>
-                            </div>
-                        </div><!-- .card -->
-                    </div><!-- .col -->
-                    <div class="col-sm-4 col-6">
-                        <div class="card card-full card-shadow">
-                            <div class="card-inner">
-                                <div class="card-img mb-3">
-                                    <img class="h-60px" src="./images/icon/libs/html5.png" alt="">
-                                </div>
-                                <div class="text-dark h6">Html 5</div>
-                            </div>
-                        </div><!-- .card -->
-                    </div><!-- .col -->
-                    <div class="col-sm-4 col-6">
-                        <div class="card card-full card-shadow">
-                            <div class="card-inner">
-                                <div class="card-img mb-3">
-                                    <img class="h-60px" src="./images/icon/libs/css3.png" alt="">
-                                </div>
-                                <div class="text-dark h6">Css 3</div>
-                            </div>
-                        </div><!-- .card -->
-                    </div><!-- .col -->
-                </div>
-            </div><!-- .col -->
             <div class="col-lg-5">
                 <div class="text-block">
-                    <h3 class="title fw-medium">Language & Framework</h3>
-                    <p>An overview of DashLite is fully clean and premium designed admin template which
-                        developped by popular framework, beautiful hand-crafted components & elements.</p>
-                    <ul class="list list-lg list-primary list-checked-circle outlined">
-                        <li>Full native </li>
-                        <li>Popular and widely used framework</li>
-                        <li>Amazing feature for enhanced performance.</li>
+                    <h3 class="title fw-medium">Who we are?</h3>
+                    <p>At
+                        ZenixMining, we are passionate about harnessing the power of blockchain technology to create
+                        profitable and secure investment opportunities for our clients.</p>
+                    <ul class="list list-lg list-primary list-checked-circle outlined mb-5">
+                        <li>We prioritize the safety of your investments with top-tier security measures and a
+                            commitment to transparency. </li>
+                        <li>Our track record of delivering strong returns speaks for itself. We are dedicated to
+                            maximizing your investment potential.</li>
+                        <li>As the crypto market evolves, so do we. We are constantly exploring new opportunities and
+                            technologies to enhance your investment experience.</li>
                     </ul>
+                    <a href="./aboutus.php" target="_blank"
+                        class="btn btn-primary btn-lg w-50 d-flex justify-content-center">Learn more</a>
                 </div>
             </div>
+            <div class="col-xl-6 col-lg-7">
+                <div class="row text-center g-gs pe-lg-4 pe-xl-0 pb-3 pb-lg-0">
+                    <div class="col-6 p-3">
+                        <div class="card card-full card-shadow">
+                            <div class="card-inner">
+                                <div class="card-img mb-3">
+                                    <h1>
+                                        <em class="icon ni ni-notes-alt"></em>
+                                    </h1>
+                                </div>
+                                <div class="">
+                                    <p class="text-dark h6">Track Funds</p>
+                                </div>
+                            </div>
+                        </div><!-- .card -->
+                    </div><!-- .col -->
+
+                    <div class="col-6 p-3">
+                        <div class="card card-full card-shadow">
+                            <div class="card-inner">
+                                <div class="card-img mb-3">
+                                    <h1>
+                                        <em class="icon ni ni-coins"></em>
+                                    </h1>
+                                </div>
+                                <div class="">
+                                    <p class="text-dark h6">Regular Payouts</p>
+                                </div>
+                            </div>
+                        </div><!-- .card -->
+                    </div><!-- .col -->
+
+                    <div class="col-6 p-3">
+                        <div class="card card-full card-shadow">
+                            <div class="card-inner">
+                                <div class="card-img mb-3">
+                                    <h1>
+                                        <em class="icon ni ni-wallet-in"></em>
+                                    </h1>
+                                </div>
+                                <div class="">
+                                    <p class="text-dark h6">Instant Withdrawals</p>
+                                </div>
+                            </div>
+                        </div><!-- .card -->
+                    </div><!-- .col -->
+
+                    <div class="col-6 p-3">
+                        <div class="card card-full card-shadow">
+                            <div class="card-inner">
+                                <div class="card-img mb-3">
+                                    <h1>
+                                        <em class="icon ni ni-growth"></em>
+                                    </h1>
+                                </div>
+                                <div class="">
+                                    <p class="text-dark h6">Investment Growth</p>
+                                </div>
+                            </div>
+                        </div><!-- .card -->
+                    </div><!-- .col -->
+
+
+                </div>
+            </div><!-- .col -->
+
         </div><!-- .row -->
     </div><!-- .container -->
-</section><!-- .section -->
-<section class="section section-testimonial" id="reviews">
+</section>
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
+        async>
+            {
+                "symbols": [
+                    {
+                        "proName": "FOREXCOM:SPXUSD",
+                        "title": "S&P 500 Index"
+                    },
+                    {
+                        "proName": "FOREXCOM:NSXUSD",
+                        "title": "US 100 Cash CFD"
+                    },
+                    {
+                        "proName": "FX_IDC:EURUSD",
+                        "title": "EUR to USD"
+                    },
+                    {
+                        "proName": "BITSTAMP:BTCUSD",
+                        "title": "Bitcoin"
+                    },
+                    {
+                        "proName": "BITSTAMP:ETHUSD",
+                        "title": "Ethereum"
+                    }
+                ],
+                    "showSymbolLogo": true,
+                        "isTransparent": false,
+                            "displayMode": "adaptive",
+                                "colorTheme": "light",
+                                    "locale": "en"
+            }
+        </script>
+</div>
+<!-- TradingView Widget END -->
+<section class="section section-facts bg-grad-a has-ovm" id="facts">
+
+    <div class="container">
+        <div class="row g-gs align-items-center">
+            <div class="col-lg-7">
+                <div class="text-block is-dark pe-xl-5">
+                    <h2 class="title">Achieve More with Smart Crypto Investments</h2>
+                    <p class="text-light">Unlock unparalleled growth and secure your financial future with ZenixMining's
+                        expert-driven crypto investment solutions.</p>
+                </div><!-- .text-block -->
+            </div><!-- .col -->
+            <div class="col-lg-5">
+                <div class="row text-center g-gs">
+                    <div class="col-6">
+                        <a href=""
+                            class="btn-primary btn w-100 p-4 d-flex align-items-center justify-content-center h6">
+                            Invest now
+                        </a>
+                    </div><!-- .col -->
+                    <div class="col-6">
+                        <a href=""
+                            class="btn-outline-light btn w-100 p-4 d-flex align-items-center justify-content-center h6">
+                            Get
+                            started
+                        </a>
+                    </div><!-- .col -->
+
+                </div><!-- .row -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+    <!-- <div class="nk-ovm shape-b shape-cover shape-top"></div> -->
+    <div class="nk-ovm shape-b shape-cover"></div>
+</section>
+
+<section class="section section-feature pb-0">
+    <div class="container">
+        <div class="row align-items-center g-gs">
+            <div class="col-lg-6">
+                <div class="img-block img-block-s2 pe-xl-6 pe-lg-3  " style="height:700px;">
+                    <img src="https://images.pexels.com/photos/4345104/pexels-photo-4345104.jpeg?auto=compress&cs=tinysrgb&w=600"
+                        alt="" style="height:100%;width:100%;object-fit:cover;">
+                </div><!-- .img-block -->
+            </div><!-- .col -->
+            <div class="col-lg-6">
+                <div class="text-block">
+                    <h2 class="title">Let's help you kickstart your investment journey</h2>
+                    <div class="mt-4 ms-n3 ms-sm-n4">
+                        <div class="row gy-gs">
+                            <div class="col-12">
+                                <div class="card service service-inline service-s4 after-bg-danger">
+                                    <div class="card-inner">
+                                        <div
+                                            class="service-icon styled-icon styled-icon-s4 styled-icon-5x text-danger h4">
+                                            <em class="icon ni ni-users"></em>
+                                        </div>
+                                        <div class="service-text">
+                                            <h5 class="title">Join Us</h5>
+                                            <p>Sign up now to unlock your earning potential and embark on a journey to
+                                                financial freedom with ZenixMining.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div>
+                            <div class="col-12">
+                                <div class="card service service-inline service-s4 after-bg-primary">
+                                    <div class="card-inner">
+                                        <div
+                                            class="service-icon styled-icon styled-icon-s4 styled-icon-5x text-primary h4">
+                                            <em class="icon ni ni-calendar-check"></em>
+                                        </div>
+                                        <div class="service-text">
+                                            <h5 class="title">Choose Your Plan</h5>
+                                            <p>Review the available plans and select the one that best suits your
+                                                investment goals.</p>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div>
+                            <div class="col-12">
+                                <div class="card service service-inline service-s4 after-bg-pink">
+                                    <div class="card-inner">
+                                        <div
+                                            class="service-icon styled-icon styled-icon-s4 styled-icon-5x text-pink h4">
+                                            <em class="icon ni ni-sign-pound"></em>
+                                        </div>
+                                        <div class="service-text">
+                                            <h5 class="title">Start Earning!</h5>
+                                            <p>Slightly variations of passages available the majority have suffered
+                                                alteration even slightly believable.</p>
+                                        </div>
+                                    </div>
+                                </div><!-- .card -->
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- .text-block -->
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section>
+
+<section class="section section-pricing" id="pricing">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="section-head text-center">
+                    <h2 class="title">Choose Right Plan For You</h2>
+                    <p>At ZenixMining we believe in providing personalized solutions to meet your unique needs.
+                        Our range of plans is designed to offer flexibility, affordability, and comprehensive benefits
+                        tailored to suit your lifestyle and goals.</p>
+                </div><!-- .section-head -->
+            </div>
+        </div><!-- .row -->
+        <div class="row justify-content-center justify-content-lg-between align-items-center g-gs">
+            <?php
+            $query = "SELECT * FROM plans";
+            $res = mysqli_query($conn, $query);
+            while ($row = mysqli_fetch_assoc($res)) {
+                ?>
+
+                <div class="col-xl-3 col-sm-6">
+                    <div class="pricing pricing-s2 card card-shadow round-md">
+                        <div class="card-inner card-inner-lg">
+                            <?php
+                            if ($row['id'] == 2) {
+                                ?>
+                                <div class="pricing-badge">Popular</div>
+                                <?php
+                            }
+                            ?>
+                            <h2 class="pricing-anount text-purple text-capitalize"><?= $row['name']; ?></h2>
+                            <h5 class="pricing-title text-capitalize"><?= $row['days']; ?> days</h5>
+                            <span class="sub-title"><?= $row['description']; ?> </span>
+                            <hr class="hr border-light">
+                            <ul class="pricing-feature list list-nostyle">
+                                <li>Minimum: <span class="amount text-dark"><?= $row['min_deposit']; ?></span></li>
+                                <li>Maximum: <span class="amount text-dark"><?= $row['max_deposit']; ?></span></li>
+                                <li>Daily Returns: <?= $row['daily_interest']; ?>%</li>
+                                <li>Total Returns: <?= $row['daily_interest'] * $row['days']; ?>%</li>
+                            </ul>
+                            <div class="pricing-action">
+                                <a href="./auth/" class="btn btn-primary btn-lg btn-round"><span>Invest Now</span></a>
+                            </div>
+                        </div><!-- card-inner -->
+                    </div><!-- .pricing .card -->
+                </div><!-- .col -->
+                <?php
+            }
+            ?>
+
+
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section>
+
+<section class="section section-reviews" id="reviews">
     <div class="container">
         <div class="row justify-content-lg-center text-lg-center">
             <div class="col-lg-6 col-md-10">
                 <div class="section-head">
-                    <h2 class="title fw-medium">Our Clients Experience With Us</h2>
-                    <p>DashLite template included different layouts that fit into any application. Also all
-                        the layouts supported Dark Theme Mode & RTL Compatibility.</p>
+                    <h2 class="title">What Our Clients Say</h2>
+                    <p class="fs-15px">At ZenixMining, client satisfaction is our top priority, Join our satisfied
+                        clients and experience the ZenixMining difference!. Here's what some of our
+                        clients have to say about their experiences with us:</p>
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->
         <div class="row g-gs">
-            <div class="col-md-6">
-                <div class="card card-shadow">
-                    <div class="card-inner card-inner-lg">
-                        <div class="review review-s4">
-                            <div class="review-user user user-s1">
-                                <div class="img">
-                                    <img class="img-circle sm" src="./images/client/sq-a.jpg" alt="">
-                                </div><!-- img-->
-                                <div class="info">
-                                    <h6 class="name">Michael Afonso</h6>
-                                    <div class="rating rating-sm">
-                                        <ul class="rating-stars">
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                        </ul>
+            <?php
+            $plans = [
+                [
+                    "img" => "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "name" => "Helen Sanchez",
+                    "desc" => "Gold Plan",
+                    "text" => "Investing with ZenixMining has been a game-changer. The returns are consistent, and the support team is always there to help. I couldn't be happier!",
+                ],
+                [
+                    "img" => "https://images.pexels.com/photos/1449667/pexels-photo-1449667.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "name" => "Maria Luke",
+                    "desc" => "Silver Plan",
+                    "text" => "I started with the Silver  plan and was impressed by the seamless process and the daily returns. It's a great way to grow your investments.",
+                ],
+                [
+                    "img" => "https://images.pexels.com/photos/160914/smile-man-worker-vertical-160914.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "name" => "Alex  Sanchez",
+                    "desc" => "Starter Plan",
+                    "text" => "ZenixMining offers an excellent entry point for beginners like me. The Starter plan was affordable, and I saw steady growth in my investments.",
+                ],
+                [
+                    "img" => "https://images.pexels.com/photos/1065084/pexels-photo-1065084.jpeg?auto=compress&cs=tinysrgb&w=600",
+                    "name" => "Sophia Kennedy",
+                    "desc" => "Platinum Plan",
+                    "text" => "The Platinum plan has exceeded my expectations. ZenixMining provides VIP support and exclusive insights for Platinum members, which have been invaluable. Highly recommend!",
+                ]
+            ]
+                ?>
+            <?php
+            foreach ($plans as $plan) {
+                ?>
+                <div class="col-md-6">
+                    <div class="card card-shadow">
+                        <div class="card-inner card-inner-lg">
+                            <div class="review review-s4">
+                                <div class="review-user user user-s1">
+                                    <div class="img">
+                                        <img class="img-circle sm" src="<?= $plan['img']; ?>" style="object-fit:cover;"
+                                            alt="">
+                                    </div><!-- img-->
+                                    <div class="info  w-50">
+                                        <h6 class="name mb-1"><?= $plan['name']; ?></h6>
+                                        <div class="role d-flex  align-items-center gap-2">
+                                            <?= $plan['desc']; ?>
+                                        </div>
                                     </div>
+                                </div><!-- user -->
+                                <div class="review-text">
+                                    <p><?= $plan['text']; ?></p>
                                 </div>
-                            </div><!-- user -->
-                            <div class="review-text">
-                                <p>I must explain to you how all this mistakeng idea of pleasure and
-                                    praising pain was born and I will give you a complete account of the
-                                    system, and expound the actual teachings.</p>
-                            </div>
-                        </div><!-- review-->
-                    </div><!-- .card-inner -->
-                </div><!-- .card -->
-            </div><!-- .col -->
-            <div class="col-md-6">
-                <div class="card card-shadow">
-                    <div class="card-inner card-inner-lg">
-                        <div class="review review-s4">
-                            <div class="review-user user user-s1">
-                                <div class="img">
-                                    <img class="img-circle sm" src="./images/client/sq-c.jpg" alt="">
-                                </div><!-- img-->
-                                <div class="info">
-                                    <h6 class="name">Dianna Smiley</h6>
-                                    <div class="rating rating-sm">
-                                        <ul class="rating-stars">
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                            <li><em class="icon ni ni-star-fill"></em></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div><!-- user -->
-                            <div class="review-text">
-                                <p>I must explain to you how all this mistakeng idea of pleasure and
-                                    praising pain was born and I will give you a complete account of the
-                                    system, and expound the actual teachings.</p>
-                            </div>
-                        </div><!-- review-->
-                    </div><!-- .card-inner -->
-                </div><!-- .card -->
-            </div><!-- .col -->
-        </div><!-- .row -->
-    </div><!-- .container -->
-</section><!-- .section -->
-<section class="section section-cta bg-dark is-dark" id="cta">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-md-8">
-                <div class="text-block is-compact">
-                    <h2 class="title fw-medium">More Than 2000+ People Using It</h2>
-                    <p class="pe-lg-7 ps-lg-7">DashLite template included different layouts that fit into
-                        any application.Do not forgot to check what's coming next.</p>
-                    <ul class="btns-inline justify-center">
-                        <li>
-                            <a href="#" class="btn btn-xl btn-danger">Purchase $28</a>
-                        </li>
-                    </ul>
-                </div>
-            </div><!-- .col -->
-        </div><!-- .row -->
-    </div><!-- .container -->
-</section><!-- .section -->
+                            </div><!-- review-->
+                        </div><!-- card-inner -->
+                    </div><!-- card -->
+                </div><!-- col -->
+                <?php
+            }
+            ?>
 
+
+
+            <!-- col -->
+        </div><!-- row -->
+    </div><!-- .container -->
+</section>
+<script>
+    let amounts = document.querySelectorAll(".amount");
+
+    amounts.forEach(amount => {
+        if (!isNaN(amount.innerHTML)) {
+            amount.innerHTML = new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(amount.innerHTML)
+        }
+    });
+</script>
 <?php
 require_once "./includes/footer.php";
 ?>

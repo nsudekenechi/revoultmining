@@ -86,10 +86,10 @@ if (isset($_POST["login"])) {
             }
 
         } else {
-            header("Location: ../auth/login.php?login=f");
+            header("Location: ../auth/index.php?login=f");
         }
     } else {
-        header("Location: ../auth/login.php?login=f");
+        header("Location: ../auth/index.php?login=f");
     }
 }
 
@@ -162,7 +162,7 @@ if (isset($_POST["updatePassword"])) {
     $query = "DELETE FROM reset_password WHERE email = '$email'";
     $res = mysqli_query($conn, $query);
     if ($res) {
-        header("Location: ../auth/login.php?update=s");
+        header("Location: ../auth/index.php?update=s");
     }
 }
 
