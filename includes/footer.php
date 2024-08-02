@@ -44,8 +44,8 @@
                 <div class="widget">
                     <h6 class="widget-title">Contact Us</h6>
                     <ul class="widget-contact row gx-gs">
-                        <li class="col-mb-6 col-lg-12"><em class="icon ni ni-map-pin-fill"></em><span> 31
-                                Mirpur Street <br />Dhaka, Bangladesh</span></li>
+                        <li class="col-mb-6 col-lg-12"><em class="icon ni ni-map-pin-fill"></em><span> 123 Innovation
+                                Drive Wolverhampton WV9 5HQ, United Kingdom</span></li>
                         <li class="col-mb-6 col-lg-12">
                             <a href="mailto:support@zenixmining.com" class="d-flex align-items-center"> <em
                                     class="icon ni ni-mail"></em><span>support@zenixmining.com</span></a>
@@ -77,6 +77,7 @@
 
     fetch("./assets/country.json").then(res => res.json()).then(data => {
         setInterval(() => {
+            toastr.clear();
             NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just 
     <b>${text[Math.floor(Math.random() * text.length)]} </b>
   <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}</b>

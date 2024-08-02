@@ -68,13 +68,13 @@ require_once "./includes/header.php";
             </div><!-- .nk-block-head -->
             <div class="nk-block mb-5">
                 <div class="row gy-gs">
-                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7" style="position:relative;z-index:20;">
                                         <div class="row align-items-center">
-                                            <div class="nk-wg7-stats col-9">
+                                            <div class="nk-wg7-stats col-10 col-md-9">
                                                 <div class="nk-wg7-title mb-2" style="">Investment</div>
                                                 <?php
                                                 $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id' AND approved = true";
@@ -102,14 +102,14 @@ require_once "./includes/header.php";
                             style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
                     </div><!-- .col -->
 
-                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
 
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7" style="position:relative;z-index:20;">
                                         <div class="row">
-                                            <div class="col-9 nk-wg7-stats">
+                                            <div class="col-10 col-md-9 nk-wg7-stats">
                                                 <div class="nk-wg7-title mb-2" style="">Balance</div>
                                                 <div class="text-white">
                                                     <h6 class="amount"> <?= $userRow['balance']; ?></h6>
@@ -135,13 +135,13 @@ require_once "./includes/header.php";
 
                     </div><!-- .col -->
 
-                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7">
                                         <div class="row">
-                                            <div class="nk-wg7-stats col-9">
+                                            <div class="nk-wg7-stats col-10 col-md-9">
                                                 <div class="nk-wg7-title mb-2" style="">Referral Bonus</div>
                                                 <div class="number-lg text-white">
                                                     <h6 class="amount"> <?= $userRow['ref_balance']; ?></h6>
@@ -164,13 +164,13 @@ require_once "./includes/header.php";
 
                     </div><!-- .col -->
 
-                    <div class="col-6 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner">
                                     <div class="nk-wg7">
                                         <div class="row">
-                                            <div class="nk-wg7-stats col-9">
+                                            <div class="nk-wg7-stats col-10 col-md-9">
                                                 <div class="nk-wg7-title mb-2" style="">Account Status </div>
                                                 <div class="text-white">
                                                     <h6 class="">Verified </h6>

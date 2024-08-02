@@ -48,10 +48,12 @@ if (isset($_POST["register"])) {
 // login user
 if (isset($_POST["login"])) {
     extract($_POST);
+    print_r($_POST);
     $query = "SELECT * FROM users WHERE email = '$email'";
     $res = mysqli_query($conn, $query);
-    if (mysqli_num_rows($res) > 0) {
-        $row = mysqli_fetch_assoc($res);
+    $row = mysqli_fetch_assoc($res);
+
+    if (mysqli_num_rows($res) > 0 && !$row['suspend']) {
         $hashPassword = $row["password"];
         $name = $row["name"];
         if (password_verify($password, $hashPassword)) {
@@ -136,13 +138,12 @@ if (isset($_POST["sendLink"])) {
     $greeting = "Hi $name,";
     $body = "<p style='margin-bottom: 5px;'>We received a request to reset your password for your account associated with this email address. If you made this request, please click the link below to reset your password:</p>
         <a href='$url/auth/resetpassword.php?token=$token' style='background-color:#6576ff;border-radius:4px;color:#ffffff;display:inline-block;font-size:13px;font-weight:600;line-height:44px;text-align:center;text-decoration:none;text-transform: uppercase; padding: 0 30px;margin-top: 20px; '>Reset Password</a>
-     
       ";
     $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Password Reset", $email);
     if ($send) {
-        header("Location: ../auth/forgotpassword.php?send=s");
+        header("Location: ../auth/forgotpassword.php?sendotp=s");
     } else {
-        header("Location: ../auth/forgotpassword.php?send=f");
+        header("Location: ../auth/forgotpassword.php?sendotp=f");
     }
 }
 
@@ -162,7 +163,7 @@ if (isset($_POST["updatePassword"])) {
     $query = "DELETE FROM reset_password WHERE email = '$email'";
     $res = mysqli_query($conn, $query);
     if ($res) {
-        header("Location: ../auth/index.php?update=s");
+        header("Location: ../auth/index.php?updatepassword=s");
     }
 }
 

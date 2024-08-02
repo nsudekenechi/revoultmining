@@ -10,6 +10,10 @@ $res = mysqli_query($conn, $query);
 $userRow = $res->fetch_assoc();
 $name = $userRow["name"];
 
+if ($userRow["suspend"]) {
+    header("Location: ../auth/index.php");
+
+}
 if ($title == "Withdraw" && $userRow["balance"] < 10) {
     header("Location: ./deposit.php?balance=f");
 }

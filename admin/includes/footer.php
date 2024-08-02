@@ -13,7 +13,7 @@
                             <ul class="language-list">
                                 <li>
                                     <a href="#" class="language-item">
-                                        <span class="language-name">English</span>
+                                        <span class="lang   uage-name">English</span>
                                     </a>
                                 </li>
                                 <li>
@@ -188,6 +188,8 @@
 <?php
 require_once "../handler/alert.php";
 ?>
+
+
 </body>
 
 </html>

@@ -167,3 +167,26 @@ if (isset($_GET["approve_withdraw"])) {
     }
 
 }
+
+// updating user balance
+if (isset($_POST["update_balance"])) {
+    extract($_POST);
+    $query = "UPDATE users SET balance = '$balance', ref = '$ref_balance' WHERE id = '$user'";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        header("Location: ../admin/index.php?update_balance=s");
+    } else {
+        header("Location: ../admin/index.php?update_balance=f");
+    }
+}
+
+if (isset($_POST["suspend_user"])) {
+    extract($_POST);
+    $query = "UPDATE users SET  suspend = !suspend WHERE id = '$user'";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        header("Location: ../admin/index.php?suspend=s");
+    } else {
+        header("Location: ../admin/index.php?suspend=f");
+    }
+}

@@ -6,14 +6,14 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('Registration Successful', 'info');
+                NioApp.Toast('Registration Successful', 'info', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Something went wrong', 'error');
+                NioApp.Toast('Something went wrong', 'error', { timeOut: 5000 });
             </script>
             <?php
             break;
@@ -24,14 +24,50 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('You logged in successfully', 'info');
+                NioApp.Toast('You logged in successfully', 'info', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Incorrect email or password', 'error', { position: "top-right" });
+                NioApp.Toast('Incorrect email or password', 'error', { position: "top-right" }, { timeOut: 5000 });
+            </script>
+            <?php
+            break;
+
+    }
+
+    switch ($_GET["sendotp"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('OTP sent succesfully, check your email', 'info', { timeOut: 5000 });
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Failed to send OTP.', 'error', { position: "top-right" }, { timeOut: 5000 });
+            </script>
+            <?php
+            break;
+
+    }
+
+    switch ($_GET["updatepassword"]) {
+        case "s":
+            ?>
+            <script>
+                NioApp.Toast('Your password was updated succesfully', 'info', { timeOut: 5000 });
+            </script>
+            <?php
+            break;
+        case "f":
+            ?>
+            <script>
+                NioApp.Toast('Failed to update password.', 'error', { position: "top-right" }, { timeOut: 5000 });
             </script>
             <?php
             break;
@@ -43,7 +79,7 @@ if (isset($_GET)) {
         case "f":
             ?>
             <script>
-                NioApp.Toast('Incorrect code, verify code and try again.', 'error');
+                NioApp.Toast('Incorrect code, verify code and try again.', 'error', { timeOut: 5000 });
             </script>
             <?php
             break;
@@ -55,7 +91,7 @@ if (isset($_GET)) {
         case "f":
             ?>
             <script>
-                NioApp.Toast('Incorrect code, verify code and try again.', 'error');
+                NioApp.Toast('Incorrect code, verify code and try again.', 'error', { timeOut: 5000 });
             </script>
             <?php
             break;
@@ -67,7 +103,7 @@ if (isset($_GET)) {
             ?>
 
             <script>
-                NioApp.Toast('Deposit request sent, your balance would be updated after confirmation.', 'success');
+                NioApp.Toast('Deposit request sent, your balance would be updated after confirmation.', 'success', { timeOut: 5000 });
             </script>
 
             <?php
@@ -78,7 +114,7 @@ if (isset($_GET)) {
         case "f":
             ?>
             <script>
-                NioApp.Toast(`You don't have enough funds to withdraw. Please deposit into your account.`, 'error', { position: "top-right" });
+                NioApp.Toast(`You don't have enough funds to withdraw. Please deposit into your account.`, 'error', { position: "top-right" }, { timeOut: 5000 });
             </script>
         <?php
     }
@@ -87,14 +123,14 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('Your withdrawal request was sent.', 'success');
+                NioApp.Toast('Your withdrawal request was sent.', 'success', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Your withdrawal request failed.', 'error');
+                NioApp.Toast('Your withdrawal request failed.', 'error', { timeOut: 5000 });
             </script>
         <?php
     }
@@ -103,14 +139,14 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('Wallet added', 'success');
+                NioApp.Toast('Wallet added', 'success', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Wallet added failed', 'error');
+                NioApp.Toast('Wallet added failed', 'error', { timeOut: 5000 });
             </script>
         <?php
     }
@@ -119,14 +155,14 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('Wallet Updated', 'success');
+                NioApp.Toast('Wallet Updated', 'success', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Wallet updated failed', 'error');
+                NioApp.Toast('Wallet updated failed', 'error', { timeOut: 5000 });
             </script>
         <?php
     }
@@ -135,14 +171,14 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('Profile Updated', 'success');
+                NioApp.Toast('Profile Updated', 'success', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Profile Updated Failed', 'error');
+                NioApp.Toast('Profile Updated Failed', 'error', { timeOut: 5000 });
             </script>
         <?php
     }
@@ -153,14 +189,14 @@ if (isset($_GET)) {
         case "s":
             ?>
             <script>
-                NioApp.Toast('Withdrawal Approved', 'success');
+                NioApp.Toast('Withdrawal Approved', 'success', { timeOut: 5000 });
             </script>
             <?php
             break;
         case "f":
             ?>
             <script>
-                NioApp.Toast('Withdrawal Aprroved failed', 'error');
+                NioApp.Toast('Withdrawal Aprroved failed', 'error', { timeOut: 5000 });
             </script>
         <?php
     }
