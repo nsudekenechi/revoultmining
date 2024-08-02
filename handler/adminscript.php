@@ -171,6 +171,11 @@ if (isset($_GET["approve_withdraw"])) {
 // updating user balance
 if (isset($_POST["update_balance"])) {
     extract($_POST);
+    if (!$balance) {
+        $balance = 0;
+    } else if (!$ref_balance) {
+        $ref_balance = 0;
+    }
     $query = "UPDATE users SET balance = balance + $balance, ref_balance = ref_balance + $ref_balance WHERE id = '$user'";
     $res = mysqli_query($conn, $query);
     if ($res) {

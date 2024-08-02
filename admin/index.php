@@ -108,9 +108,9 @@ require_once "./includes/header.php";
                                                                             Balance</label>
                                                                         <div class="form-control-wrap">
                                                                             <input type="text" class="form-control"
-                                                                                id="full-name-1" placeholder="Enter wallet name"
-                                                                                name="balance" required
-                                                                                value="<?= number_format($row['balance'], 2); ?>">
+                                                                                id="full-name-1"
+                                                                                placeholder="<?= number_format($row['balance'], 2); ?>"
+                                                                                name="balance" required value="">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -121,9 +121,8 @@ require_once "./includes/header.php";
                                                                         <div class="form-control-wrap">
                                                                             <input type="text" class="form-control"
                                                                                 id="email-address-1"
-                                                                                placeholder="Enter wallet acronym"
-                                                                                name="ref_balance" required
-                                                                                value="<?= number_format($row['ref_balance'], 2); ?>">
+                                                                                placeholder="<?= number_format($row['ref_balance'], 2); ?>"
+                                                                                name="ref_balance" value="">
                                                                         </div>
                                                                     </div>
                                                                 </div>
