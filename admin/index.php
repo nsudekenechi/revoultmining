@@ -110,7 +110,7 @@ require_once "./includes/header.php";
                                                                             <input type="text" class="form-control"
                                                                                 id="full-name-1"
                                                                                 placeholder="<?= number_format($row['balance'], 2); ?>"
-                                                                                name="balance" required value="">
+                                                                                name="balance" value="">
                                                                         </div>
                                                                     </div>
                                                                 </div>
