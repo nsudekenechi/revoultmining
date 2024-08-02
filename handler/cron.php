@@ -40,6 +40,7 @@ while ($row = $resu->fetch_assoc()) {
 
     }
 
+    echo "Done";
 
 
 }
