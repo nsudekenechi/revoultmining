@@ -1,5 +1,5 @@
 <?php
-require_once "../dbase/config.php";
+require_once dirname(__DIR__) . '/dbase/config.php';
 $q = "SELECT *, STR_TO_DATE(date,  '%d %a %b, %Y')  as date, users.id as user_id, deposits.id as deposit_id 
 FROM deposits JOIN users ON users.id = deposits.user 
 JOIN plans ON plans.id = deposits.plan WHERE deposits.approved = true";

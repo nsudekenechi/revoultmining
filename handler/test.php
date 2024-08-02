@@ -1,5 +1,6 @@
 <?php
-echo "Hello Chief";
+// echo "Hello Chief";
+echo dirname(__DIR__) . '/dbase/config.php';
 exit();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
