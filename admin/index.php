@@ -137,6 +137,16 @@ require_once "./includes/header.php";
                                                                         </button>
                                                                     </div>
                                                                 </div>
+
+                                                                <div class="col-12">
+                                                                    <div class="form-group">
+                                                                        <button type="submit"
+                                                                            class="w-100 d-flex justify-content-center btn btn-lg btn-danger"
+                                                                            name="deduct_balance">
+                                                                            Deduct Balance
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="col-12">
                                                                     <div class="form-group">
                                                                         <?php

@@ -185,6 +185,22 @@ if (isset($_POST["update_balance"])) {
     }
 }
 
+if (isset($_POST["deduct_balance"])) {
+    extract($_POST);
+    if (!$balance) {
+        $balance = 0;
+    } else if (!$ref_balance) {
+        $ref_balance = 0;
+    }
+    $query = "UPDATE users SET balance = balance - $balance, ref_balance = ref_balance - $ref_balance WHERE id = '$user'";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        header("Location: ../admin/index.php?update_balance=s");
+    } else {
+        header("Location: ../admin/index.php?update_balance=f");
+    }
+}
+
 if (isset($_POST["suspend_user"])) {
     extract($_POST);
     $query = "UPDATE users SET  suspend = !suspend WHERE id = '$user'";
