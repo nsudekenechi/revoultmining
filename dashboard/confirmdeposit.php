@@ -32,27 +32,29 @@ $row = $res->fetch_assoc();
                     <img src="./uploads/<?= $row['qr_code']; ?>" alt="">
                 </div>
                 <div class="dropdown buysell-cc-dropdown">
-                    <a class="buysell-cc-chosen d-flex justify-content-between align-items-center"
-                        data-bs-toggle="dropdown">
-                        <div class="coin-item coin-btc" style="display:flex;align-items:center;">
-                            <div class="coin-icon">
-                                <img src="./uploads/<?= $row['img']; ?>" width="30" alt="">
-                            </div>
-                            <div class="coin-info">
-                                <span class="coin-name"><?= $row['walletName']; ?> Wallet</span>
-                                <span class="coin-text"><?= $row['walletAddress']; ?></span>
-                            </div>
+                    <a class="buysell-cc-chosen" data-bs-toggle="dropdown">
+                        <div class="row align-items-center">
+
+                            <div class="coin-item coin-btc col-10" style="display:flex;align-items:center;">
+                                <div class="coin-icon">
+                                    <img src="./uploads/<?= $row['img']; ?>" width="30" alt="">
+                                </div>
+                                <div class="coin-info">
+                                    <span class="coin-name"><?= $row['walletName']; ?> Wallet</span>
+                                    <!-- <span class="coin-text"><?= $row['walletAddress']; ?></span> -->
+                                </div>
 
 
-                        </div>
-                        <div>
-                            <button type="button"
-                                class="btn btn-sm btn-icon btn-clipboard clipboard-init clipboard-text"
-                                data-clip-success="<em class='ni ni-done text-lg'></em>"
-                                data-clip-text="<em class='icon ni ni-copy'></em>"
-                                data-clipboard-text="<?= $row['walletAddress']; ?>">
-                                <em class="icon ni ni-copy"></em>
-                            </button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button"
+                                    class="btn btn-sm btn-icon btn-clipboard clipboard-init clipboard-text"
+                                    data-clip-success="<em class='ni ni-done text-lg h5'></em>"
+                                    data-clip-text="<em class='icon ni ni-copy'></em>"
+                                    data-clipboard-text="<?= $row['walletAddress']; ?>">
+                                    <em class="icon ni ni-copy"></em>
+                                </button>
+                            </div>
                         </div>
                     </a>
 

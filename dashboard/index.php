@@ -292,6 +292,35 @@ require_once "./includes/header.php";
 
                 </div><!-- .row -->
             </div><!-- .nk-block -->
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="py-5">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {
+                                "width": "100%",
+                                    "height": "500",
+                                        "symbol": "BINANCE:BTCUSDT",
+                                            "interval": "D",
+                                                "timezone": "Etc/UTC",
+                                                    "theme": "light",
+                                                        "style": "9",
+                                                            "locale": "en",
+                                                                "withdateranges": true,
+                                                                    "hide_side_toolbar": false,
+                                                                        "allow_symbol_change": true,
+                                                                            "calendar": false,
+                                                                                "support_host": "https://www.tradingview.com"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+            <!-- TradingView Widget END -->
             <div class="nk-block">
                 <div class="card card-bordered">
                     <div class="nk-refwg">

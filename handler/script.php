@@ -262,7 +262,7 @@ if (isset($_POST["withdraw"])) {
     $email = $row["email"];
     $amount = number_format($amount, 2);
     $greeting = "Hello $name,";
-    $body = "<p style='margin-bottom: 5px;'>We received your request of £$amount, your wallet would be credited in 24 hours</p>";
+    $body = "<p style='margin-bottom: 5px;'>We received your request of £$amount, your wallet would be credited in shortly.</p>";
     $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Withdrawal Request", $email);
 
     // sending withdrawal email to admin
