@@ -7,16 +7,14 @@ function sendEmail($emailFile, $search, $replace, $subject, $to)
 {
     try {
         $mail = new PHPMailer(true);
-
-        $senderemail = "nsudekenechi2@gmail.com";
-        $senderpassword = "gfzghwfqaujfxnph";
+        $senderemail = "support@zenixmining.com";
+        $senderpassword = "#Zenix1234";
         $senderFrom = "Zenixmining";
-
+        $mail->Host = 'smtp.hostinger.com';
         $body = file_get_contents($emailFile);
         $body = str_replace($search, $replace, $body);
         $mail->SMTPDebug = 0;
         $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
         $mail->Username = $senderemail;
         $mail->Password = $senderpassword;
