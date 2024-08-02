@@ -2,9 +2,14 @@
 $title = "About Us";
 require_once "./includes/header.php";
 ?>
+<style>
+    #header-img-con {
+        height: 40vh;
+    }
+</style>
 <div class="header-content my-auto py-5">
-    <div class="container mb-5 pb-5">
-        <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
+    <div class="container mb-md-5 pb-md-5">
+        <div class="row  flex-lg-row-reverse align-items-center justify-content-between g-gs">
             <div class="col-lg-6 mb-n3 mb-lg-0">
                 <p>
                     Welcome to ZenixMining, your trusted partner in the world of cryptocurrency investments. At
@@ -14,12 +19,13 @@ require_once "./includes/header.php";
             </div><!-- .col- -->
             <div class="col-lg-5 col-md-10">
                 <div class="header-caption h1">
-                    <h1>Innovative <span class="text-primary">Crypto Investments</span> for a Secure Future</h1>
+                    <h1 style="font-size:2rem;">Innovative <span class="text-primary">Crypto Investments</span> for a
+                        Secure Future</h1>
                 </div><!-- .header-caption -->
             </div><!-- .col -->
         </div><!-- .row -->
     </div><!-- .container -->
-    <div style="height:400px;">
+    <div id="header-img-con">
         <img src="https://images.pexels.com/photos/4344617/pexels-photo-4344617.jpeg" alt=""
             style="width:100%;height:100%;object-fit:cover;">
     </div>
@@ -35,8 +41,8 @@ require_once "./includes/header.php";
 </div>
 <section class="section section-feature">
     <div class="container">
-        <div class="row flex-row-reverse justify-content-between align-items-center">
-            <div class="col-lg-5">
+        <div class="row flex-row justify-content-between align-items-center">
+            <div class="col-lg-5 mb-5 mb-md-0">
                 <div class="img-block img-block-s1 right" style="height:450px;">
                     <img src="https://images.pexels.com/photos/3201718/pexels-photo-3201718.jpeg?auto=compress&cs=tinysrgb&w=600"
                         alt="Dashlite" style="height:100%;width:100%;object-fit:cover;">

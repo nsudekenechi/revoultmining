@@ -44,10 +44,12 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
     <div class="nk-app-root">
         <!-- main @s -->
         <div class="nk-main ">
+
             <!-- sidebar @s -->
             <div class="nk-sidebar nk-sidebar-fixed " data-content="sidebarMenu">
                 <div class="nk-sidebar-element nk-sidebar-head">
                     <div class="nk-sidebar-brand">
+
                         <a href="./dashboard/index.php" class="logo-link nk-sidebar-logo">
                             <img class="logo-light logo-img" src="./images/revolutmining.png"
                                 srcset="./images/revolutmining.png 2x" alt="logo">
@@ -206,12 +208,14 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                             <em class="icon ni ni-card-view"></em>
                                         </div>
                                         <div class="">
+
                                             <p id="welcome-message">
 
                                             </p>
                                             <!-- <em class="icon ni ni-external"></em> -->
                                         </div>
                                     </a>
+
                                 </div>
                             </div>
                             <div class="nk-header-tools">
@@ -296,3 +300,6 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                         </div>
                     </div>
                 </div>
+                <?php
+                require_once "../googleTranslate.php";
+                ?>

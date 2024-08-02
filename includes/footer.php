@@ -3,7 +3,7 @@
         <div class="row g-gs">
             <div class="col-lg-3 col-md-9 me-auto">
                 <div class="widget widget-about">
-                    <a href="html/index.html" class="logo-link">
+                    <a href="./" class="logo-link">
                         <img class="logo-light logo-img" src="./images/revolutmining.png"
                             srcset="./images/revolutmining.png" alt="logo">
                         <img class="logo-dark logo-img" src="./images/revolutmining.png"
@@ -67,9 +67,11 @@
 </div>
 <!-- app-root @e -->
 <!-- JavaScript -->
+
+<script src="./assets/js/scripts.js?ver=3.1.3"></script>
 <script src="./assets-home/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets-home/js/scripts.js?ver=3.1.3"></script>
-<script src="./assets/js/scripts.js?ver=3.1.3"></script>
+
 <script>
     let text = ["withdrew", "deposited"];
 

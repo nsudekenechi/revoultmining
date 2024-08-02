@@ -38,7 +38,11 @@ if (isset($_GET["ref"])) {
                                         class="icon ni ni-info"></em></a>
                             </div>
                             <div class="nk-block nk-block-middle nk-auth-body">
-                                <div class="brand-logo pb-5">
+                                <?php
+                                require_once "../googleTranslate.php";
+                                ?>
+                                <div class="brand-logo pb-5 " style="position:relative;">
+
                                     <a href="./" class="logo-link">
                                         <img class="logo-light logo-img logo-img-md" src="./images/revolutmining.png"
                                             srcset="./images/revolutmining.png" alt="logo">

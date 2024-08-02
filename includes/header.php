@@ -1,7 +1,5 @@
 <?php
-header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
-header("Pragma: no-cache"); // HTTP 1.0.
-header("Expires: 0"); // Proxies.
+
 require_once "./dbase/config.php";
 ?>
 <!DOCTYPE html>
@@ -23,12 +21,14 @@ require_once "./dbase/config.php";
 </head>
 
 <body class="nk-body bg-white npc-landing ">
+
     <div class="nk-app-root">
         <!-- main @s -->
         <div class="nk-main ">
             <header class="header has-header-main-s1 " id="home">
                 <div class="header-main header-main-s1 is-sticky is-transparent ">
-                    <div class="container header-container">
+                    <div class="container header-container" style="position:relative;">
+
                         <div class="header-wrap">
                             <div class="header-logo">
                                 <a href="html/index.html" class="logo-link">
@@ -57,17 +57,20 @@ require_once "./dbase/config.php";
                                     </li>
                                     <li class="menu-item"><a href="./faq.php" class="menu-link nav-link">FAQ</a></li>
                                 </ul>
-                                <ul class="menu-btns d-flex">
+                                <ul class="menu-btns d-grid d-md-flex align-items-center gap-2 gap-md-0">
                                     <li>
                                         <a href="./auth/register.php" target="_blank"
-                                            class="btn btn-primary btn-lg">Register</a>
+                                            class="btn btn-primary btn-lg w-100 d-flex justify-content-center">Register</a>
                                     </li>
                                     <li>
-                                        <a href="./auth/register.php" target="_blank"
-                                            class="btn btn-outline-primary btn-lg">Login</a>
+                                        <a href="./auth/" target="_blank"
+                                            class="btn btn-outline-primary btn-lg w-100 d-flex justify-content-center">Login</a>
                                     </li>
                                 </ul>
                             </nav><!-- .nk-nav-menu -->
                         </div><!-- .header-warp-->
+                        <?php
+                        require_once "./googleTranslate.php";
+                        ?>
                     </div><!-- .container-->
                 </div><!-- .header-main-->

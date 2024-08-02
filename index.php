@@ -2,49 +2,30 @@
 $title = "Home";
 require_once "./includes/header.php";
 ?>
+<style>
+    #header-landing {
+        height: 90vh;
+    }
+
+    @media screen and (max-width:765px) {
+        #header-landing {
+            height: 60vh;
+        }
+    }
+</style>
 <div class="header-content my-auto py-5">
     <div class="container">
         <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
-            <div class="col-lg-6 mb-n3 mb-lg-0">
-                <div class="header-image header-image-s2">
-                    <!-- TradingView Widget BEGIN -->
-                    <div class="tradingview-widget-container" style="height:100%;width:100%">
-                        <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%">
-                        </div>
-
-                        <script type="text/javascript"
-                            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                                {
-                                    "container_id": "watchlist-chart-demo",
-                                        "width": "80%",
-                                            "height": "400",
-                                                "autosize": true,
-                                                    "symbol": "NASDAQ:AAPL",
-                                                        "interval": "D",
-                                                            "timezone": "exchange",
-                                                                "theme": "light",
-                                                                    "style": "1",
-                                                                        "withdateranges": true,
-                                                                            "allow_symbol_change": true,
-                                                                                "save_image": false,
-                                                                                    "watchlist": [
-                                                                                        "AAPL",
-                                                                                        "IBM",
-                                                                                        "TSLA",
-                                                                                        "AMD",
-                                                                                        "MSFT",
-                                                                                        "GOOG"
-                                                                                    ]
-                                }
-                            </script>
-                    </div>
-                    <!-- TradingView Widget END -->
+            <div class="col-lg-5 mb-n3 mb-lg-0">
+                <div class="header-image header-image-s2" id="header-landing">
+                    <img src="https://images.pexels.com/photos/7255388/pexels-photo-7255388.jpeg" alt=""
+                        style=" width:100%;height:100%;object-fit:cover;">
                 </div><!-- .header-image -->
             </div><!-- .col- -->
-            <div class="col-lg-5 col-md-10">
+            <div class="col-lg-6 col-md-10">
                 <div class="header-caption">
                     <div class="header-rating rating">
-                        <ul class="rating-stars">
+                        <ul class="rating-stars d-none d-md-flex">
                             <li><em class="icon ni ni-star-fill"></em></li>
                             <li><em class="icon ni ni-star-fill"></em></li>
                             <li><em class="icon ni ni-star-fill"></em></li>
@@ -60,12 +41,11 @@ require_once "./includes/header.php";
                             Secure, reliable, and innovative – that’s the ZenixMining promise.
                         </p>
                     </div>
-                    <ul class="header-action btns-inline">
-                        <li>
-                            <a href="./auth/register.php" class="btn btn-primary btn-lg"><span>Sign Up</span>
-                            </a>
-                        </li>
-                        <li> <a href="./auth/login.php" class="btn btn-outline-gray btn-lg"><span>Login</span></a>
+                    <ul class="header-action ">
+
+                        <li> <a href="./auth/register.php"
+                                class="btn btn-outline-primary d-flex justify-content-center btn-lg w-50 "><span>Get
+                                    Started</span></a>
                         </li>
                     </ul>
                 </div><!-- .header-caption -->
@@ -355,14 +335,14 @@ require_once "./includes/header.php";
             <div class="col-lg-5">
                 <div class="row text-center g-gs">
                     <div class="col-6">
-                        <a href=""
-                            class="btn-primary btn w-100 p-4 d-flex align-items-center justify-content-center h6">
+                        <a href="./auth/"
+                            class="btn-primary btn w-100 p-2 p-md-3 d-flex align-items-center justify-content-center h6">
                             Invest now
                         </a>
                     </div><!-- .col -->
                     <div class="col-6">
-                        <a href=""
-                            class="btn-outline-light btn w-100 p-4 d-flex align-items-center justify-content-center h6">
+                        <a href="./auth/register.php"
+                            class="btn-outline-light btn w-100 p-2 p-md-3 d-flex align-items-center justify-content-center h6">
                             Get
                             started
                         </a>
@@ -484,7 +464,9 @@ require_once "./includes/header.php";
                                 <li>Total Returns: <?= $row['daily_interest'] * $row['days']; ?>%</li>
                             </ul>
                             <div class="pricing-action">
-                                <a href="./auth/" class="btn btn-primary btn-lg btn-round"><span>Invest Now</span></a>
+                                <a href="./auth/"
+                                    class="btn btn-primary btn-lg btn-round w-100 d-flex justify-content-center"><span>Invest
+                                        Now</span></a>
                             </div>
                         </div><!-- card-inner -->
                     </div><!-- .pricing .card -->
