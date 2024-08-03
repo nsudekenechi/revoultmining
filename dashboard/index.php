@@ -160,28 +160,7 @@ require_once "./includes/header.php";
             </div><!-- .nk-block -->
             <div class="mb-5">
                 <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script id="hello" type="text/javascript"
-                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                            {
-                                "width": "100%",
-                                    "height": "500",
-                                        "symbol": "NASDAQ:AAPL",
-                                            "interval": "D",
-                                                "timezone": "Etc/UTC",
-                                                    "theme": "light",
-                                                        "style": "1",
-                                                            "locale": "en",
-                                                                "withdateranges": true,
-                                                                    "hide_side_toolbar": false,
-                                                                        "allow_symbol_change": true,
-                                                                            "calendar": false,
-                                                                                "support_host": "https://www.tradingview.com"
-                            }
-                        </script>
-
-
+                <div id="tradingview-widget-container">
                 </div>
                 <!-- TradingView Widget END -->
             </div>
@@ -263,29 +242,9 @@ require_once "./includes/header.php";
             </div><!-- .nk-block -->
 
             <!-- TradingView Widget BEGIN -->
-            <div class="py-5">
-                <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container mb-5">
-                    <div class="tradingview-widget-container__widget"></div>
-
-                    <script type="text/javascript"
-                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                            {
-                                "width": "100%",
-                                    "height": "300",
-                                        "symbol": "NASDAQ:AAPL",
-                                            "interval": "D",
-                                                "timezone": "Etc/UTC",
-                                                    "theme": "light",
-                                                        "style": "1",
-                                                            "locale": "en",
-                                                                "allow_symbol_change": true,
-                                                                    "calendar": false,
-                                                                        "support_host": "https://www.tradingview.com"
-                            }
-                        </script>
+            <div class="my-5">
+                <div class="" id="tradingview-widget-container-2">
                 </div>
-                <!-- TradingView Widget END -->
             </div>
             <!-- TradingView Widget END -->
 
@@ -368,20 +327,63 @@ require_once "./includes/header.php";
         </div>
     </div>
 </div>
+<script src="https://s3.tradingview.com/tv.js"></script>
 <script>
     let refUrl = document.querySelector("#refUrl");
     let user = document.querySelector("#user")
     refUrl.value = `${location.origin} /Zenixmining/auth / register.php ? ref = ${user.value}`
     let darkmode = document.querySelector(".dark-switch");
-    let hello = document.querySelector("#hello .theme-light")
     darkmode.onclick = () => {
-
         if (!darkmode.classList.contains("active")) {
-            console.log(hello)
+            tradingview("dark", 1)
+            tradingview('dark', 2)
         } else {
-
+            tradingview("light", 1)
+            tradingview('light', 2)
         }
+
     }
+
+    tradingview("light", 1)
+    tradingview('light', 2)
+
+    function tradingview(theme, elem) {
+        if (elem == 1) {
+            new TradingView.widget({
+                "width": "100%",
+                "height": "500",
+                "container_id": "tradingview-widget-container",
+                "symbol": "NASDAQ:AAPL",
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": theme,
+                "style": "1",
+                "locale": "en",
+                "withdateranges": true,
+                "hide_side_toolbar": false,
+                "allow_symbol_change": true,
+                "calendar": false,
+                "support_host": "https://www.tradingview.com"
+            })
+        } else {
+            new TradingView.widget({
+                "width": "100%",
+                "height": "300",
+                "container_id": "tradingview-widget-container-2",
+                "symbol": "NASDAQ:AAPL",
+                "interval": "D",
+                "timezone": "Etc/UTC",
+                "theme": theme,
+                "style": "1",
+                "locale": "en",
+                "allow_symbol_change": true,
+                "calendar": false,
+                "support_host": "https://www.tradingview.com"
+            })
+        }
+
+    }
+
 </script>
 <?php
 require_once "./includes/footer.php";

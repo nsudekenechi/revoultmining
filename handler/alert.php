@@ -203,3 +203,20 @@ if (isset($_GET)) {
 
 
 }
+?>
+
+<script>
+    let text = ["withdrew", "deposited"];
+    fetch("./assets/country.json").then(res => res.json()).then(data => {
+        setInterval(() => {
+            toastr.clear();
+            NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just
+    <b>
+    ${text[Math.floor(Math.random() * text.length)]}
+    </b>
+    <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}
+    </b>
+    `, 'info', { icon: false, closeButton: false, position: "top-right" });
+        }, 10000)
+    })
+</script>

@@ -71,29 +71,15 @@
 <script src="./assets/js/scripts.js?ver=3.1.3"></script>
 <script src="./assets-home/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets-home/js/scripts.js?ver=3.1.3"></script>
-
-<script>
-    let text = ["withdrew", "deposited"];
-
-    fetch("./assets/country.json").then(res => res.json()).then(data => {
-        setInterval(() => {
-            toastr.clear();
-            NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just 
-    <b>${text[Math.floor(Math.random() * text.length)]} </b>
-  <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}</b>
-    `, 'info', { icon: false });
-        }, 10000)
-    })
-</script>
 <!-- Begin of Chaport Live Chat code -->
 <script type="text/javascript">
-        (function (w, d, v3) {
-            w.chaportConfig = {
-                appId: '66ac351ec2cac745882d7d89'
-            };
+    (function (w, d, v3) {
+        w.chaportConfig = {
+            appId: '66ac351ec2cac745882d7d89'
+        };
 
-            if (w.chaport) return; v3 = w.chaport = {}; v3._q = []; v3._l = {}; v3.q = function () { v3._q.push(arguments) }; v3.on = function (e, fn) { if (!v3._l[e]) v3._l[e] = []; v3._l[e].push(fn) }; var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://app.chaport.com/javascripts/insert.js'; var ss = d.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss)
-        })(window, document);
+        if (w.chaport) return; v3 = w.chaport = {}; v3._q = []; v3._l = {}; v3.q = function () { v3._q.push(arguments) }; v3.on = function (e, fn) { if (!v3._l[e]) v3._l[e] = []; v3._l[e].push(fn) }; var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://app.chaport.com/javascripts/insert.js'; var ss = d.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss)
+    })(window, document);
 </script>
 <!-- End of Chaport Live Chat code -->
 </body>

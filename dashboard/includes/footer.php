@@ -67,18 +67,23 @@
         greeting = "Good Evening";
     }
     welcomeMessage.innerHTML = `<b>${greeting}</b>, <span>${messages[Math.floor(Math.random() * messages.length)]}</span>`
-    let text = ["withdrew", "deposited"];
 
+</script>
+<script>
+    text = ["withdrew", "deposited"];
     fetch("./assets/country.json").then(res => res.json()).then(data => {
-        setInterval(() => {
-            NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just 
-        <b>${text[Math.floor(Math.random() * text.length)]} </b>
-      <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}</b>
-        `, 'info', { icon: false });
-        }, 50000)
+        setTimeout(() => {
+            // toastr.clear();
+            NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just
+    <b>
+    ${text[Math.floor(Math.random() * text.length)]}
+    </b>
+    <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}
+    </b>
+    `, 'info', { icon: false, closeButton: false, position: "top-right", timeOut: 2000 });
+        }, 60000)
     })
 </script>
-
 <?php
 require_once "../handler/alert.php";
 ?>
