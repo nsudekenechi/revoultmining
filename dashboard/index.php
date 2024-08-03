@@ -158,7 +158,7 @@ require_once "./includes/header.php";
 
                 </div><!-- .row -->
             </div><!-- .nk-block -->
-            <div class="">
+            <div class="mb-5">
                 <!-- TradingView Widget BEGIN -->
                 <div class="tradingview-widget-container">
                     <div class="tradingview-widget-container__widget"></div>
