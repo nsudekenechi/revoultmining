@@ -7,7 +7,7 @@ require_once "./includes/header.php";
 
 
 
-    <div class="container-xl wide-lg">
+    <div class="container-xl wide-lg py-5">
         <div class="nk-content-body">
             <div class="nk-block-head">
                 <div class="nk-block-head-sub"><span>Welcome Back,</span>
@@ -158,7 +158,7 @@ require_once "./includes/header.php";
 
                 </div><!-- .row -->
             </div><!-- .nk-block -->
-            <div class="py-5">
+            <div class="">
                 <!-- TradingView Widget BEGIN -->
                 <div class="tradingview-widget-container">
                     <div class="tradingview-widget-container__widget"></div>
