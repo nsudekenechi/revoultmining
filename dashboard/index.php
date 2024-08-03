@@ -4,28 +4,7 @@ require_once "./includes/header.php";
 ?>
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container mb-5">
-        <div class="tradingview-widget-container__widget"></div>
 
-        <script type="text/javascript"
-            src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {
-                    "width": "100%",
-                        "height": "300",
-                            "symbol": "NASDAQ:AAPL",
-                                "interval": "D",
-                                    "timezone": "Etc/UTC",
-                                        "theme": "light",
-                                            "style": "1",
-                                                "locale": "en",
-                                                    "allow_symbol_change": true,
-                                                        "calendar": false,
-                                                            "support_host": "https://www.tradingview.com"
-                }
-            </script>
-    </div>
-    <!-- TradingView Widget END -->
 
 
     <div class="container-xl wide-lg">
@@ -179,6 +158,40 @@ require_once "./includes/header.php";
 
                 </div><!-- .row -->
             </div><!-- .nk-block -->
+            <div class="py-5">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {
+                                "width": "100%",
+                                    "height": "400",
+                                        "symbol": "NASDAQ:AAPL",
+                                            "interval": "D",
+                                                "timezone": "Etc/UTC",
+                                                    "theme": "light",
+                                                        "style": "0",
+                                                            "locale": "en",
+                                                                "withdateranges": true,
+                                                                    "hide_side_toolbar": false,
+                                                                        "allow_symbol_change": true,
+                                                                            "details": true,
+                                                                                "hotlist": true,
+                                                                                    "calendar": false,
+                                                                                        "studies": [
+                                                                                            "STD;24h%Volume",
+                                                                                            "STD;Accumulation_Distribution",
+                                                                                            "STD;Advance%1Decline%1Line",
+                                                                                            "STD;Advance%1Decline%1Ratio"
+                                                                                        ],
+                                                                                            "support_host": "https://www.tradingview.com"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
 
             <div class="nk-block nk-block-lg">
                 <div class="row gy-gs">
@@ -259,25 +272,23 @@ require_once "./includes/header.php";
             <!-- TradingView Widget BEGIN -->
             <div class="py-5">
                 <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container mb-5">
                     <div class="tradingview-widget-container__widget"></div>
 
                     <script type="text/javascript"
                         src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
                             {
                                 "width": "100%",
-                                    "height": "500",
-                                        "symbol": "BINANCE:BTCUSDT",
+                                    "height": "300",
+                                        "symbol": "NASDAQ:AAPL",
                                             "interval": "D",
                                                 "timezone": "Etc/UTC",
                                                     "theme": "light",
-                                                        "style": "9",
+                                                        "style": "1",
                                                             "locale": "en",
-                                                                "withdateranges": true,
-                                                                    "hide_side_toolbar": false,
-                                                                        "allow_symbol_change": true,
-                                                                            "calendar": false,
-                                                                                "support_host": "https://www.tradingview.com"
+                                                                "allow_symbol_change": true,
+                                                                    "calendar": false,
+                                                                        "support_host": "https://www.tradingview.com"
                             }
                         </script>
                 </div>
@@ -285,45 +296,7 @@ require_once "./includes/header.php";
             </div>
             <!-- TradingView Widget END -->
 
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container mb-5">
-                <div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript"
-                    src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-                        {
-                            "symbols": [
-                                {
-                                    "proName": "FOREXCOM:SPXUSD",
-                                    "title": "S&P 500 Index"
-                                },
-                                {
-                                    "proName": "FOREXCOM:NSXUSD",
-                                    "title": "US 100 Cash CFD"
-                                },
-                                {
-                                    "proName": "FX_IDC:EURUSD",
-                                    "title": "EUR to USD"
-                                },
-                                {
-                                    "proName": "BITSTAMP:BTCUSD",
-                                    "title": "Bitcoin"
-                                },
-                                {
-                                    "proName": "BITSTAMP:ETHUSD",
-                                    "title": "Ethereum"
-                                }
-                            ],
-                                "showSymbolLogo": true,
-                                    "isTransparent": false,
-                                        "displayMode": "adaptive",
-                                            "colorTheme": "light",
-                                                "locale": "en",
-                                                    "height": 50
-                        }
-                    </script>
-            </div>
 
-            <!-- TradingView Widget END -->
             <div class="nk-block">
                 <div class="card card-bordered">
                     <div class="nk-refwg">
