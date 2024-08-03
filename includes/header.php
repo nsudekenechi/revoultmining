@@ -1,5 +1,8 @@
 <?php
-
+session_start();
+if (isset($_GET["ref"])) {
+    $_SESSION["ref"] = $_GET["ref"];
+}
 require_once "./dbase/config.php";
 ?>
 <!DOCTYPE html>

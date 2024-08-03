@@ -68,9 +68,15 @@
 <!-- app-root @e -->
 <!-- JavaScript -->
 
-<script src="./assets/js/scripts.js?ver=3.1.3"></script>
+
 <script src="./assets-home/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets-home/js/scripts.js?ver=3.1.3"></script>
+<?php
+require_once "./handler/alert.php";
+?>
+
+
+
 <!-- Begin of Chaport Live Chat code -->
 <script type="text/javascript">
     (function (w, d, v3) {

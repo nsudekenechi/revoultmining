@@ -198,7 +198,8 @@ if (isset($_GET)) {
             <script>
                 NioApp.Toast('Withdrawal Aprroved failed', 'error', { timeOut: 5000, position: "top-right" });
             </script>
-        <?php
+            <?php
+            break;
     }
 
 
@@ -209,14 +210,24 @@ if (isset($_GET)) {
     let text = ["withdrew", "deposited"];
     fetch("./assets/country.json").then(res => res.json()).then(data => {
         setInterval(() => {
-            toastr.clear();
+            // toastr.clear();
             NioApp.Toast(`Someone from <b>${data.country[Math.floor(Math.random() * data.country.length)]} </b> just
     <b>
     ${text[Math.floor(Math.random() * text.length)]}
     </b>
     <b>${new Intl.NumberFormat("en-gb", { currency: "GBP", style: "currency" }).format(Math.floor(Math.random() * 100000))}
     </b>
-    `, 'info', { icon: false, closeButton: false, position: "top-right" });
+    `, 'info', { icon: false, closeButton: false, position: "bottom-left", timeOut: 2000 });
         }, 10000)
     })
+
+
 </script>
+
+<style>
+    @media screen and (max-width: 765px) {
+        #toast-container {
+            bottom: 60px !important;
+        }
+    }
+</style>

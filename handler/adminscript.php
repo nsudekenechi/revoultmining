@@ -173,10 +173,15 @@ if (isset($_POST["update_balance"])) {
     extract($_POST);
     if (!$balance) {
         $balance = 0;
-    } else if (!$ref_balance) {
+    }
+    if (!$ref_balance) {
         $ref_balance = 0;
     }
-    $query = "UPDATE users SET balance = balance + $balance, ref_balance = ref_balance + $ref_balance WHERE id = '$user'";
+
+    if (!$investment) {
+        $investment = 0;
+    }
+    $query = "UPDATE users SET balance = balance + $balance, ref_balance = ref_balance + $ref_balance, investment = investment + $investment WHERE id = '$user'";
     $res = mysqli_query($conn, $query);
     if ($res) {
         header("Location: ../admin/index.php?update_balance=s");
@@ -189,10 +194,15 @@ if (isset($_POST["deduct_balance"])) {
     extract($_POST);
     if (!$balance) {
         $balance = 0;
-    } else if (!$ref_balance) {
+    }
+    if (!$ref_balance) {
         $ref_balance = 0;
     }
-    $query = "UPDATE users SET balance = balance - $balance, ref_balance = ref_balance - $ref_balance WHERE id = '$user'";
+    if (!$investment) {
+        $investment = 0;
+    }
+
+    $query = "UPDATE users SET balance = balance - $balance, ref_balance = ref_balance - $ref_balance, investment = investment - $investment WHERE id = '$user'";
     $res = mysqli_query($conn, $query);
     if ($res) {
         header("Location: ../admin/index.php?update_balance=s");

@@ -58,6 +58,43 @@
     NioApp.Passcode('.passcode-switch');
   };
 
+  NioApp.Toast = function (msg, ttype, opt) {
+    var ttype = ttype ? ttype : 'info',
+      msi = '',
+      ticon = ttype === 'info' ? 'ni ni-info-fill' : ttype === 'success' ? 'ni ni-check-circle-fill' : ttype === 'error' ? 'ni ni-cross-circle-fill' : ttype === 'warning' ? 'ni ni-alert-fill' : '',
+      def = {
+        position: 'bottom-right',
+        ui: '',
+        icon: 'auto',
+        clear: false
+      },
+      attr = opt ? extend(def, opt) : def;
+    attr.position = attr.position ? 'toast-' + attr.position : 'toast-bottom-right';
+    attr.icon = attr.icon === 'auto' ? ticon : attr.icon ? attr.icon : '';
+    attr.ui = attr.ui ? ' ' + attr.ui : '';
+    msi = attr.icon !== '' ? '<span class="toastr-icon"><em class="icon ' + attr.icon + '"></em></span>' : '', msg = msg !== '' ? msi + '<div class="toastr-text">' + msg + '</div>' : '';
+    if (msg !== "") {
+      if (attr.clear === true) {
+        toastr.clear();
+      }
+      var option = {
+        "closeButton": true,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": attr.position + attr.ui,
+        "closeHtml": '<span class="btn-trigger">Close</span>',
+        "preventDuplicates": true,
+        "showDuration": "1500",
+        "hideDuration": "1500",
+        "timeOut": "2000",
+        "toastClass": "toastr",
+        "extendedTimeOut": "3000"
+      };
+      toastr.options = extend(option, attr);
+      toastr[ttype](msg);
+    }
+  };
   // Toggle Screen @v1.0
   NioApp.TGL.screen = function (elm) {
     if ($(elm).exists()) {
@@ -236,8 +273,8 @@
   // Animate FormElement @v1.0
   NioApp.Ani.formElm = function (elm, opt) {
     var def = {
-        focus: 'focused'
-      },
+      focus: 'focused'
+    },
       attr = opt ? extend(def, opt) : def;
     if ($(elm).exists()) {
       $(elm).each(function () {
@@ -264,8 +301,8 @@
     if ($(elm).exists()) {
       $(elm).each(function () {
         var def = {
-            errorElement: "span"
-          },
+          errorElement: "span"
+        },
           attr = opt ? extend(def, opt) : def;
         $(this).validate(attr);
       });
@@ -383,19 +420,19 @@
         console.log(_tooltip);
         var target = document.getElementById(self_id);
         var def = {
-            start: _start,
-            connect: _connect,
-            direction: NioApp.State.isRTL ? "rtl" : "ltr",
-            range: {
-              'min': _min,
-              'max': _max
-            },
-            margin: _min_distance,
-            limit: _max_distance,
-            step: _step,
-            orientation: _orientation,
-            tooltips: _tooltip
+          start: _start,
+          connect: _connect,
+          direction: NioApp.State.isRTL ? "rtl" : "ltr",
+          range: {
+            'min': _min,
+            'max': _max
           },
+          margin: _min_distance,
+          limit: _max_distance,
+          step: _step,
+          orientation: _orientation,
+          tooltips: _tooltip
+        },
           attr = opt ? extend(def, opt) : def;
         noUiSlider.create(target, attr);
       });
@@ -413,10 +450,10 @@
     if ($(elm).exists() && typeof $.fn.slick === 'function') {
       $(elm).each(function () {
         var def = {
-            'prevArrow': '<div class="slick-arrow-prev"><a href="javascript:void(0);" class="slick-prev"><em class="icon ni ni-chevron-left"></em></a></div>',
-            'nextArrow': '<div class="slick-arrow-next"><a href="javascript:void(0);" class="slick-next"><em class="icon ni ni-chevron-right"></em></a></div>',
-            rtl: NioApp.State.isRTL
-          },
+          'prevArrow': '<div class="slick-arrow-prev"><a href="javascript:void(0);" class="slick-prev"><em class="icon ni ni-chevron-left"></em></a></div>',
+          'nextArrow': '<div class="slick-arrow-next"><a href="javascript:void(0);" class="slick-next"><em class="icon ni ni-chevron-right"></em></a></div>',
+          rtl: NioApp.State.isRTL
+        },
           attr = opt ? extend(def, opt) : def;
         $(this).slick(attr);
       });

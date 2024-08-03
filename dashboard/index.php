@@ -40,13 +40,16 @@ require_once "./includes/header.php";
                                             <div class="nk-wg7-stats col-10 col-md-9">
                                                 <div class="nk-wg7-title mb-2" style="">Investment</div>
                                                 <?php
-                                                $query = "SELECT SUM(amount) as amount FROM deposits WHERE user = '$user_id' AND approved = true";
+                                                $query = "SELECT SUM(amount)  FROM deposits  WHERE user = '$user_id' AND approved = true";
                                                 $res = mysqli_query($conn, $query);
-
+                                                $amount = $res->fetch_column();
+                                                $query = "SELECT investment FROM users WHERE id = '$user_id'";
+                                                $res = mysqli_query($conn, $query);
+                                                $investment = $res->fetch_column();
                                                 ?>
                                                 <div class="text-white">
                                                     <h6 class="amount">
-                                                        <?= $res->fetch_column(); ?>
+                                                        <?= $amount + $investment ?>
                                                     </h6>
                                                 </div>
                                             </div>
@@ -75,7 +78,9 @@ require_once "./includes/header.php";
                                             <div class="col-10 col-md-9 nk-wg7-stats">
                                                 <div class="nk-wg7-title mb-2" style="">Balance</div>
                                                 <div class="text-white">
-                                                    <h6 class="amount"> <?= $userRow['balance']; ?></h6>
+                                                    <h6 class="amount">
+                                                        <?= $userRow['balance']; ?>
+                                                    </h6>
                                                 </div>
                                             </div>
 
@@ -159,6 +164,29 @@ require_once "./includes/header.php";
                 </div><!-- .row -->
             </div><!-- .nk-block -->
             <div class="mb-5">
+                <div class="card card-bordered  h-100">
+                    <div class="card-inner">
+                        <div class="nk-wg7" style="position:relative;z-index:20;">
+                            <div class="row align-items-center">
+                                <div class="nk-wg7-stats col-11 ">
+
+
+                                    <div class="">
+                                        <p class="h6">
+                                            Live trading chart
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-1 d-flex justify-content-between h5">
+                                    <em class="icon ni ni-cross"></em>
+                                    <em class="icon ni ni-chevron-down"></em>
+                                </div>
+
+                            </div>
+
+                        </div><!-- .nk-wg7 -->
+                    </div><!-- .card-inner -->
+                </div>
                 <!-- TradingView Widget BEGIN -->
                 <div id="tradingview-widget-container">
                 </div>
@@ -243,6 +271,7 @@ require_once "./includes/header.php";
 
             <!-- TradingView Widget BEGIN -->
             <div class="my-5">
+
                 <div class="" id="tradingview-widget-container-2">
                 </div>
             </div>
@@ -331,7 +360,7 @@ require_once "./includes/header.php";
 <script>
     let refUrl = document.querySelector("#refUrl");
     let user = document.querySelector("#user")
-    refUrl.value = `${location.origin} /Zenixmining/auth / register.php ? ref = ${user.value}`
+    refUrl.value = `${location.origin}?ref=${user.value}`
     let darkmode = document.querySelector(".dark-switch");
     darkmode.onclick = () => {
         if (!darkmode.classList.contains("active")) {

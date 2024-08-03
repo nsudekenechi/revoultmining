@@ -90,7 +90,7 @@ require_once "./includes/header.php";
                                         <div class="modal fade" tabindex="-1" id="modalDefault<?= $row['id'] ?>"
                                             style="display: none;" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
-                                                <div class="modal-content">
+                                                <div class="modal-content" style="overflow:auto;">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title">Update User</h5>
                                                         <a href="#" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -123,6 +123,19 @@ require_once "./includes/header.php";
                                                                                 id="email-address-1"
                                                                                 placeholder="<?= number_format($row['ref_balance'], 2); ?>"
                                                                                 name="ref_balance" value="">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="col-lg-12">
+                                                                    <div class="form-group">
+                                                                        <label class="form-label"
+                                                                            for="email-address-1">Investment</label>
+                                                                        <div class="form-control-wrap">
+                                                                            <input type="text" class="form-control"
+                                                                                id="email-address-1"
+                                                                                placeholder="<?= number_format($row['investment'], 2); ?>"
+                                                                                name="investment" value="">
                                                                         </div>
                                                                     </div>
                                                                 </div>
