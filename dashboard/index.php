@@ -168,7 +168,7 @@ require_once "./includes/header.php";
                     <div class="card-inner">
                         <div class="nk-wg7" style="position:relative;z-index:20;">
                             <div class="row align-items-center">
-                                <div class="nk-wg7-stats col-11 ">
+                                <div class="nk-wg7-stats col-9 col-md-11 ">
 
 
                                     <div class="">
@@ -177,7 +177,7 @@ require_once "./includes/header.php";
                                         </p>
                                     </div>
                                 </div>
-                                <div class="col-1 d-flex justify-content-between h5">
+                                <div class="col-3 col-md-1 d-flex justify-content-between h5">
                                     <em class="icon ni ni-cross"></em>
                                     <em class="icon ni ni-chevron-down"></em>
                                 </div>
