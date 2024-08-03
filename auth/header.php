@@ -31,7 +31,7 @@ if (isset($_GET["ref"])) {
             <div class="nk-wrap nk-wrap-nosidebar">
                 <!-- content @s -->
                 <div class="nk-content ">
-                    <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
+                    <div class="nk-block nk-block-middle my-0 my-md-auto nk-auth-body  wide-xs">
                         <div class="brand-logo pb-4 text-center">
                             <a href="./" class="logo-link">
                                 <img class="logo-light logo-img logo-img-md" src="./images/revolutmining.png"
