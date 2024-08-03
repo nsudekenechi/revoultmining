@@ -31,22 +31,14 @@ if (isset($_GET["ref"])) {
             <div class="nk-wrap nk-wrap-nosidebar">
                 <!-- content @s -->
                 <div class="nk-content ">
-                    <div class="nk-split nk-split-page nk-split-md">
-                        <div class="nk-split-content  nk-block-area-column nk-auth-container bg-white">
-                            <div class="absolute-top-right d-lg-none p-3 p-sm-5">
-                                <a href="#" class="toggle btn-white btn btn-icon btn-light" data-target="athPromo"><em
-                                        class="icon ni ni-info"></em></a>
-                            </div>
-                            <div class="nk-block nk-block-middle nk-auth-body">
-                                <?php
-                                require_once "../googleTranslate.php";
-                                ?>
-                                <div class="brand-logo pb-5 " style="position:relative;">
-
-                                    <a href="./" class="logo-link">
-                                        <img class="logo-light logo-img logo-img-md" src="./images/revolutmining.png"
-                                            srcset="./images/revolutmining.png" alt="logo">
-                                        <img class="logo-dark logo-img logo-img-md" src="./images/revolutmining.png"
-                                            srcset="./images/revolutmining.png" alt="logo-dark">
-                                    </a>
-                                </div>
+                    <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
+                        <div class="brand-logo pb-4 text-center">
+                            <a href="./" class="logo-link">
+                                <img class="logo-light logo-img logo-img-md" src="./images/revolutmining.png"
+                                    srcset="./images/revolutmining.png" alt="logo">
+                                <img class="logo-dark logo-img logo-img-md" src="./images/revolutmining.png"
+                                    srcset="./images/revolutmining.png" alt="logo-dark">
+                            </a>
+                        </div>
+                        <div class="card card-bordered">
+                            <div class="card-inner card-inner-lg">

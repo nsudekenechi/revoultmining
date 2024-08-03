@@ -63,7 +63,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                         </a>
                     </div>
                     <div class="nk-menu-trigger me-n2">
-                        <a href="#" class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
+                        <a class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
                                 class="icon ni ni-arrow-left"></em></a>
                     </div>
                 </div>
@@ -73,7 +73,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                         <div class="nk-sidebar-content">
 
                             <div class="nk-sidebar-widget nk-sidebar-widget-full d-xl-none pt-0">
-                                <a class="nk-profile-toggle toggle-expand" data-target="sidebarProfile" href="#">
+                                <a class="nk-profile-toggle toggle-expand" data-target="sidebarProfile">
                                     <div class="user-card-wrap">
                                         <div class="user-card">
                                             <div class="user-avatar">
@@ -193,7 +193,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                     <div class="container-fluid">
                         <div class="nk-header-wrap">
                             <div class="nk-menu-trigger d-xl-none ms-n1">
-                                <a href="#" class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
+                                <a class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
                                         class="icon ni ni-menu"></em></a>
                             </div>
                             <div class="nk-header-brand d-xl-none">
@@ -226,7 +226,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                 <ul class="nk-quick-nav">
 
                                     <li class="dropdown user-dropdown">
-                                        <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown">
+                                        <a class="dropdown-toggle" data-bs-toggle="dropdown">
                                             <div class="user-toggle">
                                                 <?php
                                                 $query = "SELECT * FROM users WHERE id = '$user_id'";
@@ -283,7 +283,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                                                 class="icon ni ni-user-alt"></em><span>View
                                                                 Profile</span></a></li>
 
-                                                    <li><a class="dark-switch" href="#"><em
+                                                    <li><a class="dark-switch"><em
                                                                 class="icon ni ni-moon"></em><span>Dark Mode</span></a>
                                                     </li>
                                                 </ul>

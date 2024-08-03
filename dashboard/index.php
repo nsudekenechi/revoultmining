@@ -162,33 +162,26 @@ require_once "./includes/header.php";
                 <!-- TradingView Widget BEGIN -->
                 <div class="tradingview-widget-container">
                     <div class="tradingview-widget-container__widget"></div>
-
-                    <script type="text/javascript"
+                    <script id="hello" type="text/javascript"
                         src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
                             {
                                 "width": "100%",
-                                    "height": "400",
+                                    "height": "500",
                                         "symbol": "NASDAQ:AAPL",
                                             "interval": "D",
                                                 "timezone": "Etc/UTC",
                                                     "theme": "light",
-                                                        "style": "0",
+                                                        "style": "1",
                                                             "locale": "en",
                                                                 "withdateranges": true,
                                                                     "hide_side_toolbar": false,
                                                                         "allow_symbol_change": true,
-                                                                            "details": true,
-                                                                                "hotlist": true,
-                                                                                    "calendar": false,
-                                                                                        "studies": [
-                                                                                            "STD;24h%Volume",
-                                                                                            "STD;Accumulation_Distribution",
-                                                                                            "STD;Advance%1Decline%1Line",
-                                                                                            "STD;Advance%1Decline%1Ratio"
-                                                                                        ],
-                                                                                            "support_host": "https://www.tradingview.com"
+                                                                            "calendar": false,
+                                                                                "support_host": "https://www.tradingview.com"
                             }
                         </script>
+
+
                 </div>
                 <!-- TradingView Widget END -->
             </div>
@@ -378,9 +371,22 @@ require_once "./includes/header.php";
 <script>
     let refUrl = document.querySelector("#refUrl");
     let user = document.querySelector("#user")
-    refUrl.value = `${location.origin}/Zenixmining/auth/register.php?ref=${user.value}`
+    refUrl.value = `${location.origin} /Zenixmining/auth / register.php ? ref = ${user.value}`
+    let darkmode = document.querySelector(".dark-switch");
+    let hello = document.querySelector("#hello .theme-light")
+    darkmode.onclick = () => {
 
+        if (!darkmode.classList.contains("active")) {
+            console.log(hello)
+        } else {
+
+        }
+    }
 </script>
 <?php
 require_once "./includes/footer.php";
 ?>
+
+<script>
+
+</script>

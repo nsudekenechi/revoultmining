@@ -31,7 +31,7 @@ require_once "./dbase/config.php";
 
                         <div class="header-wrap">
                             <div class="header-logo">
-                                <a href="html/index.html" class="logo-link">
+                                <a href="./" class="logo-link">
                                     <img class="logo-light logo-img" src="./images/revolutmining.png"
                                         srcset="./images/revolutmining.png 2x" alt="logo">
                                     <img class="logo-dark logo-img" src="./images/revolutmining.png"
