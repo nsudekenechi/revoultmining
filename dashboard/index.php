@@ -190,6 +190,24 @@ require_once "./includes/header.php";
                 <!-- TradingView Widget BEGIN -->
                 <div id="tradingview-widget-container">
                 </div>
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container mt-5">
+                    <div class="tradingview-widget-container__widget"></div>
+
+                    <script type="text/javascript"
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                            {
+                                "width": "100%",
+                                    "height": 400,
+                                        "defaultColumn": "overview",
+                                            "screener_type": "crypto_mkt",
+                                                "displayCurrency": "USD",
+                                                    "colorTheme": "light",
+                                                        "locale": "en"
+                            }
+                        </script>
+                </div>
+                <!-- TradingView Widget END -->
                 <!-- TradingView Widget END -->
             </div>
 
@@ -273,6 +291,7 @@ require_once "./includes/header.php";
             <div class="my-5">
 
                 <div class="" id="tradingview-widget-container-2">
+
                 </div>
             </div>
             <!-- TradingView Widget END -->
@@ -395,29 +414,11 @@ require_once "./includes/header.php";
                 "support_host": "https://www.tradingview.com"
             })
         } else {
-            new TradingView.widget({
-                "width": "100%",
-                "height": "300",
-                "container_id": "tradingview-widget-container-2",
-                "symbol": "NASDAQ:AAPL",
-                "interval": "D",
-                "timezone": "Etc/UTC",
-                "theme": theme,
-                "style": "1",
-                "locale": "en",
-                "allow_symbol_change": true,
-                "calendar": false,
-                "support_host": "https://www.tradingview.com"
-            })
-        }
 
+        }
     }
 
 </script>
 <?php
 require_once "./includes/footer.php";
 ?>
-
-<script>
-
-</script>

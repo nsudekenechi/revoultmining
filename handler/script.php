@@ -6,8 +6,8 @@ session_start();
 
 // register-user
 if (isset($_POST["register"])) {
+    $POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
     extract($_POST);
-    print_r($_POST);
     $password = password_hash($password, PASSWORD_DEFAULT);
     if (isset($_SESSION["ref"])) {
         $ref = $_SESSION["ref"];
