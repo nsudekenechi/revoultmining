@@ -2,6 +2,15 @@
 $title = "Dashboard";
 require_once "./includes/header.php";
 ?>
+<style>
+    @media screen and (max-width:765px) {
+
+        .nk-wg7-title,
+        .nk-wg7-note {
+            font-size: 10px;
+        }
+    }
+</style>
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
 
@@ -30,15 +39,15 @@ require_once "./includes/header.php";
                 </div>
             </div><!-- .nk-block-head -->
             <div class="nk-block mb-5">
-                <div class="row gy-gs">
-                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
+                <div class="row ">
+                    <div class="col-6 col-lg-5 col-xl-3 p-1" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
-                                <div class="card-inner">
+                                <div class="card-inner p-2 p-md-3">
                                     <div class="nk-wg7" style="position:relative;z-index:20;">
                                         <div class="row align-items-center">
-                                            <div class="nk-wg7-stats col-10 col-md-9">
-                                                <div class="nk-wg7-title mb-2" style="">Investment</div>
+                                            <div class="nk-wg7-stats col-9 col-md-9">
+                                                <div class="nk-wg7-title mb-1" style="">Investment</div>
                                                 <?php
                                                 $query = "SELECT SUM(amount)  FROM deposits  WHERE user = '$user_id' AND approved = true";
                                                 $res = mysqli_query($conn, $query);
@@ -54,7 +63,7 @@ require_once "./includes/header.php";
                                                 </div>
                                             </div>
                                             <div class="col-2 ">
-                                                <em class="icon ni ni-sign-gbp " style="font-size:1.5rem"></em>
+                                                <em class="icon ni ni-sign-gbp "></em>
 
                                             </div>
 
@@ -68,15 +77,15 @@ require_once "./includes/header.php";
                             style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
                     </div><!-- .col -->
 
-                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-6 col-lg-5 col-xl-3 p-1" style="position:relative">
 
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
-                                <div class="card-inner">
+                                <div class="card-inner p-2 p-md-3">
                                     <div class="nk-wg7" style="position:relative;z-index:20;">
                                         <div class="row">
-                                            <div class="col-10 col-md-9 nk-wg7-stats">
-                                                <div class="nk-wg7-title mb-2" style="">Balance</div>
+                                            <div class="col-9 col-md-9 nk-wg7-stats">
+                                                <div class="nk-wg7-title mb-1" style="">Balance</div>
                                                 <div class="text-white">
                                                     <h6 class="amount">
                                                         <?= $userRow['balance']; ?>
@@ -85,7 +94,7 @@ require_once "./includes/header.php";
                                             </div>
 
                                             <div class="col-2 ">
-                                                <em class="icon ni ni-trend-up " style="font-size:1.5rem"></em>
+                                                <em class="icon ni ni-trend-up "></em>
 
                                             </div>
                                         </div>
@@ -103,20 +112,20 @@ require_once "./includes/header.php";
 
                     </div><!-- .col -->
 
-                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-6 col-lg-5 col-xl-3 p-1" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
-                                <div class="card-inner">
+                                <div class="card-inner p-2 p-md-3">
                                     <div class="nk-wg7">
                                         <div class="row">
-                                            <div class="nk-wg7-stats col-10 col-md-9">
-                                                <div class="nk-wg7-title mb-2" style="">Referral Bonus</div>
+                                            <div class="nk-wg7-stats col-9 col-md-9">
+                                                <div class="nk-wg7-title mb-1" style="">Referral Bonus</div>
                                                 <div class="number-lg text-white">
                                                     <h6 class="amount"> <?= $userRow['ref_balance']; ?></h6>
                                                 </div>
                                             </div>
                                             <div class="col-2">
-                                                <em class="icon ni ni-users-fill" style="font-size:1.5rem"></em>
+                                                <em class="icon ni ni-users-fill"></em>
                                             </div>
                                         </div>
 
@@ -132,21 +141,21 @@ require_once "./includes/header.php";
 
                     </div><!-- .col -->
 
-                    <div class="col-12 col-lg-5 col-xl-3" style="position:relative">
+                    <div class="col-6 col-lg-5 col-xl-3 p-1" style="position:relative">
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
-                                <div class="card-inner">
+                                <div class="card-inner p-2 p-md-3">
                                     <div class="nk-wg7">
                                         <div class="row">
-                                            <div class="nk-wg7-stats col-10 col-md-9">
-                                                <div class="nk-wg7-title mb-2" style="">Account Status </div>
+                                            <div class="nk-wg7-stats col-9 col-md-9">
+                                                <div class="nk-wg7-title mb-1" style="">Account Status </div>
                                                 <div class="text-white">
                                                     <h6 class="">Verified </h6>
                                                 </div>
                                             </div>
 
                                             <div class="col-2">
-                                                <em class="icon ni ni-shield-check" style="font-size:1.5rem"></em>
+                                                <em class="icon ni ni-shield-check"></em>
                                             </div>
                                         </div>
 
@@ -191,11 +200,9 @@ require_once "./includes/header.php";
                 <div id="tradingview-widget-container">
                 </div>
                 <!-- TradingView Widget BEGIN -->
-                <div class="tradingview-widget-container mt-5">
-                    <div class="tradingview-widget-container__widget"></div>
-
+                <div class="mt-5">
                     <script type="text/javascript"
-                        src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js">
                             {
                                 "width": "100%",
                                     "height": 400,
@@ -207,8 +214,8 @@ require_once "./includes/header.php";
                             }
                         </script>
                 </div>
-                <!-- TradingView Widget END -->
-                <!-- TradingView Widget END -->
+
+
             </div>
 
             <div class="nk-block nk-block-lg">
@@ -287,14 +294,7 @@ require_once "./includes/header.php";
                 </div><!-- .row -->
             </div><!-- .nk-block -->
 
-            <!-- TradingView Widget BEGIN -->
-            <div class="my-5">
 
-                <div class="" id="tradingview-widget-container-2">
-
-                </div>
-            </div>
-            <!-- TradingView Widget END -->
 
 
             <div class="nk-block">
@@ -376,6 +376,7 @@ require_once "./includes/header.php";
     </div>
 </div>
 <script src="https://s3.tradingview.com/tv.js"></script>
+
 <script>
     let refUrl = document.querySelector("#refUrl");
     let user = document.querySelector("#user")
