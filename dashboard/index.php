@@ -82,7 +82,7 @@ require_once "./includes/header.php";
                         <div class="nk-block">
                             <div class="card card-bordered text-light is-dark h-100">
                                 <div class="card-inner p-2 p-md-3">
-                                    <div class="nk-wg7" style="position:relative;z-index:20;">
+                                    <div classs="nk-wg7" style="position:relative;z-index:20;">
                                         <div class="row">
                                             <div class="col-9 col-md-9 nk-wg7-stats">
                                                 <div class="nk-wg7-title mb-1" style="">Balance</div>
@@ -200,12 +200,14 @@ require_once "./includes/header.php";
                 <div id="tradingview-widget-container">
                 </div>
                 <!-- TradingView Widget BEGIN -->
-                <div class="mt-5">
+                <div class="tradingview-widget-container mt-5">
+                    <div class="tradingview-widget-container__widget"></div>
+
                     <script type="text/javascript"
-                        src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js">
+                        src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
                             {
                                 "width": "100%",
-                                    "height": 400,
+                                    "height": 550,
                                         "defaultColumn": "overview",
                                             "screener_type": "crypto_mkt",
                                                 "displayCurrency": "USD",
@@ -214,6 +216,7 @@ require_once "./includes/header.php";
                             }
                         </script>
                 </div>
+                <!-- TradingView Widget END -->
 
 
             </div>
