@@ -5,7 +5,7 @@ require_once "./includes/header.php";
 ?>
 <div class="nk-content nk-content-fluid">
     <div class="container-xl wide-lg">
-        <div class="nk-content-body">
+        <div class="nk-content-body my-5">
             <div class="nk-block-head">
                 <div class="nk-block-head-content">
                     <div class="nk-block-head-sub"><span>Account Setting</span></div>
@@ -166,7 +166,7 @@ require_once "./includes/header.php";
                                         <label class="form-label" for="birth-day">Address</label>
                                         <input type="text" class="form-control form-control-lg "
                                             id="birth-day" placeholder="Enter your address"
-                                            value="<?= $row['address']; ?>" name="address" required>
+                                            value="<?= $row['address']; ?>" name="address" required/>
                                     </div>
                                 </div>
 

@@ -100,7 +100,7 @@ require_once "./includes/header.php";
                                                 </div>
                                             </div>
                                             <div class="col-2 ">
-                                                <em class="icon ni ni-sign-gbp "></em>
+                                                <p class="currency-symbol"></p>
 
                                             </div>
 
@@ -110,8 +110,11 @@ require_once "./includes/header.php";
                                 </div><!-- .card-inner -->
                             </div><!-- .card -->
                         </div><!-- .nk-block -->
-                        <em class="icon ni ni-sign-gbp text-white"
-                            style="font-size:6rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.1;"></em>
+                        <div
+                            style="font-size:4rem;position:absolute; top:50%; left:50%; transform:translateY(-50%) translateX(-50%);opacity:0.3;">
+                            <p class="currency-symbol"></p>
+                            <!-- <em class="icon ni ni-sign-gbp text-white"></em> -->
+                        </div>
                     </div><!-- .col -->
 
                     <div class="col-6 col-lg-5 col-xl-3 p-1" style="position:relative">

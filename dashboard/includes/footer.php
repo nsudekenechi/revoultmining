@@ -15,7 +15,11 @@
 <!-- main @e -->
 </div>
 <!-- app-root @e -->
-
+<style>
+    .country-item {
+        cursor: pointer;
+    }
+</style>
 <!-- JavaScript -->
 <script src="./assets/js/bundle.js?ver=3.1.3"></script>
 <script src="./assets/js/scripts.js?ver=3.1.3"></script>
@@ -23,6 +27,9 @@
 
 <script>
     let amounts = document.querySelectorAll(".amount");
+    let currencyCode = document.querySelectorAll(".currency");
+    let currencySymbols = document.querySelectorAll(".currency-symbol");
+    let inputAmounts = document.querySelectorAll("input[name='amount']")
     let form = document.querySelector("form");
     amounts.forEach(amount => {
         if (!isNaN(amount.innerHTML)) {
@@ -74,28 +81,75 @@
         let supported_currencies = Object.keys(data.rate.conversion_rates);
         supported_currencies.map(currency => {
             let country_flag = data.flags.find(flag => flag.code == currency);
+
             if (country_flag) {
-                regionModal.innerHTML += ` <li class='mb-3'>
+                regionModal.innerHTML += ` <li class='mb-3' data-bs-dismiss="modal">
                 <a " class="country-item" data-currency="${currency}">
                 <img src="${country_flag.flag}" alt="" class="country-flag">
                 <span class="country-name"> ${country_flag.name} (${country_flag.code})</span>
                 </a>
                 </li>`
                 let countryItems = document.querySelectorAll(".country-item");
+
                 countryItems.forEach(country => {
                     country.onclick = () => {
-                        let rates = data.rate.conversion_rates[country.dataset.currency]
-                        let amounts = document.querySelectorAll(".amount");
-                        amounts.forEach(amount => {
-                            let extractedNumber = amount.innerHTML.replace(/[^\d.]/g, '');
-                            console.log(new Intl.NumberFormat("en-gb", { currency: country.dataset.currency, style: "currency" }).format(Number(extractedNumber) * rates))
-                        })
+                        let baseCurrency = localStorage.getItem("selected_currency") ? JSON.parse(localStorage.getItem("selected_currency")).code : "GBP";
+                        let targetCurrency = country.dataset.currency;
+                        let symbol = data.symbols.find(item => item.code == targetCurrency).symbol;
+
+                        convertRate(baseCurrency, targetCurrency, symbol)
+                        // storing prev 
+                        localStorage.setItem("selected_currency", JSON.stringify({ code: targetCurrency, symbol }));
                     }
                 })
             }
         })
     })
 
+    if (localStorage.getItem("selected_currency")) {
+        let baseCurrency = "GBP";
+        let targetCurrency = JSON.parse(localStorage.getItem("selected_currency"));
+        convertRate(baseCurrency, targetCurrency.code, targetCurrency.symbol)
+    } else {
+        currencySymbols.forEach(symbol => {
+            symbol.innerHTML = "£"
+        })
+    }
+
+
+    function convertRate(baseCurrency, targetCurrency, symbol) {
+        amounts.forEach((amount, index) => {
+            let extractedAmount = amount.innerHTML.replace(/[^\d.]/g, '');
+            console.log(extractedAmount)
+
+            fetch(`https://v6.exchangerate-api.com/v6/a2c042298ab01a5102a1523d/pair/${baseCurrency}/${targetCurrency}/${extractedAmount}`).then(res => res.json()).then(data => {
+                amount.innerHTML = `${symbol}${new Intl.NumberFormat("en-gb", { style: "decimal", minimumFractionDigits: 2 }).format(data.conversion_result)}`
+                currencyCode.forEach(code => {
+                    code.innerHTML = targetCurrency;
+                })
+
+                currencySymbols.forEach(currencySymbol => {
+                    currencySymbol.innerHTML = symbol
+                })
+
+                if (index == 0) {
+                    inputAmounts.forEach(inputAmount => {
+                        if (inputAmount.min) {
+                            inputAmount.min = Number(inputAmount.min) * data.conversion_rate;
+
+                        }
+                        if (inputAmount.max) {
+                            inputAmount.max = Number(inputAmount.max) * data.conversion_rate;
+                        }
+                    })
+                }
+            })
+
+
+        })
+
+
+    }
 
 </script>
 

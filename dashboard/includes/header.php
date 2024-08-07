@@ -120,9 +120,9 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                     </ul>
 
                                     <ul class="link-list">
-                                        <li><a><em class="icon ni ni-user-alt"></em><span>Change Currency</span></a>
-                                        </li>
-
+                                        <li><a href="#region" class="change-curr" data-bs-toggle="modal">
+                                                <em class="icon ni ni-invest"></em><span>Change
+                                                    Currency</span></a></li>
                                     </ul>
 
                                     <ul class="link-list">
@@ -290,9 +290,8 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                                                 class="icon ni ni-user-alt"></em><span>View
                                                                 Profile</span></a></li>
 
-                                                    <li><a href="#region" data-bs-toggle="modal"><em
-                                                                class="icon ni ni-user-alt"
-                                                                class="change-curr"></em><span>Chang
+                                                    <li><a href="#region" class="change-curr" data-bs-toggle="modal">
+                                                            <em class="icon ni ni-invest"></em><span>Change
                                                                 Currency</span></a></li>
 
                                                     <li><a class="dark-switch"><em
