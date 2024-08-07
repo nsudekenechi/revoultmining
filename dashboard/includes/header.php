@@ -118,6 +118,13 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                                     class="icon ni ni-user-alt"></em><span>View Profile</span></a></li>
 
                                     </ul>
+
+                                    <ul class="link-list">
+                                        <li><a><em class="icon ni ni-user-alt"></em><span>Change Currency</span></a>
+                                        </li>
+
+                                    </ul>
+
                                     <ul class="link-list">
                                         <li><a href="./dashboard/signout.php"><em
                                                     class="icon ni ni-signout"></em><span>Sign out</span></a>
@@ -283,6 +290,11 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                                                 class="icon ni ni-user-alt"></em><span>View
                                                                 Profile</span></a></li>
 
+                                                    <li><a href="#region" data-bs-toggle="modal"><em
+                                                                class="icon ni ni-user-alt"
+                                                                class="change-curr"></em><span>Chang
+                                                                Currency</span></a></li>
+
                                                     <li><a class="dark-switch"><em
                                                                 class="icon ni ni-moon"></em><span>Dark Mode</span></a>
                                                     </li>
@@ -304,6 +316,24 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                         </div>
                     </div>
                 </div>
+
+                <!-- select region modal -->
+                <div class="modal fade" tabindex="-1" role="dialog" id="region">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <a href="#" class="close" data-bs-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
+                            <div class="modal-body modal-body-md" style="height:500px; overflow:auto;">
+                                <h5 class="title mb-4">Select Your Country</h5>
+                                <div class="nk-country-region">
+                                    <ul class="gy-2 row" style="" id="country-list">
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- .modal-content -->
+                    </div><!-- .modla-dialog -->
+                </div><!-- .modal -->
                 <?php
                 require_once "../googleTranslate.php";
                 ?>

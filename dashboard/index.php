@@ -94,7 +94,7 @@ require_once "./includes/header.php";
                                                 $investment = $res->fetch_column();
                                                 ?>
                                                 <div class="text-white">
-                                                    <h6 class="amount">
+                                                    <h6 class="amount" style="font-size:14px;">
                                                         <?= $amount + $investment ?>
                                                     </h6>
                                                 </div>
@@ -124,7 +124,7 @@ require_once "./includes/header.php";
                                             <div class="col-9 col-md-9 nk-wg7-stats">
                                                 <div class="nk-wg7-title mb-1" style="">Balance</div>
                                                 <div class="text-white">
-                                                    <h6 class="amount">
+                                                    <h6 class="amount" style="font-size:14px;">
                                                         <?= $userRow['balance']; ?>
                                                     </h6>
                                                 </div>
@@ -158,7 +158,9 @@ require_once "./includes/header.php";
                                             <div class="nk-wg7-stats col-9 col-md-9">
                                                 <div class="nk-wg7-title mb-1" style="">Referral Bonus</div>
                                                 <div class="number-lg text-white">
-                                                    <h6 class="amount"> <?= $userRow['ref_balance']; ?></h6>
+                                                    <h6 class="amount" style="font-size:14px;">
+                                                        <?= $userRow['ref_balance']; ?>
+                                                    </h6>
                                                 </div>
                                             </div>
                                             <div class="col-2">

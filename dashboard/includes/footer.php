@@ -68,6 +68,35 @@
     }
     welcomeMessage.innerHTML = `<b>${greeting}</b>, <span>${messages[Math.floor(Math.random() * messages.length)]}</span>`
 
+    // conversion of currencies
+    let regionModal = document.querySelector("#country-list")
+    fetch("./assets/country.json").then(res => res.json()).then(data => {
+        let supported_currencies = Object.keys(data.rate.conversion_rates);
+        supported_currencies.map(currency => {
+            let country_flag = data.flags.find(flag => flag.code == currency);
+            if (country_flag) {
+                regionModal.innerHTML += ` <li class='mb-3'>
+                <a " class="country-item" data-currency="${currency}">
+                <img src="${country_flag.flag}" alt="" class="country-flag">
+                <span class="country-name"> ${country_flag.name} (${country_flag.code})</span>
+                </a>
+                </li>`
+                let countryItems = document.querySelectorAll(".country-item");
+                countryItems.forEach(country => {
+                    country.onclick = () => {
+                        let rates = data.rate.conversion_rates[country.dataset.currency]
+                        let amounts = document.querySelectorAll(".amount");
+                        amounts.forEach(amount => {
+                            let extractedNumber = amount.innerHTML.replace(/[^\d.]/g, '');
+                            console.log(new Intl.NumberFormat("en-gb", { currency: country.dataset.currency, style: "currency" }).format(Number(extractedNumber) * rates))
+                        })
+                    }
+                })
+            }
+        })
+    })
+
+
 </script>
 
 <?php

@@ -18,8 +18,7 @@ require_once "./includes/header.php";
         <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
             <div class="col-lg-5 mb-n3 mb-lg-0">
                 <div class="header-image header-image-s2" id="header-landing">
-                    <img src="https://images.pexels.com/photos/7255388/pexels-photo-7255388.jpeg" alt=""
-                        style=" width:100%;height:100%;object-fit:cover;">
+                    <img src="./images/hero.jpg" alt="" style=" width:100%;height:100%;object-fit:cover;">
                 </div><!-- .header-image -->
             </div><!-- .col- -->
             <div class="col-lg-6 col-md-10">
