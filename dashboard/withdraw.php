@@ -4,7 +4,7 @@ require_once "./includes/header.php";
 ?>
 <div class="nk-content nk-content-fluid">
     <div class="container-xl wide-lg">
-        <div class="nk-content-body">
+        <div class="nk-content-body my-5">
             <div class="buysell wide-xs m-auto">
                 <div class="buysell-title text-center">
                     <h2 class="title">Withdraw to your wallet</h2>
@@ -107,6 +107,8 @@ require_once "./includes/header.php";
 
                         <div class="buysell-field form-action">
                             <input type="text" hidden name="user" value="<?= $_SESSION['user']; ?>" id="user">
+                            <input type="text" hidden name="rate" value="">
+
                             <button class="btn btn-lg btn-block btn-primary" name="withdraw">Continue
                             </button>
                         </div><!-- .buysell-field -->

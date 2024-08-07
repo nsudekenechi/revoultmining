@@ -295,10 +295,13 @@ require_once "./includes/header.php";
                                         </div>
                                         <div class="tranx-col">
                                             <div class="tranx-amount">
-                                                <div class="number"> <?= $row['amount'] * $row['rate']; ?> <span
-                                                        class="currency currency-btc">BTC</span></div>
-                                                <div class="number-sm"><?= number_format($row['amount'], 2); ?> <span
-                                                        class="currency currency-usd">GBP</span>
+                                                <div class="number"> <?= $row['amount'] * $row['rate']; ?>
+                                                    <span class=""><?= $row['acronym']; ?></span>
+                                                </div>
+                                                <div class="number-sm ">
+                                                    <span class="amount"> <?= number_format($row['amount'], 2); ?></span>
+
+                                                    <span class="currency currency-usd"></span>
                                                 </div>
                                             </div>
                                         </div>

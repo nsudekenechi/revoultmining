@@ -223,6 +223,7 @@ require_once "./includes/header.php";
                             <div class="buysell-field form-action">
                                 <input type="text" hidden name="plan" value="<?= $id; ?>">
                                 <input type="text" hidden name="user" value="<?= $_SESSION['user']; ?>">
+                                <input type="text" hidden name="rate" value="">
                                 <button class="btn btn-lg btn-block btn-primary" href="#buy-coin" name="deposit">Continue
                                 </button>
                             </div><!-- .buysell-field -->

@@ -5,7 +5,7 @@ require_once "./includes/header.php";
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
     <div class="container-xl wide-lg">
-        <div class="nk-content-body">
+        <div class="nk-content-body my-5">
             <div class="nk-block-head">
                 <div class="nk-block-between-md g-4">
                     <div class="nk-block-head-content">
@@ -59,11 +59,12 @@ require_once "./includes/header.php";
                                 <div class="tranx-col">
                                     <div class="tranx-amount">
                                         <div class="number"><?= $newrow['rate'] * $newrow['amount']; ?> <span
-                                                class="currency currency-btc text-uppercase"><?= $newrow['acronym']; ?></span>
+                                                class="currency-btc text-uppercase"><?= $newrow['acronym']; ?></span>
                                         </div>
                                         <div class="number-sm">
-                                            <span class="amount"> <?= number_format($newrow['amount'], 2); ?></span>
-                                            <span class="currency currency-usd">GBP</span>
+                                            <span class="amount">
+                                                <?= number_format($newrow['amount'], 2); ?></span>
+                                            <span class="currency currency-usd"></span>
                                         </div>
                                     </div>
                                 </div>
@@ -115,11 +116,11 @@ require_once "./includes/header.php";
                                 <div class="tranx-col">
                                     <div class="tranx-amount">
                                         <div class="number"><?= $newrow['rate'] * $newrow['amount']; ?> <span
-                                                class="currency currency-btc text-uppercase"><?= $newrow['acronym']; ?></span>
+                                                class=" currency-btc text-uppercase"><?= $newrow['acronym']; ?></span>
                                         </div>
                                         <div class="number-sm">
                                             <span class="amount"> <?= number_format($newrow['amount'], 2); ?></span>
-                                            <span class="currency currency-usd">GBP</span>
+                                            <span class="currency currency-usd"></span>
                                         </div>
                                     </div>
                                 </div>

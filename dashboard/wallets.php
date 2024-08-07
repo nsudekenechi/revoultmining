@@ -5,7 +5,7 @@ require_once "./includes/header.php";
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
     <div class="container-xl wide-lg">
-        <div class="nk-content-body">
+        <div class="nk-content-body my-5">
             <div class="nk-block-head">
                 <!-- .nk-block-head-sub -->
                 <div class="nk-block-between-md g-4">

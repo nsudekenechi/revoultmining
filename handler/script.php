@@ -170,7 +170,12 @@ if (isset($_POST["updatePassword"])) {
 // deposit 
 if (isset($_POST["deposit"])) {
     extract($_POST);
-    print_r($_POST);
+    if ($rate) {
+        $amount /= $rate;
+    }
+    // echo "GBP: $amount";
+    // echo "USD:" . $amount * $rate;
+    // exit();
     $date = date("d D M, Y");
     $query = "INSERT INTO deposits (user, amount, wallet, date, plan) VALUES ('$user', '$amount', '$wallet', '$date', '$plan')";
     $res = mysqli_query($conn, $query);
@@ -248,6 +253,9 @@ if (isset($_POST["withdraw"])) {
     extract($_POST);
     $date = date('d D M, Y');
     // deducting user's amount
+    if ($rate) {
+        $amount /= $rate;
+    }
     $query = "UPDATE users SET balance = balance - $amount WHERE id = '$user'";
     $res = mysqli_query($conn, $query);
 

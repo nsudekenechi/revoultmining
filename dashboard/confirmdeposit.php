@@ -16,14 +16,17 @@ $row = $res->fetch_assoc();
 
 <div class="nk-content nk-content-fluid">
     <div class="container-xl wide-lg">
-        <div class="nk-content-body">
+        <div class="nk-content-body my-5">
             <div class="wide-xs m-auto">
                 <div class="nk-block-head-content mb-5">
                     <h3 class="nk-block-title page-title">Confirm Deposit</h3>
                     <div class="nk-block-des text-soft">
                         <p>Scan the QR code or copy address to complete transaction</p>
                         <h6>You are about to deposit <?= $row['rate'] * $row['amount']; ?>
-                            <?= strtoupper($row['acronym']); ?> for <span class="amount"><?= $row['amount']; ?></span>
+                            <?= strtoupper($row['acronym']); ?> for <span class="amount">
+                                <?= $row['amount']; ?>
+                            </span>
+
                         </h6>
                     </div>
                 </div>
