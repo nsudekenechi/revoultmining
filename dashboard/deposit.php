@@ -5,7 +5,7 @@ require_once "./includes/header.php";
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
     <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container mb-5">
+    <div class="tradingview-widget-container my-5">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
             async>
