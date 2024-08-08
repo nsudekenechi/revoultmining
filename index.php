@@ -359,62 +359,36 @@ require_once "./includes/header.php";
     <div class="container">
         <div class="row align-items-center g-gs">
             <div class="col-lg-6">
-                <div class="img-block img-block-s2 pe-xl-6 pe-lg-3  " style="height:700px;">
-                    <img src="https://images.pexels.com/photos/4345104/pexels-photo-4345104.jpeg?auto=compress&cs=tinysrgb&w=600"
-                        alt="" style="height:100%;width:100%;object-fit:cover;">
+                <div class="img-block img-block-s2 pe-xl-6 pe-lg-3  " style="height:400px;">
+                    <img src="./images/86c2e65673fea0820037923e7dbb5a15[1].jpg" alt=""
+                        style="height:100%;width:100%;object-fit:cover;">
                 </div><!-- .img-block -->
             </div><!-- .col -->
             <div class="col-lg-6">
                 <div class="text-block">
-                    <h2 class="title">Let's help you kickstart your investment journey</h2>
+                    <h2 class="title">Our partners</h2>
                     <div class="mt-4 ms-n3 ms-sm-n4">
                         <div class="row gy-gs">
                             <div class="col-12">
-                                <div class="card service service-inline service-s4 after-bg-danger">
+                                <div class="card service service-inline">
                                     <div class="card-inner">
-                                        <div
-                                            class="service-icon styled-icon styled-icon-s4 styled-icon-5x text-danger h4">
-                                            <em class="icon ni ni-users"></em>
-                                        </div>
-                                        <div class="service-text">
-                                            <h5 class="title">Join Us</h5>
-                                            <p>Sign up now to unlock your earning potential and embark on a journey to
-                                                financial freedom with ZenixMining.
+
+                                        <div class="">
+                                            <p>ZenixMining has officially partnered with JPMorgan Chase & Co., a global
+                                                financial powerhouse known for its stability and expertise. This
+                                                partnership marks a significant milestone for us, as we align with a
+                                                trusted name in finance to enhance the services and opportunities we
+                                                provide to our users. With JPMorgan Chase & Co. by our side, we're able
+                                                to offer more robust investment solutions, blending the reliability of
+                                                traditional finance with the cutting-edge potential of cryptocurrency.
+                                                Together, we are setting a new standard in the investment landscape,
+                                                ensuring your financial future is in capable hands
                                             </p>
                                         </div>
                                     </div>
                                 </div><!-- .card -->
                             </div>
-                            <div class="col-12">
-                                <div class="card service service-inline service-s4 after-bg-primary">
-                                    <div class="card-inner">
-                                        <div
-                                            class="service-icon styled-icon styled-icon-s4 styled-icon-5x text-primary h4">
-                                            <em class="icon ni ni-calendar-check"></em>
-                                        </div>
-                                        <div class="service-text">
-                                            <h5 class="title">Choose Your Plan</h5>
-                                            <p>Review the available plans and select the one that best suits your
-                                                investment goals.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- .card -->
-                            </div>
-                            <div class="col-12">
-                                <div class="card service service-inline service-s4 after-bg-pink">
-                                    <div class="card-inner">
-                                        <div
-                                            class="service-icon styled-icon styled-icon-s4 styled-icon-5x text-pink h4">
-                                            <em class="icon ni ni-sign-pound"></em>
-                                        </div>
-                                        <div class="service-text">
-                                            <h5 class="title">Start Earning!</h5>
-                                            <p>Slightly variations of passages available the majority have suffered
-                                                alteration even slightly believable.</p>
-                                        </div>
-                                    </div>
-                                </div><!-- .card -->
-                            </div>
+
                         </div>
                     </div>
                 </div><!-- .text-block -->
