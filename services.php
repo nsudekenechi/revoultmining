@@ -44,8 +44,7 @@ require_once "./includes/header.php";
             </div><!-- .col -->
             <div class="col-lg-5">
                 <div class="img-block img-block-s1 " style="height:400px;">
-                    <img src="https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg" alt="Dashlite"
-                        style="height:100%;width:100%;object-fit:cover;border-radius:50% 50% 50% 0px;">
+                    <img src="https://images.pexels.com/photos/6120214/pexels-photo-6120214.jpeg" alt="Dashlite">
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->
@@ -57,8 +56,7 @@ require_once "./includes/header.php";
         <div class="row flex-row-reverse justify-content-between align-items-center">
             <div class="col-lg-5">
                 <div class="img-block img-block-s1 " style="height:400px;">
-                    <img src="https://images.pexels.com/photos/5583964/pexels-photo-5583964.jpeg" alt="Dashlite"
-                        style="height:100%;width:100%;object-fit:cover;border-radius:50% 50% 50% 0px;">
+                    <img src="https://images.pexels.com/photos/5583964/pexels-photo-5583964.jpeg" alt="Dashlite">
                 </div>
             </div><!-- .col -->
             <div class="col-lg-6">
@@ -97,8 +95,31 @@ require_once "./includes/header.php";
             </div><!-- .col -->
             <div class="col-lg-5">
                 <div class="img-block img-block-s1 " style="height:400px;">
-                    <img src="https://images.pexels.com/photos/5980888/pexels-photo-5980888.jpeg" alt="Dashlite"
-                        style="height:100%;width:100%;object-fit:cover;border-radius:50% 50% 50% 0px;">
+                    <img src="https://images.pexels.com/photos/5980888/pexels-photo-5980888.jpeg" alt="Dashlite">
+                </div>
+            </div><!-- .col -->
+        </div><!-- .row -->
+    </div><!-- .container -->
+</section>
+
+<section class="section section-feature">
+    <div class="container">
+        <div class="row flex-row-reverse justify-content-between align-items-center">
+
+            <div class="col-lg-6">
+                <div class="text-block">
+                    <h2 class="title">Real Estate</h2>
+                    <p>At ZenixMining, we're not just focused on crypto investments. We also strategically invest in
+                        real estate, providing our users with diversified opportunities for growth and financial
+                        security. </p>
+                    <p>Explore the potential of both digital and physical assets with us, and watch your investments
+                        flourish </p>
+
+                </div><!-- .text-block -->
+            </div><!-- .col -->
+            <div class="col-lg-5">
+                <div class="img-block img-block-s1 " style="height:400px;">
+                    <img src="./images/ec96e6f9034eafa9d8e92847eb3a4878.jpg" alt="Dashlite">
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->
@@ -111,7 +132,7 @@ require_once "./includes/header.php";
             <div class="col-lg-5">
                 <div class="img-block img-block-s1 " style="height:400px;">
                     <img src="https://images.pexels.com/photos/24709183/pexels-photo-24709183/free-photo-of-close-up-of-a-person-holding-a-smartphone-displaying-a-cryptocurrency-chart.jpeg"
-                        alt="Dashlite" style="height:100%;width:100%;object-fit:cover;border-radius:50% 50% 50% 0px;">
+                        alt="Dashlite">
                 </div>
             </div><!-- .col -->
             <div class="col-lg-6">
@@ -150,13 +171,23 @@ require_once "./includes/header.php";
             </div><!-- .col -->
             <div class="col-lg-5">
                 <div class="img-block img-block-s1 " style="height:400px;">
-                    <img src="https://images.pexels.com/photos/6770775/pexels-photo-6770775.jpeg" alt="Dashlite"
-                        style="height:100%;width:100%;object-fit:cover;border-radius:50% 50% 50% 0px;">
+                    <img src="https://images.pexels.com/photos/6770775/pexels-photo-6770775.jpeg" alt="Dashlite">
                 </div>
             </div><!-- .col -->
         </div><!-- .row -->
     </div><!-- .container -->
 </section>
+
+<style>
+    @media screen and (min-width:765px) {
+        .img-block img {
+            border-radius: 50% 50% 50% 0px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+</style>
 
 <?php
 require_once "./includes/footer.php";

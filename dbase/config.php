@@ -1,5 +1,5 @@
 <?php
-$env = "prod";
+$env = "lc";
 if ($env == "prod") {
     $db = "u779058360_zenixmining_db";
     $username = "u779058360_zenixmining_us";

@@ -33,7 +33,7 @@ require_once "./includes/header.php";
                         </ul>
                         <div class="rating-text">Invest Safely, Invest Smartly</div>
                     </div>
-                    <h1 class="header-title">Invest with Confidence on the Most Secure Crypto Platform</h1>
+                    <h1 class="header-title">The Revolution in Finance & Investments.</h1>
                     <div class="header-text">
                         <p>Become part of a global community of crypto enthusiasts and investors who trust ZenixMining
                             for their investment needs.
