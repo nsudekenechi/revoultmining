@@ -31,7 +31,7 @@ require_once "./includes/header.php";
 </style>
 <div class="header-content my-auto py-5">
     <div class="container">
-        <div class="row align-items-center justify-content-between g-gs">
+        <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
             <div class="col-lg-5 mb-n3 mb-lg-0" id="first">
                 <div class="header-image header-image-s2" id="header-landing">
                     <img src="./images/hero.jpg" alt="" style=" width:100%;height:100%;object-fit:cover;">
@@ -40,13 +40,7 @@ require_once "./includes/header.php";
             <div class="col-lg-6 col-md-10" id="second">
                 <div class="header-caption">
                     <div class="header-rating rating">
-                        <ul class="rating-stars d-none d-md-flex">
-                            <li><em class="icon ni ni-star-fill"></em></li>
-                            <li><em class="icon ni ni-star-fill"></em></li>
-                            <li><em class="icon ni ni-star-fill"></em></li>
-                            <li><em class="icon ni ni-star-fill"></em></li>
-                            <li><em class="icon ni ni-star-fill"></em></li>
-                        </ul>
+
                         <div class="rating-text">Invest Safely, Invest Smartly</div>
                     </div>
                     <h1 class="header-title">The Revolution in Finance & Investments.</h1>
