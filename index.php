@@ -7,21 +7,37 @@ require_once "./includes/header.php";
         height: 90vh;
     }
 
+    #first {
+        order: 1;
+    }
+
+    #second {
+        order: 2;
+    }
+
     @media screen and (max-width:765px) {
         #header-landing {
             height: 60vh;
+        }
+
+        #first {
+            order: 2;
+        }
+
+        #second {
+            order: 1;
         }
     }
 </style>
 <div class="header-content my-auto py-5">
     <div class="container">
-        <div class="row flex-lg-row-reverse align-items-center justify-content-between g-gs">
-            <div class="col-lg-5 mb-n3 mb-lg-0">
+        <div class="row align-items-center justify-content-between g-gs">
+            <div class="col-lg-5 mb-n3 mb-lg-0" id="first">
                 <div class="header-image header-image-s2" id="header-landing">
                     <img src="./images/hero.jpg" alt="" style=" width:100%;height:100%;object-fit:cover;">
                 </div><!-- .header-image -->
             </div><!-- .col- -->
-            <div class="col-lg-6 col-md-10">
+            <div class="col-lg-6 col-md-10" id="second">
                 <div class="header-caption">
                     <div class="header-rating rating">
                         <ul class="rating-stars d-none d-md-flex">
