@@ -1,7 +1,7 @@
 <?php
 require_once "../dbase/config.php";
 require_once "./email.php";
-$url = "https://zenixmining.com/";
+$url = "https://zenixmining.live/";
 session_start();
 
 // register-user
