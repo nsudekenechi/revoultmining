@@ -1,9 +1,9 @@
 <?php
 $env = "prod";
 if ($env == "prod") {
-    $db = "u779058360_zenixmining_db";
-    $username = "u779058360_zenixmining_us";
-    $password = "#Zenix1234";
+    $db = "u779058360_db";
+    $username = "u779058360_username";
+    $password = "e1^]#9f/DH";
     $host = "localhost";
 } else {
     $db = "zenixmining";
