@@ -7,8 +7,8 @@ function sendEmail($emailFile, $search, $replace, $subject, $to)
 {
     try {
         $mail = new PHPMailer(true);
-        $senderemail = "support@zenixmining.com";
-        $senderpassword = "#Zenix1234";
+        $senderemail = "support@zenixmining.live";
+        $senderpassword = "LZzM>78s6!P";
         $senderFrom = "Zenixmining";
         $mail->Host = 'smtp.hostinger.com';
         $body = file_get_contents($emailFile);
