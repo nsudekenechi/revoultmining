@@ -41,21 +41,27 @@ require_once "./includes/header.php";
                 <div class="header-caption">
                     <div class="header-rating rating">
 
-                        <div class="rating-text">Invest Safely, Invest Smartly</div>
+                        <!-- <div class="rating-text">Invest Safely, Invest Smartly</div> -->
                     </div>
-                    <h1 class="header-title">The Revolution in Finance & Investments.</h1>
+                    <h1 class="header-title" style="font-size:3rem">Diversified Investments with <span
+                            class="text-primary">ZenixMining</span>
+                    </h1>
                     <div class="header-text">
-                        <p>Become part of a global community of crypto enthusiasts and investors who trust ZenixMining
-                            for their investment needs.
-                            Secure, reliable, and innovative – that’s the ZenixMining promise.
+                        <p style="font-size:1.3rem;">Zenixhmining was founded to provide an alternative to the volatile
+                            investment
+                            market for people.
                         </p>
                     </div>
                     <ul class="header-action ">
 
-                        <li> <a href="./auth/register.php"
-                                class="btn btn-outline-primary d-flex justify-content-center btn-lg w-50 "><span>Get
-                                    Started</span></a>
-                        </li>
+                        <div class="row">
+                            <li class="col-5 col-md-6 mb-2"> <a href="./auth/register.php"
+                                    class="btn btn-outline-primary d-flex justify-content-center btn-lg "><span>Register</span></a>
+                            </li>
+                            <li class="col-5 col-md-6"> <a href="./auth/register.php"
+                                    class="btn bg-primary text-white d-flex justify-content-center btn-lg "><span>Login</span></a>
+                            </li>
+                        </div>
                     </ul>
                 </div><!-- .header-caption -->
             </div><!-- .col -->
