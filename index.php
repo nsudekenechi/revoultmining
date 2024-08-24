@@ -43,7 +43,7 @@ require_once "./includes/header.php";
 
                         <!-- <div class="rating-text">Invest Safely, Invest Smartly</div> -->
                     </div>
-                    <h1 class="header-title" style="font-size:3rem">Diversified Investments with <span
+                    <h1 class="header-title" style="font-size:3.5rem">Diversified Investments with <span
                             class="text-primary">ZenixMining</span>
                     </h1>
                     <div class="header-text">
@@ -58,8 +58,9 @@ require_once "./includes/header.php";
                             <li class="col-5 col-md-6 mb-2"> <a href="./auth/register.php"
                                     class="btn btn-outline-primary d-flex justify-content-center btn-lg "><span>Register</span></a>
                             </li>
-                            <li class="col-5 col-md-6"> <a href="./auth/register.php"
-                                    class="btn bg-primary text-white d-flex justify-content-center btn-lg "><span>Login</span></a>
+                            <li class="col-5 col-md-6"> <a href="./auth/index.php"
+                                    class="btn bg-primary text-white d-flex justify-content-center btn-lg ">
+                                    <span>Login</span></a>
                             </li>
                         </div>
                     </ul>
