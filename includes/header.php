@@ -41,12 +41,16 @@ require_once "./dbase/config.php";
                                         srcset="./images/revolutmining.png 2x" alt="logo-dark">
                                 </a>
                             </div>
+                            <?php
+                            require_once "./googleTranslate.php";
+                            ?>
                             <div class="header-toggle">
                                 <button class="menu-toggler" data-target="mainNav">
                                     <em class="menu-on icon ni ni-menu"></em>
                                     <em class="menu-off icon ni ni-cross"></em>
                                 </button>
                             </div><!-- .header-nav-toggle -->
+
                             <nav class="header-menu" data-content="mainNav">
                                 <ul class="menu-list ms-lg-auto">
 
@@ -72,8 +76,6 @@ require_once "./dbase/config.php";
                                 </ul>
                             </nav><!-- .nk-nav-menu -->
                         </div><!-- .header-warp-->
-                        <?php
-                        require_once "./googleTranslate.php";
-                        ?>
+
                     </div><!-- .container-->
                 </div><!-- .header-main-->

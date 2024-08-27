@@ -9,7 +9,7 @@ $query = "SELECT * FROM users WHERE id = '$user_id'";
 $res = mysqli_query($conn, $query);
 $userRow = $res->fetch_assoc();
 $name = $userRow["name"];
-
+$user_name = $userRow["username"];
 if ($userRow["suspend"]) {
     header("Location: ../auth/index.php");
 
@@ -63,8 +63,9 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                         </a>
                     </div>
                     <div class="nk-menu-trigger me-n2">
-                        <a class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu"><em
-                                class="icon ni ni-arrow-left"></em></a>
+                        <a class="nk-nav-toggle nk-quick-nav-icon d-xl-none" data-target="sidebarMenu">
+                            <em class="icon ni ni-arrow-left"></em></a>
+
                     </div>
                 </div>
                 <!-- .nk-sidebar-element -->
@@ -203,6 +204,7 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                 <a class="nk-nav-toggle nk-quick-nav-icon" data-target="sidebarMenu"><em
                                         class="icon ni ni-menu"></em></a>
                             </div>
+
                             <div class="nk-header-brand d-xl-none">
                                 <a href="./dashboard/index.php" class="logo-link nk-sidebar-logo">
                                     <img class="logo-light logo-img" src="./images/revolutmining.png"
@@ -212,23 +214,12 @@ if ($title == "Withdraw" && $userRow["balance"] < 10) {
                                     <!-- <span class="nio-version">Crypto</span> -->
                                 </a>
                             </div>
-                            <div class="nk-header-news d-none d-xl-block">
-                                <div class="nk-news-list">
-                                    <a class="nk-news-item">
-                                        <div class="nk-news-icon">
-                                            <em class="icon ni ni-card-view"></em>
-                                        </div>
-                                        <div class="">
-
-                                            <p id="welcome-message">
-
-                                            </p>
-                                            <!-- <em class="icon ni ni-external"></em> -->
-                                        </div>
-                                    </a>
-
-                                </div>
+                            <div>
+                                <?php
+                                require_once "../googleTranslate.php";
+                                ?>
                             </div>
+
                             <div class="nk-header-tools">
                                 <ul class="nk-quick-nav">
 

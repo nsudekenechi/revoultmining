@@ -13,69 +13,52 @@ require_once "./includes/header.php";
 </style>
 <!-- content @s -->
 <div class="nk-content nk-content-fluid">
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container mt-5">
-        <div class="tradingview-widget-container__widget"></div>
+    <div class="mt-5 pt-2">
+        <p class="nk-block-title fw-normal">Fullname: <?= $name; ?></p>
+        <!-- TradingView Widget BEGIN -->
+        <div class="tradingview-widget-container ">
+            <div class="tradingview-widget-container__widget"></div>
 
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js"
-            async>
-                {
-                    "symbols": [
-                        {
-                            "proName": "FOREXCOM:SPXUSD",
-                            "title": "S&P 500 Index"
-                        },
-                        {
-                            "proName": "FOREXCOM:NSXUSD",
-                            "title": "US 100 Cash CFD"
-                        },
-                        {
-                            "proName": "FX_IDC:EURUSD",
-                            "title": "EUR to USD"
-                        },
-                        {
-                            "proName": "BITSTAMP:BTCUSD",
-                            "title": "Bitcoin"
-                        },
-                        {
-                            "proName": "BITSTAMP:ETHUSD",
-                            "title": "Ethereum"
-                        }
-                    ],
-                        "showSymbolLogo": true,
-                            "isTransparent": false,
-                                "displayMode": "adaptive",
-                                    "colorTheme": "light",
-                                        "locale": "en"
-                }
-            </script>
+            <script type="text/javascript"
+                src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                    {
+                        "symbols": [
+                            {
+                                "proName": "FOREXCOM:SPXUSD",
+                                "title": "S&P 500 Index"
+                            },
+                            {
+                                "proName": "FOREXCOM:NSXUSD",
+                                "title": "US 100 Cash CFD"
+                            },
+                            {
+                                "proName": "FX_IDC:EURUSD",
+                                "title": "EUR to USD"
+                            },
+                            {
+                                "proName": "BITSTAMP:BTCUSD",
+                                "title": "Bitcoin"
+                            },
+                            {
+                                "proName": "BITSTAMP:ETHUSD",
+                                "title": "Ethereum"
+                            }
+                        ],
+                            "showSymbolLogo": true,
+                                "isTransparent": false,
+                                    "displayMode": "regular",
+                                        "colorTheme": "light",
+                                            "locale": "en"
+                    }
+                </script>
+        </div>
+        <!-- TradingView Widget END -->
     </div>
-    <!-- TradingView Widget END -->
 
 
-    <div class="container-xl wide-lg py-5">
+    <div class="container-xl wide-lg ">
         <div class="nk-content-body">
-            <div class="nk-block-head">
-                <div class="nk-block-head-sub"><span>Welcome Back,</span>
-                </div>
-
-                <div class="nk-block-between-md g-4">
-                    <div class="nk-block-head-content">
-                        <h4 class="nk-block-title fw-normal"><?= $name ?></h4>
-                        <!-- <div class="nk-block-des">
-                            <p>At a glance summary of your account. Have fun!</p>
-                        </div> -->
-                    </div><!-- .nk-block-head-content -->
-
-                </div><!-- .nk-block-between -->
-            </div><!-- .nk-block-head -->
-
-            <div class="nk-block-head-xs">
-                <div class="nk-block-head-content">
-                    <h5 class="nk-block-title title">Overview</h5>
-                </div>
-            </div><!-- .nk-block-head -->
-            <div class="nk-block mb-5">
+            <div class="nk-block mb-2">
                 <div class="row ">
                     <div class="col-6 col-lg-5 col-xl-3 p-1" style="position:relative">
                         <div class="nk-block">
@@ -192,7 +175,7 @@ require_once "./includes/header.php";
                                             <div class="nk-wg7-stats col-9 col-md-9">
                                                 <div class="nk-wg7-title mb-1" style="">Account Status </div>
                                                 <div class="text-white">
-                                                    <h6 class="">Verified </h6>
+                                                    <h6 class="" style="font-size:14px;">Verified </h6>
                                                 </div>
                                             </div>
 
