@@ -58,20 +58,20 @@
     }
     const date = new Date().getHours()
     let greeting = "";
-    let messages = [
-        "Ready to take your investments to the next level today?",
-        "Your investment journey continues here. Let's make the most of it!",
-        "Every investment counts. Let's make today a productive one!"
-    ]
-    let welcomeMessage = document.querySelector("#welcome-message");
-    if (date <= 11) {
-        greeting = "Good morning";
-    } else if (date <= 16) {
-        greeting = "Good afternoon";
-    } else {
-        greeting = "Good Evening";
-    }
-    welcomeMessage.innerHTML = `<b>${greeting}</b>, <span>${messages[Math.floor(Math.random() * messages.length)]}</span>`
+    // let messages = [
+    //     "Ready to take your investments to the next level today?",
+    //     "Your investment journey continues here. Let's make the most of it!",
+    //     "Every investment counts. Let's make today a productive one!"
+    // ]
+    // let welcomeMessage = document.querySelector("#welcome-message");
+    // if (date <= 11) {
+    //     greeting = "Good morning";
+    // } else if (date <= 16) {
+    //     greeting = "Good afternoon";
+    // } else {
+    //     greeting = "Good Evening";
+    // }
+    // welcomeMessage.innerHTML = `<b>${greeting}</b>, <span>${messages[Math.floor(Math.random() * messages.length)]}</span>`
 
     // conversion of currencies
     let regionModal = document.querySelector("#country-list")
@@ -163,19 +163,19 @@
 <?php
 require_once "../handler/alert.php";
 ?>
-<!--Start of Tawk.to Script-->
+<!-- Smartsupp Live Chat script -->
 <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/66c921c2ea492f34bc098673/1i60qnnvr';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'e7290b579d6545677f23c0373b1e837397e97610';
+    window.smartsupp || (function (d) {
+        var s, c, o = smartsupp = function () { o._.push(arguments) }; o._ = [];
+        s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
+        c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
+        c.src = 'https://www.smartsuppchat.com/loader.js?'; s.parentNode.insertBefore(c, s);
+    })(document);
 </script>
-<!--End of Tawk.to Script-->
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
 </body>
 
 </html>

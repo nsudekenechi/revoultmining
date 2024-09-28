@@ -75,34 +75,18 @@
 require_once "./handler/alert.php";
 ?>
 
-
-
-<!-- Begin of Chaport Live Chat code -->
-<!-- <script type="text/javascript">
-    (function (w, d, v3) {
-        w.chaportConfig = {
-            appId: '66ac351ec2cac745882d7d89'
-        };
-
-        if (w.chaport) return; v3 = w.chaport = {}; v3._q = []; v3._l = {}; v3.q = function () { v3._q.push(arguments) }; v3.on = function (e, fn) { if (!v3._l[e]) v3._l[e] = []; v3._l[e].push(fn) }; var s = d.createElement('script'); s.type = 'text/javascript'; s.async = true; s.src = 'https://app.chaport.com/javascripts/insert.js'; var ss = d.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss)
-    })(window, document);
-</script> -->
-<!-- End of Chaport Live Chat code -->
-<!--Start of Tawk.to Script-->
-<!--Start of Tawk.to Script-->
 <script type="text/javascript">
-    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-    (function () {
-        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-        s1.async = true;
-        s1.src = 'https://embed.tawk.to/66c921c2ea492f34bc098673/1i60qnnvr';
-        s1.charset = 'UTF-8';
-        s1.setAttribute('crossorigin', '*');
-        s0.parentNode.insertBefore(s1, s0);
-    })();
+    var _smartsupp = _smartsupp || {};
+    _smartsupp.key = 'e7290b579d6545677f23c0373b1e837397e97610';
+    window.smartsupp || (function (d) {
+        var s, c, o = smartsupp = function () { o._.push(arguments) }; o._ = [];
+        s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
+        c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
+        c.src = 'https://www.smartsuppchat.com/loader.js?'; s.parentNode.insertBefore(c, s);
+    })(document);
 </script>
-<!--End of Tawk.to Script-->
-<!--End of Tawk.to Script-->
+<noscript> Powered by <a href=“https://www.smartsupp.com” target=“_blank”>Smartsupp</a></noscript>
+
 </body>
 
 </html>
