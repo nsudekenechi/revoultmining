@@ -1,6 +1,42 @@
 <?php
 require_once "../dbase/config.php";
 require_once "./email.php";
+// approving user
+if (isset($_GET["approve_user"])) {
+    $id = $_GET["approve_user"];
+    $query = "SELECT * FROM users WHERE id = '$id'";
+    $res = mysqli_query($conn, $query);
+    $row = mysqli_fetch_assoc($res);
+    $name = $row['name'];
+    $email = $row['email'];
+
+    $query = "UPDATE users SET verified = 'Accepted' WHERE id = '$id'";
+    $res = mysqli_query($conn, $query);
+
+    if ($res) {
+        // sending verification email to user:
+        $greeting = "Hi $name,";
+        $body = "<p style='margin-bottom: 5px;'>We are excited to inform you that your account has been verified, log in with your correct details to get started.</p>";
+
+        $send = sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Account Verified!", $email);
+
+        header("Location: ../admin/usermanagement.php?approve_user=s");
+    } else {
+        header("Location: ../admin/usermanagement.php?approve_user=f");
+    }
+}
+
+// approving user
+if (isset($_GET["decline_user"])) {
+    $id = $_GET["decline_user"];
+    $query = "UPDATE users SET verified = 'Declined' WHERE id = '$id'";
+    $res = mysqli_query($conn, $query);
+    if ($res) {
+        header("Location: ../admin/usermanagement.php?approve_user=s");
+    } else {
+        header("Location: ../admin/usermanagement.php?approve_user=f");
+    }
+}
 // creating wallet 
 if (isset($_POST["createwallet"])) {
     extract($_POST);

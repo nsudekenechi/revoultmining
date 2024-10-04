@@ -17,32 +17,37 @@ if (isset($_POST["register"])) {
     }
 
     $res = mysqli_query($conn, $query);
-    if ($res) {
-        $_SESSION["otp_email"] = $email;
-        // creating OTP in DB
-        $OTP = rand(100000, 999999);
-        // removing already existing otp,  so that otp can't be used twice
-        $query = "SELECT * FROM send_otp WHERE email = '$email'";
-        $res = mysqli_query($conn, $query);
-
-        if ($res->num_rows > 0) {
-            $query = "DELETE FROM send_otp WHERE email = '$email'";
-            $res = mysqli_query($conn, $query);
-        }
-
-        $query = "INSERT INTO send_otp (email, otp) VALUES ('$email', $OTP)";
-        $res = mysqli_query($conn, $query);
-
-        // sending user OTP
-        $greeting = "Hi $name,";
-        $body = "<p style='margin-bottom: 5px;'>Welcome to Zenixmining! To complete your registration and verify your account, please use the One-Time Password (OTP) below:</p>
-    <p style='margin-bottom: 5px;'>Your OTP: $OTP.</p>
+    $greeting = "Hi $name,";
+    $body = "<p style='margin-bottom: 5px;'>Welcome to Zenixmining! In less than 24 hours, your account would be verified, and you would recieve an email to notify you.</p>
     ";
-        sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Verify Your Account - Welcome to Zenixmining!", $email);
-        header("Location: ../auth/otp.php");
-    } else {
-        header("Location: ./auth/register.php?auth=f");
-    }
+    sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Verify Your Account - Welcome to Zenixmining!", $email);
+    header("Location: ../auth/index.php");
+    // if ($res) {
+    //     $_SESSION["otp_email"] = $email;
+    //     // creating OTP in DB
+    //     $OTP = rand(100000, 999999);
+    //     // removing already existing otp,  so that otp can't be used twice
+    //     $query = "SELECT * FROM send_otp WHERE email = '$email'";
+    //     $res = mysqli_query($conn, $query);
+
+    //     if ($res->num_rows > 0) {
+    //         $query = "DELETE FROM send_otp WHERE email = '$email'";
+    //         $res = mysqli_query($conn, $query);
+    //     }
+
+    //     $query = "INSERT INTO send_otp (email, otp) VALUES ('$email', $OTP)";
+    //     $res = mysqli_query($conn, $query);
+
+    //     // sending user OTP
+    //     $greeting = "Hi $name,";
+    //     $body = "<p style='margin-bottom: 5px;'>Welcome to Zenixmining! To complete your registration and verify your account, please use the One-Time Password (OTP) below:</p>
+    // <p style='margin-bottom: 5px;'>Your OTP: $OTP.</p>
+    // ";
+    //     sendEmail("./welcome.html", ["{greeting}", "{body}"], [$greeting, $body], "Verify Your Account - Welcome to Zenixmining!", $email);
+    //     header("Location: ../auth/otp.php");
+    // } else {
+    //     header("Location: ./auth/register.php?auth=f");
+    // }
 }
 
 // login user
@@ -53,7 +58,7 @@ if (isset($_POST["login"])) {
     $res = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($res);
 
-    if (mysqli_num_rows($res) > 0 && !$row['suspend']) {
+    if (mysqli_num_rows($res) > 0 && !$row['suspend'] && $row['verified'] == "Accepted") {
         $hashPassword = $row["password"];
         $name = $row["name"];
         if (password_verify($password, $hashPassword)) {

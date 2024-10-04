@@ -143,6 +143,13 @@ $name = $userRow["name"];
                                     </li>
 
                                     <li class="nk-menu-item">
+                                        <a href="./admin/usermanagement.php" class="nk-menu-link">
+                                            <span class="nk-menu-icon"><em class="icon ni ni-user"></em></span>
+                                            <span class="nk-menu-text">User management</span>
+                                        </a>
+                                    </li>
+
+                                    <li class="nk-menu-item">
                                         <a href="./admin/deposits.php" class="nk-menu-link">
                                             <span class="nk-menu-icon"><em class="icon ni ni-coins"></em></span>
                                             <span class="nk-menu-text">Deposits</span>
